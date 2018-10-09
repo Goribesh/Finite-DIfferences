@@ -16,10 +16,7 @@ public:
 	
 
 
-private:
 
-	
-	
 
 	string *SS = new string[num_righe];
 	string *SK = new string[num_righe];
@@ -36,6 +33,12 @@ private:
 	double *time = new double[num_righe];
 	double *no_s_steps = new double[num_righe];
 	double *no_t_steps = new double[num_righe];
+
+
+	
+	
+
+	
 
 
 

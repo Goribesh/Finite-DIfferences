@@ -151,12 +151,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CSVexport.h" />
     <ClInclude Include="CSVimport.h" />
     <ClInclude Include="Differenze_finite_esplicite.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TXTimport.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CSVexport.cpp" />
     <ClCompile Include="CSVimport.cpp" />
     <ClCompile Include="Differenze_finite_esplicite.cpp" />
     <ClCompile Include="MAIN.cpp" />
