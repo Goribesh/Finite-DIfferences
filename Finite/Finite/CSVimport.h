@@ -7,16 +7,20 @@ using namespace std;
 
 class parametriCSV {
 public:
-	void leggifile(const string file);			// legge parametriCSV dal file
+	void leggifile();			// legge parametriCSV dal file
 	//int n_righe(const string file);			// numero righe
-	parametriCSV(size_t n);
+	parametriCSV(const string file);
+	size_t contatore = 0;
 	size_t num_righe = 0;
+	size_t num_righeold = 0;
+
+	size_t temp = 0;
 
 
 private:
 
-	string empty;
-
+	
+	string nomefile;
 
 	string *SS = new string[num_righe];
 	string *SK = new string[num_righe];
@@ -39,3 +43,5 @@ private:
 
 
 };
+
+size_t conta_righe(const string file);
