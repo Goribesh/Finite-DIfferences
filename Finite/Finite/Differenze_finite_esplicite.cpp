@@ -8,8 +8,8 @@ double Differenze_finite_esplicite::option_price_put_european_finite_diff_explic
 	const double& r,
 	const double& sigma,
 	const double& time,
-	 int& no_S_steps,
-	 int& no_t_steps)
+	const int& no_S_steps,
+	const int& no_t_steps)
 {
 
 	double sigma_sqr = pow(sigma, 2);
@@ -21,10 +21,11 @@ double Differenze_finite_esplicite::option_price_put_european_finite_diff_explic
 	}
 	double delta_S = 2.0*S / M;
 	vector<double> S_values(M + 1);
-	for (unsigned m = 0; m <= M; m++) {
+	for (unsigned m = 0; m <= M; m++)
+	{
 		S_values[m] = m * delta_S;
 	}
-	int N = no_S_steps;
+	int N = no_t_steps;
 	double delta_t = time / N;
 
 	vector <double> a(M);
@@ -43,7 +44,10 @@ double Differenze_finite_esplicite::option_price_put_european_finite_diff_explic
 	{
 		f_next[m] = max(0.0, X - S_values[m]);
 	}
-	double f[M + 1];
+
+	
+	vector<double> f(M + 1);
+	//double f[M + 1];
 	for (int t = N - 1; t >= 0; --t) {
 		f[0] = X;
 		for (unsigned m = 1; m < M; ++m)
