@@ -18,6 +18,9 @@
     <ClInclude Include="pch.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="CSVimport.h">
+      <Filter>File di origine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
