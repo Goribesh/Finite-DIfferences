@@ -18,13 +18,13 @@ double Differenze_finite_esplicite::option_price_put_european_finite_diff_explic
 	{
 		++M;
 
-	}
-	double delta_S = 2.0*S / M;
+	};
+	double delta_S = 2.0* S / M;
 	vector<double> S_values(M + 1);
 	for (unsigned m = 0; m <= M; m++)
 	{
 		S_values[m] = m * delta_S;
-	}
+	};
 	int N = no_t_steps;
 	double delta_t = time / N;
 
@@ -38,12 +38,12 @@ double Differenze_finite_esplicite::option_price_put_european_finite_diff_explic
 		a[j] = r2 * 0.5*j*(-r + sigma_sqr * j);
 		b[j] = r1 * (1.0 - sigma_sqr * j*j*delta_t);
 		c[j] = r2 * 0.5*j*(r + sigma_sqr * j);
-	}
+	};
 	vector<double> f_next(M + 1);
 	for (unsigned m = 0; m <= M; ++m)
 	{
 		f_next[m] = max(0.0, X - S_values[m]);
-	}
+	};
 
 	
 	vector<double> f(M + 1);
@@ -58,10 +58,12 @@ double Differenze_finite_esplicite::option_price_put_european_finite_diff_explic
 		for (unsigned m = 0; m <= M; ++m)
 		{
 			f_next[m] = f[m];
-		}
-		return f[M / 2];
+		};
+		
 
 
 
-	}
+	};
+
+	return f[M / 2];
 }

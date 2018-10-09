@@ -16,5 +16,14 @@ public:
 		const double& time,
 		const int& no_S_steps,
 		const int& no_t_steps);
+
+
+	/*double option price put american finite diff explicit(const double& S,
+		const double& K,
+		const double& r,
+		const double& sigma,
+		const double& time,
+		const int& no S steps,
+		const int& no t steps)*/
 };
 
