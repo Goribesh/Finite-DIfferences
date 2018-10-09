@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 #include "CSVimport.h"
-
+#include "TXTimport.h"
 
 
 
@@ -12,11 +12,11 @@ int main()
 {
 
 
-	parametriCSV input("CSVinput.csv");
+	parametriCSV inputcsv("CSVinput.csv");
+	parametriTXT inputtxt("TXTinput.txt");
 
-
-	input.leggifile(); // prova file, questo alla fine sara un file con sola classe senza main
-
+	inputcsv.leggifile(); // prova file, questo alla fine sara un file con sola classe senza main
+	inputtxt.leggifile();
 	system("PAUSE");
 
 }

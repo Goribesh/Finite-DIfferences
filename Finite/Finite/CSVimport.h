@@ -11,6 +11,7 @@ public:
 	parametriCSV(const string file); // costruttore, prende in ingresso il nome del file di import
 	size_t contatore = 0;
 	size_t num_righe = 0;
+
 	string nome;
 	
 
@@ -42,4 +43,3 @@ private:
 
 };
 
-size_t conta_righe(const string file);
