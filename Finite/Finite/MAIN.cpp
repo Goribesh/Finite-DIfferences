@@ -12,10 +12,10 @@ int main()
 {
 
 
-	parametriCSV inputcsv("CSVinput.csv");
+	parametriCSV inputcsv("CSVinput.csv"); // definizione delle classi di input da file
 	parametriTXT inputtxt("TXTinput.txt");
 
-	inputcsv.leggifile(); // prova file, questo alla fine sara un file con sola classe senza main
+	inputcsv.leggifile(); 
 	inputtxt.leggifile();
 	system("PAUSE");
 
