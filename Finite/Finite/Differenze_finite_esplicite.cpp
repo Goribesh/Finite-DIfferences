@@ -3,13 +3,14 @@
 
 
 
-double Differenze_finite_esplicite::option_price_put_european_finite_diff_explicit(const double& S,
-	const double& X,
-	const double& r,
-	const double& sigma,
-	const double& time,
-	const int& no_S_steps,
-	const int& no_t_steps)
+
+double Differenze_finite_esplicite::option_price_put_european_finite_diff_explicit( const double& S,
+																					const double& X,
+																					const double& r,
+																					const double& sigma,
+																					const double& time,
+																					const int& no_S_steps,
+																					const int& no_t_steps)
 {
 
 	double sigma_sqr = pow(sigma, 2);
@@ -69,13 +70,13 @@ double Differenze_finite_esplicite::option_price_put_european_finite_diff_explic
 }
 
 
-double Differenze_finite_esplicite::option_price_put_american_finite_diff_explicit(  const double& S,
-														const double& K,
-														const double& r,
-														const double& sigma,
-														const double& time,
-														const int& no_S_steps,
-														const int& no_t_steps) 
+double Differenze_finite_esplicite::option_price_put_american_finite_diff_explicit( const double& S,
+																					const double& K,
+																					const double& r,
+																					const double& sigma,
+																					const double& time,
+																					const int& no_S_steps,
+																					const int& no_t_steps) 
 {
 	double sigma_sqr = sigma * sigma;
 	int M = no_S_steps + (no_S_steps % 2); // need no S steps to be even:
