@@ -13,14 +13,14 @@ public:
 	size_t contatore = 0;
 	size_t num_righe = 0;
 	size_t num_righeold = 0;
-
-	size_t temp = 0;
+	string nome;
+	
 
 
 private:
 
 	
-	string nomefile;
+	
 
 	string *SS = new string[num_righe];
 	string *SK = new string[num_righe];
