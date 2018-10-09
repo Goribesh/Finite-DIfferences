@@ -12,7 +12,7 @@ double Differenze_finite_esplicite::option_price_put_european_finite_diff_explic
 																					const int& no_S_steps,
 																					const int& no_t_steps)
 {
-
+	//cout << S << X << r << sigma << time << no_S_steps << no_t_steps << endl;
 	double sigma_sqr = pow(sigma, 2);
 	int M = no_S_steps;
 	if ((no_S_steps % 2) == 1)
