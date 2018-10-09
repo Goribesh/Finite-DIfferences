@@ -14,7 +14,7 @@ public:
 		const double& r,
 		const double& sigma,
 		const double& time,
-		const int& no_S_steps,
-		const int& no_t_steps);
+		int& no_S_steps,
+		int& no_t_steps);
 };
 
