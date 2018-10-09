@@ -69,7 +69,7 @@ double Differenze_finite_esplicite::option_price_put_european_finite_diff_explic
 }
 
 
-double option_price_put_american_finite_diff_explicit(  const double& S,
+double Differenze_finite_esplicite::option_price_put_american_finite_diff_explicit(  const double& S,
 														const double& K,
 														const double& r,
 														const double& sigma,
