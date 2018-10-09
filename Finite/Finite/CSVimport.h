@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class parametriCSV {
@@ -14,7 +15,7 @@ public:
 
 	string nome;
 	
-
+	//vector<double> results(contatore);
 
 
 
