@@ -19,8 +19,8 @@ int main()
 	inputtxt.leggifile();
 	Differenze_finite_esplicite prova;
 	int righe = inputcsv.contatore;
-	vector<double> rexpeur(righe);
-	for (int i = 0; i < righe; i++) {
+	vector<double> rexpeur(righe);			// vettore per risultati
+	for (int i = 0; i < righe; i++) {		// eseguo l algoritmo per tutte le letture
 		//cout << righe << endl;
 		rexpeur[i] = prova.option_price_put_european_finite_diff_explicit(inputcsv.S[i], inputcsv.K[i], inputcsv.r[i], inputcsv.sigma[i], inputcsv.time[i], inputcsv.no_s_steps[i], inputcsv.no_t_steps[i]);
 		cout << rexpeur[i] << endl;
