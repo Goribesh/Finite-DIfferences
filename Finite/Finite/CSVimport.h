@@ -8,11 +8,9 @@ using namespace std;
 class parametriCSV {
 public:
 	void leggifile();			// legge parametriCSV dal file
-	//int n_righe(const string file);			// numero righe
-	parametriCSV(const string file);
+	parametriCSV(const string file); // costruttore, prende in ingresso il nome del file di import
 	size_t contatore = 0;
 	size_t num_righe = 0;
-	size_t num_righeold = 0;
 	string nome;
 	
 
