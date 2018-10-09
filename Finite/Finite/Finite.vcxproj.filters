@@ -18,10 +18,13 @@
     <ClInclude Include="pch.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="CSVimport.h">
+      <Filter>File di origine</Filter>
+    </ClInclude>
     <ClInclude Include="TXTimport.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="CSVimport.h">
+    <ClInclude Include="Differenze_finite_esplicite.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
@@ -36,6 +39,12 @@
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="TXTimport.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="Differenze_finite_esplicite.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="Origine.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
