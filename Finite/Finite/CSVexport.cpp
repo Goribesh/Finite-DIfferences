@@ -10,13 +10,21 @@ void CSVexport::out(vector<double> r,int righe)
 	if (!output.is_open())
 	{
 		ofstream output{ "CSVexport.csv" };
-		output.open("CSVexport.csv");
+		
 	}
-	cout << sizeof(righe);
+
+
+	if (!output.is_open())
+	{
+		output.open("CSVexport.csv");
+
+	}
+
+
 	for (int i = 0; i < righe; i++)
 	{
 		cout <<r[i] << endl;
-		output << "Il risultato numero " << i << "e' " << r[i] << endl;
+		output << "Il risultato numero " << i+1 << " e' " <<';'<< r[i] << endl;
 
 	}
 
