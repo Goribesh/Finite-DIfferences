@@ -31,8 +31,8 @@ public:
 	double *r = new double[num_righe];
 	double *sigma = new double[num_righe];
 	double *time = new double[num_righe];
-	double *no_s_steps = new double[num_righe];
-	double *no_t_steps = new double[num_righe];
+	int *no_s_steps = new int[num_righe];
+	int *no_t_steps = new int[num_righe];
 
 
 	

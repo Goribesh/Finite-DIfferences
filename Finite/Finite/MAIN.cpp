@@ -9,13 +9,124 @@
 #include "differenze_implicite.h"
 
 
+int ciclo0 = 0;
+int met_input = 0;
+int esten = 0;
+string nome_file;
 
 
 int main()
 {
+	cout << "Che tipi di input utilizzi?" << endl<<"1) File"<<endl<<"2) Manuale"<<endl;
+	cin >> met_input;
 
-	
-	parametriCSV inputcsv("CSVinput.csv"); // definizione delle classi di input da file
+	while (ciclo0 != 1)
+	{
+		switch (met_input)
+		{
+		case 1: // caso file chiedo nome
+			cout << "Quale estensione ha?  (inserisci il numero) " << endl << "1) CSV" << endl << "2) TXT" << endl << "3) JSON" << endl;
+			cin >> esten;
+			switch (esten)
+			{
+			case 1:													//file CSV
+				cout << "Inserisci il nome del file: ";
+				cin >> nome_file;
+				fstream file;
+				file.open(nome_file);
+				if (file.is_open()==1) 
+				{
+					file.close();
+					ciclo0 = 1;
+					parametriCSV inputcsv(nome_file);
+					inputcsv.leggifile();
+					int righe_csv = inputcsv.contatore;
+					vector<double> ris_exp_eu(righe_csv);
+					vector<double> ris_exp_us(righe_csv);
+					vector<double> ris_imp_eu(righe_csv);
+					vector<double> ris_imp_us(righe_csv);
+
+					Differenze_finite_esplicite csvexp;
+					differenze_implicite csvimp;
+					for(int i=0;i<righe_csv;i++)
+					{
+						ris_exp_eu[i] = csvexp.option_price_put_european_finite_diff_explicit(	inputcsv.S[i],     //calcolo differenze esplicite e insersco i risultati nel vettore dei risultati
+																								inputcsv.K[i], 
+																								inputcsv.r[i],
+																								inputcsv.sigma[i],
+																								inputcsv.time[i],
+																								inputcsv.no_s_steps[i],	
+																								inputcsv.no_t_steps[i]);
+
+						
+						ris_exp_us[i] = csvexp.option_price_put_american_finite_diff_explicit(	inputcsv.S[i],		//calcolo differenze esplicite e insersco i risultati nel vettore dei risultati
+																								inputcsv.K[i],
+																								inputcsv.r[i],	
+																								inputcsv.sigma[i],
+																								inputcsv.time[i],
+																								inputcsv.no_s_steps[i],
+																								inputcsv.no_t_steps[i]);
+
+
+						ris_imp_eu[i]= csvimp.option_price_put_european_finite_diff_implicit(	inputcsv.S[i],		//calcolo differenze implicite e insersco i risultati nel vettore dei risultati
+																								inputcsv.K[i],
+																								inputcsv.r[i],
+																								inputcsv.sigma[i],
+																								inputcsv.time[i],
+																								inputcsv.no_s_steps[i],
+																								inputcsv.no_t_steps[i]);
+
+						ris_imp_us[i] = csvimp.option_price_put_american_finite_diff_implicit(	inputcsv.S[i],		//calcolo differenze implicite e insersco i risultati nel vettore dei risultati
+																								inputcsv.K[i],
+																								inputcsv.r[i],
+																								inputcsv.sigma[i],
+																								inputcsv.time[i],
+																								inputcsv.no_s_steps[i],
+																								inputcsv.no_t_steps[i]);
+
+						cout << ris_exp_eu[i] << endl << ris_exp_us[i] << endl << ris_imp_eu[i] << endl << ris_imp_us[i] << endl;
+
+
+					}
+
+
+
+						break;
+				}
+				else
+				{
+					cout << "Errore apertura file re-inserisci il nome " << endl;
+						break;
+				}
+			
+			}
+			
+			break;
+		}
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*parametriCSV inputcsv("CSVinput.csv"); // definizione delle classi di input da file
 	parametriTXT inputtxt("TXTinput.txt");
 	inputcsv.leggifile();
 	inputtxt.leggifile();
@@ -44,7 +155,7 @@ int main()
 	//cout << pro << endl << endl; // prova european
 	//Differenze_finite_esplicite prova2;
 	double pro = prova.option_price_put_american_finite_diff_explicit(50.0, 50.0, 0.1, 0.4, 0.4167, 20, 11);
-	cout << pro << endl << endl; // prova american
+	cout << pro << endl << endl; // prova american*/
 	
 	system("PAUSE");
 
