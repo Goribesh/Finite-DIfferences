@@ -18,8 +18,8 @@ public:
 
 
 
-	string *SS = new string[num_righe];
-	string *SK = new string[num_righe];
+	string *SS = new string[num_righe];		
+	string *SK = new string[num_righe];		
 	string *Sr = new string[num_righe];
 	string *Ssigma = new string[num_righe];
 	string *Stime = new string[num_righe];
