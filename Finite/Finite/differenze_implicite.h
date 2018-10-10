@@ -14,7 +14,7 @@ class differenze_implicite
 {
 public:
 	double option_price_put_european_finite_diff_implicit(const double& S,
-		const double& X,
+		const double& K,
 		const double& r,
 		const double& sigma,
 		const double& time,

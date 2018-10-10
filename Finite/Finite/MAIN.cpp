@@ -6,6 +6,7 @@
 #include "TXTimport.h"
 #include "Differenze_finite_esplicite.h"
 #include "CSVexport.h"
+#include "differenze_implicite.h"
 
 
 
@@ -13,13 +14,21 @@
 int main()
 {
 
-
+	
 	parametriCSV inputcsv("CSVinput.csv"); // definizione delle classi di input da file
 	parametriTXT inputtxt("TXTinput.txt");
 	inputcsv.leggifile();
 	inputtxt.leggifile();
 	Differenze_finite_esplicite prova;
 	int righe = inputcsv.contatore;
+	
+	differenze_implicite imp;
+	double ciaone = imp.option_price_put_american_finite_diff_implicit(50.0, 50.0, 0.1, 0.4, 0.5, 200, 200);
+	cout << ciaone << endl<<endl;
+	double ciaone2 = imp.option_price_put_european_finite_diff_implicit(50.0, 50.0, 0.1, 0.4, 0.5, 200, 200);
+	cout << ciaone2 << endl << endl;
+	
+	
 	vector<double> rexpeur(righe);			// vettore per risultati
 	for (int i = 0; i < righe; i++) {		// eseguo l algoritmo per tutte le letture
 		//cout << righe << endl;
@@ -33,8 +42,8 @@ int main()
 	//double pro = prova.option_price_put_european_finite_diff_explicit (50.0, 50.0, 0.1, 0.4, 0.4167, 20, 11);
 	//cout << pro << endl << endl; // prova european
 	//Differenze_finite_esplicite prova2;
-	//pro = prova.option_price_put_american_finite_diff_explicit(50.0, 50.0, 0.1, 0.4, 0.4167, 20, 11);
-	//cout << pro << endl << endl; // prova american
+	double pro = prova.option_price_put_american_finite_diff_explicit(50.0, 50.0, 0.1, 0.4, 0.4167, 20, 11);
+	cout << pro << endl << endl; // prova american
 	
 	system("PAUSE");
 

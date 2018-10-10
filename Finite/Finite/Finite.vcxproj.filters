@@ -16,14 +16,8 @@
     <Filter Include="File di intestazione\Matrice">
       <UniqueIdentifier>{5f5f0a9d-6b23-444a-ba21-01e2b1626c2f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="File di intestazione\Matrice\NewFilter1">
-      <UniqueIdentifier>{124569e6-170b-451b-8776-f886f7e88e6f}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="TXTimport.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
@@ -75,6 +69,9 @@
     <ClInclude Include="Matrici porco\tmt.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>File di intestazione\Matrice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -97,6 +94,30 @@
     </ClCompile>
     <ClCompile Include="differenze_implicite.cpp">
       <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici porco\bandmat.cpp">
+      <Filter>File di intestazione\Matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici porco\cholesky.cpp">
+      <Filter>File di intestazione\Matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici porco\evalue.cpp">
+      <Filter>File di intestazione\Matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici porco\fft.cpp">
+      <Filter>File di intestazione\Matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici porco\hholder.cpp">
+      <Filter>File di intestazione\Matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici porco\jacobi.cpp">
+      <Filter>File di intestazione\Matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici porco\myexcept.cpp">
+      <Filter>File di intestazione\Matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici porco\newfft.cpp">
+      <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
     <ClCompile Include="Matrici porco\newmat1.cpp">
       <Filter>File di intestazione\Matrice</Filter>
@@ -134,44 +155,20 @@
     <ClCompile Include="Matrici porco\newmatrm.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\bandmat.cpp">
+    <ClCompile Include="Matrici porco\nm_misc.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\cholesky.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrici porco\evalue.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrici porco\fft.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrici porco\hholder.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrici porco\jacobi.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrici porco\myexcept.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrici porco\newfft.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrici porco\nm_misc.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
-    </ClCompile>
     <ClCompile Include="Matrici porco\solution.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
+      <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
     <ClCompile Include="Matrici porco\sort.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
+      <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
     <ClCompile Include="Matrici porco\submat.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
+      <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
     <ClCompile Include="Matrici porco\svd.cpp">
-      <Filter>File di intestazione\Matrice\NewFilter1</Filter>
+      <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
