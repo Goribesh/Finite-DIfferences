@@ -84,19 +84,19 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Finite\Finite\Matrix;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Finite\Finite\Matrici porco;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Finite\Finite\Matrix;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Finite\Finite\Matrici porco;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -157,6 +157,18 @@
     <ClInclude Include="CSVimport.h" />
     <ClInclude Include="Differenze_finite_esplicite.h" />
     <ClInclude Include="differenze_implicite.h" />
+    <ClInclude Include="Matrici porco\controlw.h" />
+    <ClInclude Include="Matrici porco\include.h" />
+    <ClInclude Include="Matrici porco\myexcept.h" />
+    <ClInclude Include="Matrici porco\newmat.h" />
+    <ClInclude Include="Matrici porco\newmatap.h" />
+    <ClInclude Include="Matrici porco\newmatio.h" />
+    <ClInclude Include="Matrici porco\newmatnl.h" />
+    <ClInclude Include="Matrici porco\newmatrc.h" />
+    <ClInclude Include="Matrici porco\newmatrm.h" />
+    <ClInclude Include="Matrici porco\precisio.h" />
+    <ClInclude Include="Matrici porco\solution.h" />
+    <ClInclude Include="Matrici porco\tmt.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="TXTimport.h" />
   </ItemGroup>
@@ -166,6 +178,31 @@
     <ClCompile Include="Differenze_finite_esplicite.cpp" />
     <ClCompile Include="differenze_implicite.cpp" />
     <ClCompile Include="MAIN.cpp" />
+    <ClCompile Include="Matrici porco\bandmat.cpp" />
+    <ClCompile Include="Matrici porco\cholesky.cpp" />
+    <ClCompile Include="Matrici porco\evalue.cpp" />
+    <ClCompile Include="Matrici porco\fft.cpp" />
+    <ClCompile Include="Matrici porco\hholder.cpp" />
+    <ClCompile Include="Matrici porco\jacobi.cpp" />
+    <ClCompile Include="Matrici porco\myexcept.cpp" />
+    <ClCompile Include="Matrici porco\newfft.cpp" />
+    <ClCompile Include="Matrici porco\newmat1.cpp" />
+    <ClCompile Include="Matrici porco\newmat2.cpp" />
+    <ClCompile Include="Matrici porco\newmat3.cpp" />
+    <ClCompile Include="Matrici porco\newmat4.cpp" />
+    <ClCompile Include="Matrici porco\newmat5.cpp" />
+    <ClCompile Include="Matrici porco\newmat6.cpp" />
+    <ClCompile Include="Matrici porco\newmat7.cpp" />
+    <ClCompile Include="Matrici porco\newmat8.cpp" />
+    <ClCompile Include="Matrici porco\newmat9.cpp" />
+    <ClCompile Include="Matrici porco\newmatex.cpp" />
+    <ClCompile Include="Matrici porco\newmatnl.cpp" />
+    <ClCompile Include="Matrici porco\newmatrm.cpp" />
+    <ClCompile Include="Matrici porco\nm_misc.cpp" />
+    <ClCompile Include="Matrici porco\solution.cpp" />
+    <ClCompile Include="Matrici porco\sort.cpp" />
+    <ClCompile Include="Matrici porco\submat.cpp" />
+    <ClCompile Include="Matrici porco\svd.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -173,6 +210,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TXTimport.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Finite.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

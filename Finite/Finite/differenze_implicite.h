@@ -4,7 +4,7 @@
 #include<algorithm> 
 #include<iostream>
 #include <newmat.h>
-using namespace RBD_LIBRARIES;
+using namespace NEWMAT;
 using namespace std;
 
 
