@@ -1,8 +1,15 @@
 #pragma once
+#include <fstream>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+
 class CSVexport
 {
 public:
-	CSVexport();
-	~CSVexport();
+ void out(vector<double> r,int righe);
+	
 };
 

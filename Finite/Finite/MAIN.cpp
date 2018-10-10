@@ -5,6 +5,7 @@
 #include "CSVimport.h"
 #include "TXTimport.h"
 #include "Differenze_finite_esplicite.h"
+#include "CSVexport.h"
 
 
 
@@ -26,6 +27,8 @@ int main()
 		cout << rexpeur[i] << endl;
 
 	}
+	CSVexport outputcsv;
+	outputcsv.out(rexpeur,righe);
 
 	//double pro = prova.option_price_put_european_finite_diff_explicit (50.0, 50.0, 0.1, 0.4, 0.4167, 20, 11);
 	//cout << pro << endl << endl; // prova european
