@@ -33,43 +33,40 @@
     <ClInclude Include="differenze_implicite.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\controlw.h">
+    <ClInclude Include="Matrici\controlw.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\include.h">
+    <ClInclude Include="Matrici\include.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\myexcept.h">
+    <ClInclude Include="Matrici\myexcept.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\newmat.h">
+    <ClInclude Include="Matrici\newmat.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\newmatap.h">
+    <ClInclude Include="Matrici\newmatap.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\newmatio.h">
+    <ClInclude Include="Matrici\newmatio.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\newmatnl.h">
+    <ClInclude Include="Matrici\newmatnl.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\newmatrc.h">
+    <ClInclude Include="Matrici\newmatrc.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\newmatrm.h">
+    <ClInclude Include="Matrici\newmatrm.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\precisio.h">
+    <ClInclude Include="Matrici\precisio.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\solution.h">
+    <ClInclude Include="Matrici\solution.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
-    <ClInclude Include="Matrici porco\tmt.h">
-      <Filter>File di intestazione\Matrice</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
+    <ClInclude Include="Matrici\tmt.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,79 +92,79 @@
     <ClCompile Include="differenze_implicite.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\bandmat.cpp">
+    <ClCompile Include="Matrici\bandmat.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\cholesky.cpp">
+    <ClCompile Include="Matrici\cholesky.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\evalue.cpp">
+    <ClCompile Include="Matrici\evalue.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\fft.cpp">
+    <ClCompile Include="Matrici\fft.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\hholder.cpp">
+    <ClCompile Include="Matrici\hholder.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\jacobi.cpp">
+    <ClCompile Include="Matrici\jacobi.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\myexcept.cpp">
+    <ClCompile Include="Matrici\myexcept.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newfft.cpp">
+    <ClCompile Include="Matrici\newfft.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmat1.cpp">
+    <ClCompile Include="Matrici\newmat1.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmat2.cpp">
+    <ClCompile Include="Matrici\newmat2.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmat3.cpp">
+    <ClCompile Include="Matrici\newmat3.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmat4.cpp">
+    <ClCompile Include="Matrici\newmat4.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmat5.cpp">
+    <ClCompile Include="Matrici\newmat5.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmat6.cpp">
+    <ClCompile Include="Matrici\newmat6.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmat7.cpp">
+    <ClCompile Include="Matrici\newmat7.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmat8.cpp">
+    <ClCompile Include="Matrici\newmat8.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmat9.cpp">
+    <ClCompile Include="Matrici\newmat9.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmatex.cpp">
+    <ClCompile Include="Matrici\newmatex.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmatnl.cpp">
+    <ClCompile Include="Matrici\newmatnl.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\newmatrm.cpp">
+    <ClCompile Include="Matrici\newmatrm.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\nm_misc.cpp">
+    <ClCompile Include="Matrici\nm_misc.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\solution.cpp">
+    <ClCompile Include="Matrici\solution.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\sort.cpp">
+    <ClCompile Include="Matrici\sort.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\submat.cpp">
+    <ClCompile Include="Matrici\submat.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
-    <ClCompile Include="Matrici porco\svd.cpp">
+    <ClCompile Include="Matrici\svd.cpp">
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
   </ItemGroup>
