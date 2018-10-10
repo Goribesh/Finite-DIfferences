@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="File di intestazione\Matrice">
+      <UniqueIdentifier>{5f5f0a9d-6b23-444a-ba21-01e2b1626c2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -28,6 +31,9 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="CSVexport.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="differenze_implicite.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
@@ -48,6 +54,9 @@
       <Filter>File di origine</Filter>
     </ClCompile>
     <ClCompile Include="CSVexport.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="differenze_implicite.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
