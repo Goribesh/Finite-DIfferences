@@ -85,12 +85,14 @@ int main()
 																								inputcsv.no_s_steps[i],
 																								inputcsv.no_t_steps[i]);
 
-						cout << ris_exp_eu[i] << endl << ris_exp_us[i] << endl << ris_imp_eu[i] << endl << ris_imp_us[i] << endl;
+						cout << ris_exp_eu[i] << endl << ris_exp_us[i] << endl << ris_imp_eu[i] << endl << ris_imp_us[i] << endl; //prova di output su console
 
 
 					}
 
-
+					CSVexport csvout;
+					csvout.out(ris_exp_eu, righe_csv); // prova export
+					
 
 						break; // eseguite tutte le operazioni e salvati i risultati sui vettori esco dallo switch
 				}
