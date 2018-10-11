@@ -17,24 +17,25 @@ string nome_file;
 
 int main()
 {
-	cout << "Che tipi di input utilizzi?" << endl<<"1) File"<<endl<<"2) Manuale"<<endl;
-	cin >> met_input;
+	
 
 	while (ciclo0 != 1)
 	{
-		switch (met_input)
+		cout << "Che tipi di input utilizzi?" << endl << "1) File" << endl << "2) Manuale" << endl;
+		cin >> met_input;
+		switch (met_input)			// voglio sapere come avverrà l' input
 		{
 		case 1: // caso file chiedo nome
 			cout << "Quale estensione ha?  (inserisci il numero) " << endl << "1) CSV" << endl << "2) TXT" << endl << "3) JSON" << endl;
-			cin >> esten;
+			cin >> esten;	//input 1 ,2,3 altrimenti errore
 			switch (esten)
-			{
-			case 1:													//file CSV
-				cout << "Inserisci il nome del file: ";
-				cin >> nome_file;
-				fstream file;
-				file.open(nome_file);
-				if (file.is_open()==1) 
+				{
+				case 1:													//file CSV
+					cout << "Inserisci il nome del file: ";
+					cin >> nome_file;
+					fstream file;
+					file.open(nome_file);
+					if (file.is_open()==1) 
 				{
 					file.close();
 					ciclo0 = 1;
@@ -93,15 +94,20 @@ int main()
 
 						break;
 				}
-				else
-				{
-					cout << "Errore apertura file re-inserisci il nome " << endl;
-						break;
+					else
+					{
+						cout << "Errore apertura file re-inserisci il nome " << endl;
+							break;
+					}
+			
+			
 				}
-			
-			}
-			
-			break;
+
+				break; // break swith met_input
+		default:
+			cout << "errore di input riprova" << endl;
+
+		break;
 		}
 
 
