@@ -69,6 +69,9 @@
     <ClInclude Include="Matrici\tmt.h">
       <Filter>File di intestazione\Matrice</Filter>
     </ClInclude>
+    <ClInclude Include="ClassePadreDifferenze.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -166,6 +169,9 @@
     </ClCompile>
     <ClCompile Include="Matrici\svd.cpp">
       <Filter>File di intestazione\Matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassePadreDifferenze.cpp">
+      <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

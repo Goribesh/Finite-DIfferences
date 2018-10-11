@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ClassePadreDifferenze.h" />
     <ClInclude Include="CSVexport.h" />
     <ClInclude Include="CSVimport.h" />
     <ClInclude Include="Differenze_finite_esplicite.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="TXTimport.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ClassePadreDifferenze.cpp" />
     <ClCompile Include="CSVexport.cpp" />
     <ClCompile Include="CSVimport.cpp" />
     <ClCompile Include="Differenze_finite_esplicite.cpp" />
