@@ -25,8 +25,8 @@ parametriTXT::parametriTXT(const string file)		// costruttore ricrea array dinam
 
 
 
-		if (contatore > num_righe)
-		{
+		//if (contatore > num_righe)
+		//{
 
 			size_t newsize = contatore;
 			// creo nuove variabili temporanee su cui allochero' le vecchie variabili
@@ -49,7 +49,7 @@ parametriTXT::parametriTXT(const string file)		// costruttore ricrea array dinam
 
 
 			// copio il vecchio array nel nuovo
-
+			/*
 			memcpy(newSS, SS, num_righe);
 			memcpy(newSK, SK, num_righe);
 			memcpy(newSr, Sr, num_righe);
@@ -65,7 +65,7 @@ parametriTXT::parametriTXT(const string file)		// costruttore ricrea array dinam
 			memcpy(newtime, time, num_righe);
 			memcpy(newno_s_steps, no_s_steps, num_righe);
 			memcpy(newno_t_steps, no_t_steps, num_righe);
-
+			*/
 			num_righe = newsize;
 
 
@@ -91,7 +91,7 @@ parametriTXT::parametriTXT(const string file)		// costruttore ricrea array dinam
 			no_s_steps = newno_s_steps;
 			no_t_steps = newno_t_steps;
 
-		}
+		//}
 
 
 

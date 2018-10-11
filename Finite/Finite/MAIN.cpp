@@ -34,22 +34,22 @@ int main()
 					cout << "Inserisci il nome del file: ";
 					cin >> nome_file;
 					fstream file;
-					file.open(nome_file);
-					if (file.is_open()==1) 
-				{
-					file.close();
-					ciclo0 = 1;
-					parametriCSV inputcsv(nome_file);
+					file.open(nome_file);  // apro il file csv
+					if (file.is_open()==1) //guardo se l' apertura è andata a buon fine
+				{							// se si eseguo tutte le funzioni CSV
+					file.close();			//richiudo il file aperto
+					ciclo0 = 1;				//setto la variabile per uscire dal while visto che tutto è andato a buon fine
+					parametriCSV inputcsv(nome_file);	//leggo i parametri e setto gli array dinamici
 					inputcsv.leggifile();
-					int righe_csv = inputcsv.contatore;
-					vector<double> ris_exp_eu(righe_csv);
+					int righe_csv = inputcsv.contatore;	//setto una variabile che mi servira per costruire i vettori dei risultati partendo dalle righe del file
+					vector<double> ris_exp_eu(righe_csv);		// creo vettori per i risultati delle 4 operazioni
 					vector<double> ris_exp_us(righe_csv);
 					vector<double> ris_imp_eu(righe_csv);
 					vector<double> ris_imp_us(righe_csv);
 
-					Differenze_finite_esplicite csvexp;
+					Differenze_finite_esplicite csvexp;	//creo le due classi per il calcolo delle differenze nel caso CSV
 					differenze_implicite csvimp;
-					for(int i=0;i<righe_csv;i++)
+					for(int i=0;i<righe_csv;i++)   // eseguo le operazioni per tutte le righe del file
 					{
 						ris_exp_eu[i] = csvexp.option_price_put_european_finite_diff_explicit(	inputcsv.S[i],     //calcolo differenze esplicite e insersco i risultati nel vettore dei risultati
 																								inputcsv.K[i], 
@@ -92,20 +92,22 @@ int main()
 
 
 
-						break;
+						break; // eseguite tutte le operazioni e salvati i risultati sui vettori esco dallo switch
 				}
 					else
 					{
+						system("CLS");
 						cout << "Errore apertura file re-inserisci il nome " << endl;
+						
 							break;
 					}
 			
 			
 				}
 
-				break; // break swith met_input
+				break; // break switch met_input
 		default:
-			cout << "errore di input riprova" << endl;
+			cout << "errore di input riprova" << endl; // nel caso si inseriscano numeri diversi dallo switch richiedo l' inserimento
 
 		break;
 		}
