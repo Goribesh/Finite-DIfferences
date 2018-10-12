@@ -1,21 +1,25 @@
-
-#include <iostream>
+#pragma once
+#include<string>
 #include <fstream>
-#include <string>
+#include <iostream>
+#include <vector>
+
+
 
 using namespace std;
 
 
-class parametriTXT{
+class PadreImport
+{
 public:
-	parametriTXT(const string file);
-	void leggifile();
+	PadreImport(const string file );// costruttore, prende in ingresso il nome del file di import
 	size_t contatore = 0;
 	size_t num_righe = 0;
 	string nome;
 
+	//vector<double> results(contatore);
 
-private:
+
 
 	string *SS = new string[num_righe];
 	string *SK = new string[num_righe];
@@ -30,10 +34,7 @@ private:
 	double *r = new double[num_righe];
 	double *sigma = new double[num_righe];
 	double *time = new double[num_righe];
-	double *no_s_steps = new double[num_righe];
-	double *no_t_steps = new double[num_righe];
-
-
-
+	int *no_s_steps = new int[num_righe];
+	int *no_t_steps = new int[num_righe];
 };
 
