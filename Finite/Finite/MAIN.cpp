@@ -7,7 +7,8 @@
 #include "Differenze_finite_esplicite.h"
 #include "CSVexport.h"
 #include "differenze_implicite.h"
-
+#include "ClassePadreDifferenze.h"
+#include "Differenze_esplicite.h"
 
 int ciclo0 = 0;
 int met_input = 0;
@@ -19,7 +20,7 @@ int main()
 {
 	
 
-	while (ciclo0 != 1)
+	/*while (ciclo0 != 1)
 	{
 		cout << "Che tipi di input utilizzi?" << endl << "1) File" << endl << "2) Manuale" << endl;
 		cin >> met_input;
@@ -116,7 +117,26 @@ int main()
 
 
 
+	}*/
+
+	
+
+
+
+parametriCSV inputcsv("CSVinput.csv");
+inputcsv.leggifile();
+Differenze_esplicite prova2(50.0, 50.0, 0.1, 0.4, 0.4167, 20, 11);
+
+for (int i = 0; i < inputcsv.contatore; i++) 
+	{
+
+	prova2.SetVariabili(inputcsv.S[i], inputcsv.K[i], inputcsv.r[i], inputcsv.sigma[i], inputcsv.time[i], inputcsv.no_s_steps[i], inputcsv.no_t_steps[i]);
+		double res = prova2.option_price_put_european_finite_diff_explicit();
+	cout << res << endl;
+
 	}
+
+
 
 
 

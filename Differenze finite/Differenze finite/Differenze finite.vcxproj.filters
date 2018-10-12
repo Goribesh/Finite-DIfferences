@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="File di origine">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="File di intestazione">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="File di risorse">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="matrice">
+      <UniqueIdentifier>{0ece3264-4d38-4c70-9875-834a13211263}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FormMain.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\bandmat.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\cholesky.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\evalue.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\fft.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\hholder.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\jacobi.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\myexcept.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newfft.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmat1.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmat2.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmat3.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmat4.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmat5.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmat6.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmat7.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmat8.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmat9.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmatex.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmatnl.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\newmatrm.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\nm_misc.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\solution.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\sort.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\submat.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrici\svd.cpp">
+      <Filter>matrice</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassePadreDifferenze.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVexport.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVimport.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="Differenze_esplicite.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="Differenze_finite_esplicite.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="differenze_implicite.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="TXTimport.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FormMain.h">
+      <Filter>File di origine</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\controlw.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\include.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\myexcept.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\newmat.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\newmatap.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\newmatio.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\newmatnl.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\newmatrc.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\newmatrm.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\precisio.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\solution.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrici\tmt.h">
+      <Filter>matrice</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassePadreDifferenze.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVexport.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVimport.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Differenze_esplicite.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Differenze_finite_esplicite.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="differenze_implicite.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="TXTimport.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormMain.resx">
+      <Filter>File di risorse</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TXTinput.txt">
+      <Filter>File di origine</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

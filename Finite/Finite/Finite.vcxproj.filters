@@ -72,6 +72,9 @@
     <ClInclude Include="ClassePadreDifferenze.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="Differenze_esplicite.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -171,6 +174,9 @@
       <Filter>File di intestazione\Matrice</Filter>
     </ClCompile>
     <ClCompile Include="ClassePadreDifferenze.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="Differenze_esplicite.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
