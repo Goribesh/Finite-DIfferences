@@ -25,8 +25,6 @@ void	SetVariabili(	double  Sin,
 						int  no_S_stepsin,
 						int  no_t_stepsin);
 
-
-
 	 double S;
 	 double K;
 	 double r;

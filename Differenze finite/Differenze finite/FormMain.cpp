@@ -2,9 +2,10 @@
 
 using namespace System;
 using namespace System::Windows::Forms;
+using namespace std;
 
 [STAThreadAttribute]
-void main(array<String^>^ args) {
+void main() {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Differenzefinite::FormMain form;

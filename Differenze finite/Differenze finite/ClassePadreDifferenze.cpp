@@ -22,16 +22,16 @@ ClassePadreDifferenze::ClassePadreDifferenze(	double  Sin,
 
 	
 
-
+	
 
 };
-void ClassePadreDifferenze::SetVariabili(double  Sin,
-									double  Kin,
-									double rin,
-									double  sigmain,
-									double  timein,
-									int  no_S_stepsin,
-									int  no_t_stepsin)
+void ClassePadreDifferenze::SetVariabili(	double  Sin,
+											double  Kin,
+											double rin,
+											double  sigmain,
+											double  timein,
+											int  no_S_stepsin,
+											int  no_t_stepsin)
 {
 
 	S = Sin;

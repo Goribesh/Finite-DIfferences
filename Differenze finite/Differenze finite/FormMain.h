@@ -1,16 +1,16 @@
 #pragma once
 #include <string>
+#include "Differenze_esplicite.h"
 
-#using <System.DLL>
-#using <System.Drawing.DLL>
-#using <System.Windows.Forms.DLL>
+
+
 
 namespace Differenzefinite {
 
 
 
 	
-
+	
 	using namespace System;
 	using namespace System::ComponentModel;
 	using namespace System::Collections;
@@ -74,7 +74,7 @@ namespace Differenzefinite {
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::TextBox^  textBox12;
-	private: System::Windows::Forms::ColorDialog^  colorDialog1;
+
 	protected:
 
 	private:
@@ -121,7 +121,6 @@ namespace Differenzefinite {
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
-			this->colorDialog1 = (gcnew System::Windows::Forms::ColorDialog());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -132,6 +131,7 @@ namespace Differenzefinite {
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"CALCOLA";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &FormMain::button1_Click);
 			// 
 			// button2
 			// 
@@ -459,16 +459,29 @@ namespace Differenzefinite {
 	private: System::Void FormMain_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-		openFileDialog1->ShowDialog();
-		
-			openFileDialog1->OpenFile();
-			std::string nome_file;
-			textBox12->Text = openFileDialog1->SafeFileName;
-		// 	nome_file = openFileDialog1->ToString();
-		
 
 
+		openFileDialog1->ShowDialog();	
+		//if(openFileDialog1->ShowDialog= DialogResult.OK)
+		openFileDialog1->OpenFile();
+		string nome_file;
+		textBox12->Text = openFileDialog1->FileName;
+		//nome_file = openFileDialog1->FileName;
+		
+		
 
 	}
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	
+	
+
+
+
+
+
+
+
+}
 };
 }
