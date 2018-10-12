@@ -142,7 +142,6 @@
     <ClCompile Include="CSVexport.cpp" />
     <ClCompile Include="CSVimport.cpp" />
     <ClCompile Include="Differenze_esplicite.cpp" />
-    <ClCompile Include="Differenze_finite_esplicite.cpp" />
     <ClCompile Include="differenze_implicite.cpp" />
     <ClCompile Include="FormMain.cpp" />
     <ClCompile Include="Matrici\bandmat.cpp" />
@@ -178,7 +177,6 @@
     <ClInclude Include="CSVexport.h" />
     <ClInclude Include="CSVimport.h" />
     <ClInclude Include="Differenze_esplicite.h" />
-    <ClInclude Include="Differenze_finite_esplicite.h" />
     <ClInclude Include="differenze_implicite.h" />
     <ClInclude Include="FormMain.h">
       <FileType>CppForm</FileType>

@@ -5,13 +5,15 @@ using namespace std;
 using namespace NEWMAT;
 
 
-double differenze_implicite::option_price_put_american_finite_diff_implicit(const double& S,
+
+
+double differenze_implicite::option_price_put_american_finite_diff_implicit(/*const double& S,
 																			const double& K,
 																			const double& r,
 																			const double& sigma,
 																			const double& time,
 																			const int& no_S_steps,
-																			const int& no_t_steps)
+																			const int& no_t_steps*/)
 {
 	double sigma_sqr = sigma * sigma;
 	int M = no_S_steps + (no_S_steps % 2); // need no S steps to be even:
@@ -44,13 +46,13 @@ double differenze_implicite::option_price_put_american_finite_diff_implicit(cons
 };
 
 
-double differenze_implicite::option_price_put_european_finite_diff_implicit(const double& S,
+double differenze_implicite::option_price_put_european_finite_diff_implicit(/*const double& S,
 																			const double& K,
 																			const double& r,
 																			const double& sigma,
 																			const double& time,
 																			const int& no_S_steps,
-																			const int& no_t_steps) 
+																			const int& no_t_steps*/) 
 {
 	double sigma_sqr = sigma * sigma;
 	int M = no_S_steps + (no_S_steps % 2); // need no S steps to be even:

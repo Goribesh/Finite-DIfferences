@@ -4,8 +4,7 @@
 #include<vector>
 #include<algorithm> 
 #include<iostream>
-#include <newmat.h>
-using namespace NEWMAT;
+
 using namespace std;
 
 class Differenze_esplicite : public ClassePadreDifferenze

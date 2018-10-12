@@ -1,8 +1,15 @@
 #pragma once
 #include <string>
 
+#using <System.DLL>
+#using <System.Drawing.DLL>
+#using <System.Windows.Forms.DLL>
 
 namespace Differenzefinite {
+
+
+
+	
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -66,6 +73,8 @@ namespace Differenzefinite {
 	private: System::Windows::Forms::Label^  label9;
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Label^  label11;
+	private: System::Windows::Forms::TextBox^  textBox12;
+	private: System::Windows::Forms::ColorDialog^  colorDialog1;
 	protected:
 
 	private:
@@ -111,6 +120,8 @@ namespace Differenzefinite {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
+			this->colorDialog1 = (gcnew System::Windows::Forms::ColorDialog());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -143,49 +154,49 @@ namespace Differenzefinite {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(162, 283);
+			this->textBox1->Location = System::Drawing::Point(148, 283);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(55, 20);
 			this->textBox1->TabIndex = 3;
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(218, 283);
+			this->textBox2->Location = System::Drawing::Point(204, 283);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(55, 20);
 			this->textBox2->TabIndex = 4;
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(330, 283);
+			this->textBox3->Location = System::Drawing::Point(316, 283);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(55, 20);
 			this->textBox3->TabIndex = 6;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(274, 283);
+			this->textBox4->Location = System::Drawing::Point(260, 283);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(55, 20);
 			this->textBox4->TabIndex = 5;
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(498, 283);
+			this->textBox5->Location = System::Drawing::Point(484, 283);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(55, 20);
 			this->textBox5->TabIndex = 9;
 			// 
 			// textBox6
 			// 
-			this->textBox6->Location = System::Drawing::Point(442, 283);
+			this->textBox6->Location = System::Drawing::Point(428, 283);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(55, 20);
 			this->textBox6->TabIndex = 8;
 			// 
 			// textBox7
 			// 
-			this->textBox7->Location = System::Drawing::Point(386, 283);
+			this->textBox7->Location = System::Drawing::Point(372, 283);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(55, 20);
 			this->textBox7->TabIndex = 7;
@@ -194,7 +205,7 @@ namespace Differenzefinite {
 			// 
 			this->label4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label4->Location = System::Drawing::Point(330, 267);
+			this->label4->Location = System::Drawing::Point(316, 267);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(55, 13);
 			this->label4->TabIndex = 13;
@@ -205,7 +216,7 @@ namespace Differenzefinite {
 			// 
 			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label1->Location = System::Drawing::Point(386, 267);
+			this->label1->Location = System::Drawing::Point(372, 267);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(55, 13);
 			this->label1->TabIndex = 14;
@@ -218,7 +229,7 @@ namespace Differenzefinite {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(442, 267);
+			this->label2->Location = System::Drawing::Point(428, 267);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(55, 13);
 			this->label2->TabIndex = 15;
@@ -229,7 +240,7 @@ namespace Differenzefinite {
 			// 
 			this->label3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label3->Location = System::Drawing::Point(498, 267);
+			this->label3->Location = System::Drawing::Point(484, 267);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(55, 13);
 			this->label3->TabIndex = 16;
@@ -240,7 +251,7 @@ namespace Differenzefinite {
 			// 
 			this->label5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label5->Location = System::Drawing::Point(274, 267);
+			this->label5->Location = System::Drawing::Point(260, 267);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(55, 13);
 			this->label5->TabIndex = 17;
@@ -251,7 +262,7 @@ namespace Differenzefinite {
 			// 
 			this->label6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label6->Location = System::Drawing::Point(218, 267);
+			this->label6->Location = System::Drawing::Point(204, 267);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(55, 13);
 			this->label6->TabIndex = 18;
@@ -262,7 +273,7 @@ namespace Differenzefinite {
 			// 
 			this->label7->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label7->Location = System::Drawing::Point(162, 267);
+			this->label7->Location = System::Drawing::Point(148, 267);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(55, 13);
 			this->label7->TabIndex = 19;
@@ -271,7 +282,8 @@ namespace Differenzefinite {
 			// 
 			// openFileDialog1
 			// 
-			this->openFileDialog1->FileName = L"openFileDialog1";
+			this->openFileDialog1->DefaultExt = L"csv";
+			this->openFileDialog1->FileName = L"CSVinput.csv";
 			// 
 			// checkBox1
 			// 
@@ -317,6 +329,7 @@ namespace Differenzefinite {
 			// 
 			this->textBox8->Location = System::Drawing::Point(473, 435);
 			this->textBox8->Name = L"textBox8";
+			this->textBox8->ReadOnly = true;
 			this->textBox8->Size = System::Drawing::Size(80, 20);
 			this->textBox8->TabIndex = 27;
 			// 
@@ -324,6 +337,7 @@ namespace Differenzefinite {
 			// 
 			this->textBox9->Location = System::Drawing::Point(361, 435);
 			this->textBox9->Name = L"textBox9";
+			this->textBox9->ReadOnly = true;
 			this->textBox9->Size = System::Drawing::Size(80, 20);
 			this->textBox9->TabIndex = 26;
 			// 
@@ -331,6 +345,7 @@ namespace Differenzefinite {
 			// 
 			this->textBox10->Location = System::Drawing::Point(249, 435);
 			this->textBox10->Name = L"textBox10";
+			this->textBox10->ReadOnly = true;
 			this->textBox10->Size = System::Drawing::Size(80, 20);
 			this->textBox10->TabIndex = 25;
 			// 
@@ -338,6 +353,7 @@ namespace Differenzefinite {
 			// 
 			this->textBox11->Location = System::Drawing::Point(137, 435);
 			this->textBox11->Name = L"textBox11";
+			this->textBox11->ReadOnly = true;
 			this->textBox11->Size = System::Drawing::Size(80, 20);
 			this->textBox11->TabIndex = 24;
 			// 
@@ -358,7 +374,7 @@ namespace Differenzefinite {
 			this->label9->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(247, 419);
+			this->label9->Location = System::Drawing::Point(239, 419);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(103, 13);
 			this->label9->TabIndex = 32;
@@ -370,7 +386,7 @@ namespace Differenzefinite {
 			this->label10->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(363, 419);
+			this->label10->Location = System::Drawing::Point(351, 419);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(102, 13);
 			this->label10->TabIndex = 33;
@@ -382,18 +398,27 @@ namespace Differenzefinite {
 			this->label11->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(488, 419);
+			this->label11->Location = System::Drawing::Point(462, 419);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(102, 13);
 			this->label11->TabIndex = 34;
 			this->label11->Text = L"Risultati implicite US";
 			this->label11->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
+			// textBox12
+			// 
+			this->textBox12->Location = System::Drawing::Point(148, 23);
+			this->textBox12->Name = L"textBox12";
+			this->textBox12->ReadOnly = true;
+			this->textBox12->Size = System::Drawing::Size(524, 20);
+			this->textBox12->TabIndex = 35;
+			// 
 			// FormMain
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(702, 629);
+			this->Controls->Add(this->textBox12);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
@@ -434,7 +459,16 @@ namespace Differenzefinite {
 	private: System::Void FormMain_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+		openFileDialog1->ShowDialog();
 		
+			openFileDialog1->OpenFile();
+			std::string nome_file;
+			textBox12->Text = openFileDialog1->SafeFileName;
+		// 	nome_file = openFileDialog1->ToString();
+		
+
+
+
 	}
 };
 }
