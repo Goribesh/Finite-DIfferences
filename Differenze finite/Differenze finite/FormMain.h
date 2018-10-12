@@ -1,8 +1,12 @@
 #pragma once
 #include <string>
 #include "Differenze_esplicite.h"
+#include "PadreImport.h"
+#include <msclr\marshal_cppstd.h>
+#include <iostream>
+#include "CSVimport.h"
 
-
+int righe = 0;
 
 
 namespace Differenzefinite {
@@ -458,21 +462,34 @@ namespace Differenzefinite {
 #pragma endregion
 	private: System::Void FormMain_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
-	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	public: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 
-
-		openFileDialog1->ShowDialog();	
-		//if(openFileDialog1->ShowDialog= DialogResult.OK)
-		openFileDialog1->OpenFile();
-		string nome_file;
-		textBox12->Text = openFileDialog1->FileName;
-		//nome_file = openFileDialog1->FileName;
+		msclr::interop::marshal_context context;
 		
+		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			openFileDialog1->OpenFile();
+			textBox12->Text = openFileDialog1->FileName;
+			String^ Snome_file = openFileDialog1->SafeFileName;
+			string nome_file = context.marshal_as<string>(Snome_file);
+			parametriCSV inputcsv(nome_file);
+			inputcsv.leggifile();
+			MessageBox::Show("Import file effettuato");
+			textBox1->Enabled = 0;
+			textBox2->Enabled = 0;
+			textBox3->Enabled = 0;
+			textBox4->Enabled = 0;
+			textBox5->Enabled = 0;
+			textBox6->Enabled = 0;
+			textBox7->Enabled = 0;
+			righe = inputcsv.contatore;
+		}
 		
-
 	}
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-
+public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (checkBox1->Checked == 1) {
+		Differenze_esplicite expeu(0,0,0,0,0,0,0);
+		for (int i = 0; i < righe; i++) {}
+		}
 	
 	
 
