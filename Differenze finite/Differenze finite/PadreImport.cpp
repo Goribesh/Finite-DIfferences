@@ -2,27 +2,38 @@
 
 
 
-PadreImport::PadreImport(const string file){
-nome = file;
-string empty;
-fstream file_param;
-file_param.open(file);  //apertura file 
-if (file_param.is_open())
-{
-	cout << file << endl;
 
-	while (getline(file_param, empty)) {      //leggo numero di righe di valori
+PadreImport::PadreImport( System::String^ file) {
+	nome = file;
+	//string empty;
+	//fstream file_param;
+	//file_param.open("CSVinput.csv");  //apertura file 
+
+	System::IO::StreamReader^ din = System::IO::File::OpenText("CSVinput.csv");
+
+	try {
+		//cout << file << endl;
+		System::Diagnostics::Debug::WriteLine("File Aperto");
+		System::Diagnostics::Debug::WriteLine("File Aperto");
+		System::Diagnostics::Debug::WriteLine("File Aperto");
+		System::Diagnostics::Debug::WriteLine("File Aperto");
+		System::Diagnostics::Debug::WriteLine("File Aperto");
+		System::Diagnostics::Debug::WriteLine("File Aperto");
+		System::Diagnostics::Debug::WriteLine("File Aperto");
+
+		System::String^ str;
+		while ((str = din->ReadLine()) != nullptr) {      //leggo numero di righe di valori
 		contatore++;
 	}
-	cout << "Sono state trovate " << contatore << " righe" << endl << endl;
+	//cout << "Sono state trovate " << contatore << " righe" << endl << endl;
 
-	file_param.close();
+	//file_param.close();
 
-	if (contatore == 0) {
+	/*if (contatore == 0) {
 		cout << "File vuoto ricontrollare" << endl;
 		system("PAUSE");
 		exit(0);
-	}
+	}*/
 
 	//if (contatore > num_righe)
 	//{
@@ -97,13 +108,24 @@ if (file_param.is_open())
 
 
 
-}
+	}
 
-else
-{
-	//cout << "File CSV mancante assicurarsi che si chiami CSVimport.csv e riprovare, chiusura programma" << endl;
-	//system("PAUSE");
-	//exit(0);
+	catch (Exception^ e)
+	{
+		if (dynamic_cast<FileNotFoundException^>(e))
+			Console::WriteLine("file '{0}' not found", "asd");
+		else
+			Console::WriteLine("problem reading file '{0}'", "asd");
+	}
 
-}
+
+	/*else
+	{
+		System::Diagnostics::Debug::WriteLine("File non Aperto");
+		//cout << "File CSV mancante assicurarsi che si chiami CSVimport.csv e riprovare, chiusura programma" << endl;
+		//system("PAUSE");
+		//exit(0);
+
+	}
+	}*/
 }

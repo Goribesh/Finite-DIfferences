@@ -5,8 +5,23 @@
 #include <msclr\marshal_cppstd.h>
 #include <iostream>
 #include "CSVimport.h"
+#include "CSVexport.h"
+#include <vector>
 
 int righe = 0;
+vector <double> S;
+vector <double> K;
+vector <double> r;
+vector <double> sigma;
+vector <double> time;
+vector <int> no_S_steps;
+vector <int> no_t_steps;
+
+vector<double> risexpeu;
+vector<double> risexpus;
+vector<double> risimpeu;
+vector<double> risimpus;
+
 
 
 namespace Differenzefinite {
@@ -78,6 +93,7 @@ namespace Differenzefinite {
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::TextBox^  textBox12;
+	private: System::Windows::Forms::Label^  label12;
 
 	protected:
 
@@ -125,6 +141,7 @@ namespace Differenzefinite {
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
+			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -417,11 +434,21 @@ namespace Differenzefinite {
 			this->textBox12->Size = System::Drawing::Size(524, 20);
 			this->textBox12->TabIndex = 35;
 			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(387, 132);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(41, 13);
+			this->label12->TabIndex = 36;
+			this->label12->Text = L"label12";
+			// 
 			// FormMain
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(702, 629);
+			this->Controls->Add(this->label12);
 			this->Controls->Add(this->textBox12);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
@@ -471,9 +498,16 @@ namespace Differenzefinite {
 			textBox12->Text = openFileDialog1->FileName;
 			String^ Snome_file = openFileDialog1->SafeFileName;
 			string nome_file = context.marshal_as<string>(Snome_file);
-			parametriCSV inputcsv(nome_file);
-			inputcsv.leggifile();
-			MessageBox::Show("Import file effettuato");
+			System::Diagnostics::Debug::WriteLine(Snome_file);
+			cout << nome_file << endl;
+			string prooova = "ciao";
+			label12->Text = Snome_file;
+			//PadreImport provaaa(nome_file);
+			parametriCSV inputcsv(Snome_file);
+			//inputcsv.leggifile();
+			//String^ nomenome= gcnew String(inputcsv.nome.c_str());
+//			label12->Text = nomenome;
+			//MessageBox::Show("Import file effettuato");
 			textBox1->Enabled = 0;
 			textBox2->Enabled = 0;
 			textBox3->Enabled = 0;
@@ -482,13 +516,57 @@ namespace Differenzefinite {
 			textBox6->Enabled = 0;
 			textBox7->Enabled = 0;
 			righe = inputcsv.contatore;
+		//	System::Diagnostics::Debug::WriteLine(nomenome);
+
+			S.resize(righe);
+			K.resize(righe);
+			r.resize(righe);
+			sigma.resize(righe);
+			time.resize(righe);
+			no_S_steps.resize(righe);
+			no_t_steps.resize(righe);
+			risexpeu.resize(righe);
+			risexpus.resize(righe);
+			risimpeu.resize(righe);
+			risimpus.resize(righe);
+
+			int size = sizeof(S);
+		
+			
+
+			//label12->Text = righe.ToString();
+
+			for (int i = 0; i < righe; i++) {
+				S[i] = inputcsv.S[i];
+				label12->Text = S[i].ToString();
+				K[i] = inputcsv.K[i];
+				r[i] = inputcsv.r[i];
+				sigma[i] = inputcsv.sigma[i];
+				time[i] = inputcsv.time[i];
+				no_S_steps[i] = inputcsv.no_s_steps[i];
+				no_t_steps[i] = inputcsv.no_t_steps[i];
+
+
+			}
+
+
+
 		}
 		
 	}
 public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 	if (checkBox1->Checked == 1) {
 		Differenze_esplicite expeu(0,0,0,0,0,0,0);
-		for (int i = 0; i < righe; i++) {}
+		
+		for (int i = 0; i < righe; i++) {
+			expeu.SetVariabili(S[i], K[i], r[i], sigma[i], time[i], no_S_steps[i], no_t_steps[i]);
+			risexpeu[i] = expeu.option_price_put_european_finite_diff_explicit();
+		
+		
+		}
+		CSVexport exp;
+		exp.out(risexpeu, righe);
+
 		}
 	
 	

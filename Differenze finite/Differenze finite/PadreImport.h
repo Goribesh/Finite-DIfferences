@@ -4,18 +4,20 @@
 #include <iostream>
 #include <vector>
 
-
+#using<system.dll>  
 
 using namespace std;
 
+using namespace System;
+using namespace System::IO;
 
 class PadreImport
 {
 public:
-	PadreImport(const string file );// costruttore, prende in ingresso il nome del file di import
+	PadreImport( System::String^ file);// costruttore, prende in ingresso il nome del file di import
 	size_t contatore = 0;
 	size_t num_righe = 0;
-	string nome;
+	System::String^ nome;
 
 	//vector<double> results(contatore);
 
