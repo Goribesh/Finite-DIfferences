@@ -5,7 +5,7 @@
 
 double Differenze_esplicite::option_price_put_european_finite_diff_explicit()
 {
-
+	
 	double sigma_sqr = pow(sigma, 2);
 	int M = no_S_steps;
 	if ((no_S_steps % 2) == 1)
@@ -59,12 +59,13 @@ double Differenze_esplicite::option_price_put_european_finite_diff_explicit()
 	};
 
 	return f[M / 2];
+	
 }
 
 
 double Differenze_esplicite::option_price_put_american_finite_diff_explicit()
 {
-	double sigma_sqr = sigma * sigma;
+	double sigma_sqr = sigma* sigma;
 	int M = no_S_steps + (no_S_steps % 2); // need no S steps to be even:
 	double delta_S = 2.0*S / M; //5
 	vector<double> S_values(M + 1); //21
@@ -97,4 +98,5 @@ double Differenze_esplicite::option_price_put_american_finite_diff_explicit()
 		};
 	};
 	return f[M / 2];
+	
 };

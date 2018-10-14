@@ -35,14 +35,7 @@ public:
 		const int& no_S_steps,
 		const int& no_t_steps*/);
 
-	double sigma = ClassePadreDifferenze::sigma;
-	double S = ClassePadreDifferenze::S;
-	double K = ClassePadreDifferenze::K;
-	double X = ClassePadreDifferenze::K;
-	double time = ClassePadreDifferenze::time;
-	double r = ClassePadreDifferenze::r;
-	int no_t_steps = ClassePadreDifferenze::no_t_steps;
-	int no_S_steps = ClassePadreDifferenze::no_S_steps;
+	
 
 
 

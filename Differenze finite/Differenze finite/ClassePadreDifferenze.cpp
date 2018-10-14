@@ -25,22 +25,22 @@
 	
 
 };*/
-void ClassePadreDifferenze::SetVariabili(	double  Si,
-											double  Ki,
-											double ri,
-											double  sigmai,
-											double  timei,
-											int  no_S_stepsi,
-											int  no_t_stepsi)
+/*void ClassePadreDifferenze::SetVariabili(double  Si,
+	double  Ki,
+	double ri,
+	double  sigmai,
+	double  timei,
+	int  no_S_stepsi,
+	int  no_t_stepsi)
 {
 
-	S = Si;
-	K = Ki;
-	r = ri;
-	sigma = sigmai;
-	time = timei;
-	no_S_steps = no_S_stepsi;
-	no_t_steps = no_t_stepsi;
+	ClassePadreDifferenze::S = Si;
+	ClassePadreDifferenze::K = Ki;
+	ClassePadreDifferenze::r = ri;
+	ClassePadreDifferenze::sigma = sigmai;
+	ClassePadreDifferenze::time = timei;
+	ClassePadreDifferenze::no_S_steps = no_S_stepsi;
+	ClassePadreDifferenze::no_t_steps = no_t_stepsi;
 
-}
+}*/
 

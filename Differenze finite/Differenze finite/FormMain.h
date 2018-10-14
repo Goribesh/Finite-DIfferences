@@ -10,13 +10,15 @@
 #include "differenze_implicite.h"
 
 int righe = 0;
-vector <double> S;
-vector <double> K;
-vector <double> r;
-vector <double> sigma;
-vector <double> time;
-vector <int> no_S_steps;
-vector <int> no_t_steps;
+vector <double> Sv;
+vector <double> Kv;
+vector <double> rv;
+vector <double> sigmav;
+vector <double> timev;
+vector <int> no_S_stepsv;
+vector <int> no_t_stepsv;
+
+bool fileinserito = 0;
 
 vector<double> risexpeu;
 vector<double> risexpus;
@@ -190,21 +192,21 @@ namespace Differenzefinite {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(316, 283);
+			this->textBox3->Location = System::Drawing::Point(260, 283);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(55, 20);
 			this->textBox3->TabIndex = 6;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(260, 283);
+			this->textBox4->Location = System::Drawing::Point(316, 283);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(55, 20);
 			this->textBox4->TabIndex = 5;
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(484, 283);
+			this->textBox5->Location = System::Drawing::Point(372, 283);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(55, 20);
 			this->textBox5->TabIndex = 9;
@@ -218,7 +220,7 @@ namespace Differenzefinite {
 			// 
 			// textBox7
 			// 
-			this->textBox7->Location = System::Drawing::Point(372, 283);
+			this->textBox7->Location = System::Drawing::Point(484, 283);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(55, 20);
 			this->textBox7->TabIndex = 7;
@@ -498,8 +500,7 @@ namespace Differenzefinite {
 			openFileDialog1->OpenFile();
 			textBox12->Text = openFileDialog1->FileName;
 			String^ Snome_file = openFileDialog1->SafeFileName;
-			string nome_file = context.marshal_as<string>(Snome_file);
-			System::Diagnostics::Debug::WriteLine(Snome_file);
+			fileinserito = 1;
 			parametriCSV inputcsv(Snome_file);
 			inputcsv.leggifile();
 			System::Diagnostics::Debug::WriteLine(inputcsv.nome);
@@ -514,38 +515,33 @@ namespace Differenzefinite {
 			righe = inputcsv.contatore;
 
 
-			S.resize(righe);
-			K.resize(righe);
-			r.resize(righe);
-			sigma.resize(righe);
-			time.resize(righe);
-			no_S_steps.resize(righe);
-			no_t_steps.resize(righe);
+			Sv.resize(righe);
+			Kv.resize(righe);
+			rv.resize(righe);
+			sigmav.resize(righe);
+			timev.resize(righe);
+			no_S_stepsv.resize(righe);
+			no_t_stepsv.resize(righe);
 			risexpeu.resize(righe);
 			risexpus.resize(righe);
 			risimpeu.resize(righe);
 			risimpus.resize(righe);
 
-			int size = sizeof(S);
+		
 		
 			
 
 			//label12->Text = righe.ToString();
 
 			for (int i = 0; i < righe; i++) {
-				S[i] = inputcsv.S[i];
-				System::Diagnostics::Debug::WriteLine(S[i]);
-				label12->Text = S[i].ToString();
-			
-				K[i] = inputcsv.K[i];
-				System::Diagnostics::Debug::WriteLine(K[i]);
-				
-				r[i] = inputcsv.r[i];
-				System::Diagnostics::Debug::WriteLine(r[i]);
-				sigma[i] = inputcsv.sigma[i];
-				time[i] = inputcsv.time[i];
-				no_S_steps[i] = inputcsv.no_s_steps[i];
-				no_t_steps[i] = inputcsv.no_t_steps[i];
+				Sv[i] = inputcsv.S[i];				
+				label12->Text = Sv[i].ToString();		
+				Kv[i] = inputcsv.K[i];			
+				rv[i] = inputcsv.r[i];
+				sigmav[i] = inputcsv.sigma[i];
+				timev[i] = inputcsv.time[i];
+				no_S_stepsv[i] = inputcsv.no_s_steps[i];
+				no_t_stepsv[i] = inputcsv.no_t_steps[i];
 
 
 			}
@@ -556,40 +552,77 @@ namespace Differenzefinite {
 		
 	}
 public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (checkBox1->Checked == 1) {
-		Differenze_esplicite expeu;
-		
-		
-
-		for (int i = 0; i < righe; i++) {
-
-			System::Diagnostics::Debug::WriteLine(S[i]);
-			expeu.SetVariabili(2.0, 2.0, 2.0, 2.0, 2.0, 2, 2);
-			System::Diagnostics::Debug::WriteLine(expeu.S);
-		
-			
-
-			
-			
-
-			//risexpeu[i] = expeu.option_price_put_european_finite_diff_explicit();
-			
-		
-		
-		}
-		CSVexport exp;
-		exp.out(risexpeu, righe);
-
+	if (checkBox1->Checked == 1) 
+	{
+		Differenze_esplicite expeu ;
+		for (int i = 0; i < righe; i++) 
+		{
+			expeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
+			risexpeu[i] = expeu.option_price_put_european_finite_diff_explicit();
+			cout << risexpeu[i] << endl;
 		}
 	
 	
 
+	}
+	if (checkBox2->Checked == 1)
+	{
+		Differenze_esplicite expus;
+		for (int i = 0; i < righe; i++) 
+		{
+			expus.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
+			risexpus[i] = expus.option_price_put_american_finite_diff_explicit();
+			cout << risexpus[i] << endl;
+		}
+	
+	
+
+	}
+	if (checkBox3->Checked == 1)
+	{
+		differenze_implicite impeu;
+		for (int i = 0; i < righe; i++)
+		{
+			impeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
+			risimpeu[i] = impeu.option_price_put_european_finite_diff_implicit();
+			cout << risimpeu[i] << endl;
+		}
+	}
+	if (checkBox4->Checked == 1)
+	{
+		differenze_implicite impus;
+		for (int i = 0; i < righe; i++) 
+		{
+			impus.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
+			risimpus[i] = impus.option_price_put_american_finite_diff_implicit();
+			cout << risimpus[i] << endl;
+		}
+	}
+	if (fileinserito=0) {
+
+		double Sman = System::Convert::ToDouble(textBox1->Text);
+		double Kman = System::Convert::ToDouble(textBox2->Text);
+		double rman = System::Convert::ToDouble(textBox3->Text);
+		double sigmaman = System::Convert::ToDouble(textBox4->Text);
+		double timeman = System::Convert::ToDouble(textBox5->Text);
+		int no_s_stepsman = System::Convert::ToDouble(textBox6->Text);
+		int no_t_stepsman = System::Convert::ToDouble(textBox7->Text);
+
+		if (checkBox1->Checked == 1)
+		{
+			Differenze_esplicite expman;
+			expman.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
+			double risexpeuman = expman.option_price_put_european_finite_diff_explicit();
+			textBox11->Text = System::Convert::ToString(risexpeuman);
+
+		}
+
+
+	
 
 
 
-
-
-
+	}
 }
 };
 }

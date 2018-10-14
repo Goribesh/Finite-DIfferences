@@ -7,7 +7,7 @@
 
 using namespace std;
 
-ref class Differenze_esplicite : public ClassePadreDifferenze
+ref class Differenze_esplicite :  ClassePadreDifferenze
 {
 public:
 
@@ -24,18 +24,20 @@ public:
 	double option_price_put_american_finite_diff_explicit();
 
 
-	double sigma = ClassePadreDifferenze::sigma;
-	double S = ClassePadreDifferenze::S;
-	double K = ClassePadreDifferenze::K;
-	double X = ClassePadreDifferenze::K;
-	double time = ClassePadreDifferenze::time;
-	double r = ClassePadreDifferenze::r;
-	int no_t_steps = ClassePadreDifferenze::no_t_steps;
-	int no_S_steps = ClassePadreDifferenze::no_S_steps;
+	/*double sigmad = ClassePadreDifferenze::sigma;
+	double Sd = ClassePadreDifferenze::S;
+	double Kd = ClassePadreDifferenze::K;
+	double Xd = ClassePadreDifferenze::K;
+	double timed = ClassePadreDifferenze::time;
+	double rd = ClassePadreDifferenze::r;
+	int no_t_stepsd = ClassePadreDifferenze::no_t_steps;
+	int no_S_stepsd = ClassePadreDifferenze::no_S_steps;*/
 		
 		
 	
-		
+	
+
+
 		
 		
 };
