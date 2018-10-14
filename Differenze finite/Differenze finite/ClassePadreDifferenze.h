@@ -5,7 +5,7 @@ using namespace std;
 
 
 
-public ref class ClassePadreDifferenze abstract
+ public ref class ClassePadreDifferenze 
 {
 public:
 

@@ -25,6 +25,11 @@ vector<double> risexpus;
 vector<double> risimpeu;
 vector<double> risimpus;
 
+Differenze_esplicite expeu;
+Differenze_esplicite expus;
+differenze_implicite impeu;
+differenze_implicite impus;
+
 
 
 namespace Differenzefinite {
@@ -182,6 +187,7 @@ namespace Differenzefinite {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(55, 20);
 			this->textBox1->TabIndex = 3;
+			this->textBox1->Text = L"50.0";
 			// 
 			// textBox2
 			// 
@@ -189,6 +195,7 @@ namespace Differenzefinite {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(55, 20);
 			this->textBox2->TabIndex = 4;
+			this->textBox2->Text = L"50.0";
 			// 
 			// textBox3
 			// 
@@ -196,6 +203,7 @@ namespace Differenzefinite {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(55, 20);
 			this->textBox3->TabIndex = 6;
+			this->textBox3->Text = L"0.1";
 			// 
 			// textBox4
 			// 
@@ -203,6 +211,7 @@ namespace Differenzefinite {
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(55, 20);
 			this->textBox4->TabIndex = 5;
+			this->textBox4->Text = L"0.4";
 			// 
 			// textBox5
 			// 
@@ -210,6 +219,7 @@ namespace Differenzefinite {
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(55, 20);
 			this->textBox5->TabIndex = 9;
+			this->textBox5->Text = L"0.4167";
 			// 
 			// textBox6
 			// 
@@ -217,6 +227,7 @@ namespace Differenzefinite {
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(55, 20);
 			this->textBox6->TabIndex = 8;
+			this->textBox6->Text = L"20";
 			// 
 			// textBox7
 			// 
@@ -224,6 +235,7 @@ namespace Differenzefinite {
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(55, 20);
 			this->textBox7->TabIndex = 7;
+			this->textBox7->Text = L"11";
 			// 
 			// label4
 			// 
@@ -351,34 +363,34 @@ namespace Differenzefinite {
 			// 
 			// textBox8
 			// 
-			this->textBox8->Location = System::Drawing::Point(473, 435);
+			this->textBox8->Location = System::Drawing::Point(461, 435);
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->ReadOnly = true;
-			this->textBox8->Size = System::Drawing::Size(80, 20);
+			this->textBox8->Size = System::Drawing::Size(110, 20);
 			this->textBox8->TabIndex = 27;
 			// 
 			// textBox9
 			// 
-			this->textBox9->Location = System::Drawing::Point(361, 435);
+			this->textBox9->Location = System::Drawing::Point(349, 435);
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->ReadOnly = true;
-			this->textBox9->Size = System::Drawing::Size(80, 20);
+			this->textBox9->Size = System::Drawing::Size(110, 20);
 			this->textBox9->TabIndex = 26;
 			// 
 			// textBox10
 			// 
-			this->textBox10->Location = System::Drawing::Point(249, 435);
+			this->textBox10->Location = System::Drawing::Point(236, 435);
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->ReadOnly = true;
-			this->textBox10->Size = System::Drawing::Size(80, 20);
+			this->textBox10->Size = System::Drawing::Size(110, 20);
 			this->textBox10->TabIndex = 25;
 			// 
 			// textBox11
 			// 
-			this->textBox11->Location = System::Drawing::Point(137, 435);
+			this->textBox11->Location = System::Drawing::Point(124, 435);
 			this->textBox11->Name = L"textBox11";
 			this->textBox11->ReadOnly = true;
-			this->textBox11->Size = System::Drawing::Size(80, 20);
+			this->textBox11->Size = System::Drawing::Size(110, 20);
 			this->textBox11->TabIndex = 24;
 			// 
 			// label8
@@ -552,9 +564,9 @@ namespace Differenzefinite {
 		
 	}
 public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (checkBox1->Checked == 1) 
+	if (checkBox1->Checked || fileinserito ==1) 
 	{
-		Differenze_esplicite expeu ;
+		
 		for (int i = 0; i < righe; i++) 
 		{
 			expeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
@@ -562,12 +574,11 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 			cout << risexpeu[i] << endl;
 		}
 	
-	
 
 	}
-	if (checkBox2->Checked == 1)
+	if (checkBox2->Checked  || fileinserito == 1)
 	{
-		Differenze_esplicite expus;
+		
 		for (int i = 0; i < righe; i++) 
 		{
 			expus.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
@@ -578,9 +589,9 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 	
 
 	}
-	if (checkBox3->Checked == 1)
+	if (checkBox3->Checked  || fileinserito == 1)
 	{
-		differenze_implicite impeu;
+		
 		for (int i = 0; i < righe; i++)
 		{
 			impeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
@@ -588,9 +599,9 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 			cout << risimpeu[i] << endl;
 		}
 	}
-	if (checkBox4->Checked == 1)
+	if (checkBox4->Checked || fileinserito == 1)
 	{
-		differenze_implicite impus;
+	
 		for (int i = 0; i < righe; i++) 
 		{
 			impus.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
@@ -598,7 +609,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 			cout << risimpus[i] << endl;
 		}
 	}
-	if (fileinserito=0) {
+	if (fileinserito==0) {
 
 		double Sman = System::Convert::ToDouble(textBox1->Text);
 		double Kman = System::Convert::ToDouble(textBox2->Text);
@@ -613,10 +624,19 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 			Differenze_esplicite expman;
 			expman.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
 			double risexpeuman = expman.option_price_put_european_finite_diff_explicit();
+			cout << risexpeuman << endl;
 			textBox11->Text = System::Convert::ToString(risexpeuman);
 
 		}
+		if (checkBox2->Checked == 1)
+		{
+			Differenze_esplicite expman2;
+			expman2.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
+			double risexpeuman = expman2.option_price_put_european_finite_diff_explicit();
+			cout << risexpeuman << endl;
+			textBox11->Text = System::Convert::ToString(risexpeuman);
 
+		}
 
 	
 
