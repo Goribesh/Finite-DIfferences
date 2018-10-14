@@ -7,28 +7,21 @@
 
 using namespace std;
 
-class Differenze_esplicite : public ClassePadreDifferenze
+ref class Differenze_esplicite : public ClassePadreDifferenze
 {
 public:
 
-	using ClassePadreDifferenze::ClassePadreDifferenze;
-
-	double option_price_put_european_finite_diff_explicit(/*	const double& S,
-															const double& X,
-															const double& r,
-															const double& sigma,
-															const double& time,
-															const int& no_S_steps,
-															const int& no_t_steps*/);
 
 
-	double option_price_put_american_finite_diff_explicit(/*	const double& S,
-															const double& K,
-															const double& r,
-															const double& sigma,
-															const double& time,
-															const int& no_S_steps,
-															const int& no_t_steps*/);
+	
+	//Differenze_esplicite(double  Sin, double  Kin, double rin, double  sigmain, double  timein, int  no_S_stepsin, int  no_t_stepsin) : ClassePadreDifferenze(Sin, Kin, rin, sigmain, timein, no_S_stepsin, no_t_stepsin) {};
+
+	//using ClassePadreDifferenze::ClassePadreDifferenze;
+
+	double option_price_put_european_finite_diff_explicit();
+
+
+	double option_price_put_american_finite_diff_explicit();
 
 
 	double sigma = ClassePadreDifferenze::sigma;
@@ -41,7 +34,7 @@ public:
 	int no_S_steps = ClassePadreDifferenze::no_S_steps;
 		
 		
-		
+	
 		
 		
 		

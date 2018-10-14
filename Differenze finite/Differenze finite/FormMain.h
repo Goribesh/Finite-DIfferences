@@ -7,6 +7,7 @@
 #include "CSVimport.h"
 #include "CSVexport.h"
 #include <vector>
+#include "differenze_implicite.h"
 
 int righe = 0;
 vector <double> S;
@@ -499,15 +500,10 @@ namespace Differenzefinite {
 			String^ Snome_file = openFileDialog1->SafeFileName;
 			string nome_file = context.marshal_as<string>(Snome_file);
 			System::Diagnostics::Debug::WriteLine(Snome_file);
-			cout << nome_file << endl;
-			string prooova = "ciao";
-			label12->Text = Snome_file;
-			//PadreImport provaaa(nome_file);
 			parametriCSV inputcsv(Snome_file);
-			//inputcsv.leggifile();
-			//String^ nomenome= gcnew String(inputcsv.nome.c_str());
-//			label12->Text = nomenome;
-			//MessageBox::Show("Import file effettuato");
+			inputcsv.leggifile();
+			System::Diagnostics::Debug::WriteLine(inputcsv.nome);
+			MessageBox::Show("Import file effettuato");
 			textBox1->Enabled = 0;
 			textBox2->Enabled = 0;
 			textBox3->Enabled = 0;
@@ -516,7 +512,7 @@ namespace Differenzefinite {
 			textBox6->Enabled = 0;
 			textBox7->Enabled = 0;
 			righe = inputcsv.contatore;
-		//	System::Diagnostics::Debug::WriteLine(nomenome);
+
 
 			S.resize(righe);
 			K.resize(righe);
@@ -538,9 +534,14 @@ namespace Differenzefinite {
 
 			for (int i = 0; i < righe; i++) {
 				S[i] = inputcsv.S[i];
+				System::Diagnostics::Debug::WriteLine(S[i]);
 				label12->Text = S[i].ToString();
+			
 				K[i] = inputcsv.K[i];
+				System::Diagnostics::Debug::WriteLine(K[i]);
+				
 				r[i] = inputcsv.r[i];
+				System::Diagnostics::Debug::WriteLine(r[i]);
 				sigma[i] = inputcsv.sigma[i];
 				time[i] = inputcsv.time[i];
 				no_S_steps[i] = inputcsv.no_s_steps[i];
@@ -556,11 +557,23 @@ namespace Differenzefinite {
 	}
 public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 	if (checkBox1->Checked == 1) {
-		Differenze_esplicite expeu(0,0,0,0,0,0,0);
+		Differenze_esplicite expeu;
 		
+		
+
 		for (int i = 0; i < righe; i++) {
-			expeu.SetVariabili(S[i], K[i], r[i], sigma[i], time[i], no_S_steps[i], no_t_steps[i]);
-			risexpeu[i] = expeu.option_price_put_european_finite_diff_explicit();
+
+			System::Diagnostics::Debug::WriteLine(S[i]);
+			expeu.SetVariabili(2.0, 2.0, 2.0, 2.0, 2.0, 2, 2);
+			System::Diagnostics::Debug::WriteLine(expeu.S);
+		
+			
+
+			
+			
+
+			//risexpeu[i] = expeu.option_price_put_european_finite_diff_explicit();
+			
 		
 		
 		}

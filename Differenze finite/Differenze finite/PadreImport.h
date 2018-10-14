@@ -3,40 +3,38 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
-
+#include <cliext/vector>
 #using<system.dll>  
 
 using namespace std;
 
-using namespace System;
-using namespace System::IO;
 
-class PadreImport
+
+ref class PadreImport
 {
 public:
+
 	PadreImport( System::String^ file);// costruttore, prende in ingresso il nome del file di import
 	size_t contatore = 0;
 	size_t num_righe = 0;
 	System::String^ nome;
 
-	//vector<double> results(contatore);
+	cliext::vector<System::String^> SS;
+	cliext::vector<System::String^> SK;
+	cliext::vector<System::String^> Sr;
+	cliext::vector<System::String^> Ssigma;
+	cliext::vector<System::String^> Stime;
+	cliext::vector<System::String^> Sno_s_steps;
+	cliext::vector<System::String^> Sno_t_steps;
+
+	cliext::vector<double> S;
+	cliext::vector<double> K;
+	cliext::vector<double> r;
+	cliext::vector<double> sigma;
+	cliext::vector<double> time;
+	cliext::vector<int> no_s_steps;
+	cliext::vector<int> no_t_steps;
 
 
-
-	string *SS = new string[num_righe];
-	string *SK = new string[num_righe];
-	string *Sr = new string[num_righe];
-	string *Ssigma = new string[num_righe];
-	string *Stime = new string[num_righe];
-	string *Sno_s_steps = new string[num_righe];
-	string *Sno_t_steps = new string[num_righe];
-
-	double *S = new double[num_righe];
-	double *K = new double[num_righe];
-	double *r = new double[num_righe];
-	double *sigma = new double[num_righe];
-	double *time = new double[num_righe];
-	int *no_s_steps = new int[num_righe];
-	int *no_t_steps = new int[num_righe];
 };
 

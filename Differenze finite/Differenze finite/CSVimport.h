@@ -7,10 +7,12 @@
 #include "PadreImport.h"
 using namespace std;
 
-class parametriCSV :public PadreImport
+
+
+ ref class parametriCSV :public PadreImport
 {
 public:
-	using PadreImport::PadreImport;
+	parametriCSV(System::String^ file) : PadreImport(file) {};
 
 	void leggifile();			// legge parametriCSV dal file
 	

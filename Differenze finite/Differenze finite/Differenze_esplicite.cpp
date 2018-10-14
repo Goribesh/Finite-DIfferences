@@ -2,6 +2,7 @@
 
 
 
+
 double Differenze_esplicite::option_price_put_european_finite_diff_explicit()
 {
 

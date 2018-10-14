@@ -171,7 +171,6 @@
     <ClCompile Include="Matrici\svd.cpp" />
     <ClCompile Include="PadreImport.cpp" />
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="TXTimport.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassePadreDifferenze.h" />
@@ -196,7 +195,6 @@
     <ClInclude Include="Matrici\tmt.h" />
     <ClInclude Include="PadreImport.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="TXTimport.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FormMain.resx">
