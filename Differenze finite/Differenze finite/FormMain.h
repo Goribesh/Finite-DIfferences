@@ -25,17 +25,15 @@ vector<double> risexpus;
 vector<double> risimpeu;
 vector<double> risimpus;
 
-Differenze_esplicite expeu;
-Differenze_esplicite expus;
-differenze_implicite impeu;
-differenze_implicite impus;
+
+
 
 
 
 namespace Differenzefinite {
 
 
-
+	
 	
 	
 	using namespace System;
@@ -54,6 +52,9 @@ namespace Differenzefinite {
 		FormMain(void)
 		{
 			InitializeComponent();
+
+			
+
 			//
 			//TODO: aggiungere qui il codice del costruttore.
 			//
@@ -101,7 +102,7 @@ namespace Differenzefinite {
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::TextBox^  textBox12;
-	private: System::Windows::Forms::Label^  label12;
+
 
 	protected:
 
@@ -149,7 +150,6 @@ namespace Differenzefinite {
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
-			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -188,6 +188,7 @@ namespace Differenzefinite {
 			this->textBox1->Size = System::Drawing::Size(55, 20);
 			this->textBox1->TabIndex = 3;
 			this->textBox1->Text = L"50.0";
+			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox2
 			// 
@@ -196,6 +197,7 @@ namespace Differenzefinite {
 			this->textBox2->Size = System::Drawing::Size(55, 20);
 			this->textBox2->TabIndex = 4;
 			this->textBox2->Text = L"50.0";
+			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox3
 			// 
@@ -204,6 +206,7 @@ namespace Differenzefinite {
 			this->textBox3->Size = System::Drawing::Size(55, 20);
 			this->textBox3->TabIndex = 6;
 			this->textBox3->Text = L"0.1";
+			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox4
 			// 
@@ -212,6 +215,7 @@ namespace Differenzefinite {
 			this->textBox4->Size = System::Drawing::Size(55, 20);
 			this->textBox4->TabIndex = 5;
 			this->textBox4->Text = L"0.4";
+			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox5
 			// 
@@ -220,6 +224,7 @@ namespace Differenzefinite {
 			this->textBox5->Size = System::Drawing::Size(55, 20);
 			this->textBox5->TabIndex = 9;
 			this->textBox5->Text = L"0.4167";
+			this->textBox5->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox6
 			// 
@@ -228,6 +233,7 @@ namespace Differenzefinite {
 			this->textBox6->Size = System::Drawing::Size(55, 20);
 			this->textBox6->TabIndex = 8;
 			this->textBox6->Text = L"20";
+			this->textBox6->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox7
 			// 
@@ -236,6 +242,7 @@ namespace Differenzefinite {
 			this->textBox7->Size = System::Drawing::Size(55, 20);
 			this->textBox7->TabIndex = 7;
 			this->textBox7->Text = L"11";
+			this->textBox7->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// label4
 			// 
@@ -324,7 +331,7 @@ namespace Differenzefinite {
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(26, 86);
+			this->checkBox1->Location = System::Drawing::Point(266, 110);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(158, 17);
 			this->checkBox1->TabIndex = 20;
@@ -334,7 +341,7 @@ namespace Differenzefinite {
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(26, 109);
+			this->checkBox2->Location = System::Drawing::Point(266, 133);
 			this->checkBox2->Name = L"checkBox2";
 			this->checkBox2->Size = System::Drawing::Size(158, 17);
 			this->checkBox2->TabIndex = 21;
@@ -344,7 +351,7 @@ namespace Differenzefinite {
 			// checkBox3
 			// 
 			this->checkBox3->AutoSize = true;
-			this->checkBox3->Location = System::Drawing::Point(26, 132);
+			this->checkBox3->Location = System::Drawing::Point(266, 156);
 			this->checkBox3->Name = L"checkBox3";
 			this->checkBox3->Size = System::Drawing::Size(157, 17);
 			this->checkBox3->TabIndex = 22;
@@ -354,7 +361,7 @@ namespace Differenzefinite {
 			// checkBox4
 			// 
 			this->checkBox4->AutoSize = true;
-			this->checkBox4->Location = System::Drawing::Point(26, 155);
+			this->checkBox4->Location = System::Drawing::Point(266, 179);
 			this->checkBox4->Name = L"checkBox4";
 			this->checkBox4->Size = System::Drawing::Size(157, 17);
 			this->checkBox4->TabIndex = 23;
@@ -368,6 +375,7 @@ namespace Differenzefinite {
 			this->textBox8->ReadOnly = true;
 			this->textBox8->Size = System::Drawing::Size(110, 20);
 			this->textBox8->TabIndex = 27;
+			this->textBox8->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox9
 			// 
@@ -376,6 +384,7 @@ namespace Differenzefinite {
 			this->textBox9->ReadOnly = true;
 			this->textBox9->Size = System::Drawing::Size(110, 20);
 			this->textBox9->TabIndex = 26;
+			this->textBox9->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox10
 			// 
@@ -384,6 +393,7 @@ namespace Differenzefinite {
 			this->textBox10->ReadOnly = true;
 			this->textBox10->Size = System::Drawing::Size(110, 20);
 			this->textBox10->TabIndex = 25;
+			this->textBox10->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox11
 			// 
@@ -392,6 +402,7 @@ namespace Differenzefinite {
 			this->textBox11->ReadOnly = true;
 			this->textBox11->Size = System::Drawing::Size(110, 20);
 			this->textBox11->TabIndex = 24;
+			this->textBox11->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// label8
 			// 
@@ -443,27 +454,17 @@ namespace Differenzefinite {
 			// 
 			// textBox12
 			// 
-			this->textBox12->Location = System::Drawing::Point(148, 23);
+			this->textBox12->Location = System::Drawing::Point(147, 22);
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->ReadOnly = true;
 			this->textBox12->Size = System::Drawing::Size(524, 20);
 			this->textBox12->TabIndex = 35;
-			// 
-			// label12
-			// 
-			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(387, 132);
-			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(41, 13);
-			this->label12->TabIndex = 36;
-			this->label12->Text = L"label12";
 			// 
 			// FormMain
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(702, 629);
-			this->Controls->Add(this->label12);
 			this->Controls->Add(this->textBox12);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
@@ -546,8 +547,7 @@ namespace Differenzefinite {
 			//label12->Text = righe.ToString();
 
 			for (int i = 0; i < righe; i++) {
-				Sv[i] = inputcsv.S[i];				
-				label12->Text = Sv[i].ToString();		
+				Sv[i] = inputcsv.S[i];						
 				Kv[i] = inputcsv.K[i];			
 				rv[i] = inputcsv.r[i];
 				sigmav[i] = inputcsv.sigma[i];
@@ -569,6 +569,8 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 		
 		for (int i = 0; i < righe; i++) 
 		{
+			Differenze_esplicite expeu;
+			
 			expeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
 			risexpeu[i] = expeu.option_price_put_european_finite_diff_explicit();
 			cout << risexpeu[i] << endl;
@@ -578,6 +580,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 	}
 	if (checkBox2->Checked  || fileinserito == 1)
 	{
+		Differenze_esplicite expus;
 		
 		for (int i = 0; i < righe; i++) 
 		{
@@ -591,6 +594,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 	}
 	if (checkBox3->Checked  || fileinserito == 1)
 	{
+		differenze_implicite impeu;
 		
 		for (int i = 0; i < righe; i++)
 		{
@@ -601,7 +605,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 	}
 	if (checkBox4->Checked || fileinserito == 1)
 	{
-	
+		differenze_implicite impus;
 		for (int i = 0; i < righe; i++) 
 		{
 			impus.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
@@ -619,6 +623,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 		int no_s_stepsman = System::Convert::ToDouble(textBox6->Text);
 		int no_t_stepsman = System::Convert::ToDouble(textBox7->Text);
 
+
 		if (checkBox1->Checked == 1)
 		{
 			Differenze_esplicite expman;
@@ -632,13 +637,29 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 		{
 			Differenze_esplicite expman2;
 			expman2.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
-			double risexpeuman = expman2.option_price_put_european_finite_diff_explicit();
-			cout << risexpeuman << endl;
-			textBox11->Text = System::Convert::ToString(risexpeuman);
+			double risexpusman = expman2.option_price_put_american_finite_diff_explicit();
+			cout << risexpusman << endl;
+			textBox10->Text = System::Convert::ToString(risexpusman);
 
 		}
+		if (checkBox3->Checked == 1)
+		{
+			differenze_implicite impman;
+			impman.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
+			double risimpeuman = impman.option_price_put_european_finite_diff_implicit();
+			cout << risimpeuman << endl;
+			textBox9->Text = System::Convert::ToString(risimpeuman);
 
-	
+		}
+		if (checkBox4->Checked == 1)
+		{
+			differenze_implicite impman2;
+			impman2.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
+			double risimpusman = impman2.option_price_put_american_finite_diff_implicit();
+			cout << risimpusman << endl;
+			textBox8->Text = System::Convert::ToString(risimpusman);
+
+		}
 
 
 
