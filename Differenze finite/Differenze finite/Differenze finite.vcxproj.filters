@@ -16,6 +16,24 @@
     <Filter Include="matrice">
       <UniqueIdentifier>{0ece3264-4d38-4c70-9875-834a13211263}</UniqueIdentifier>
     </Filter>
+    <Filter Include="File di origine\Import">
+      <UniqueIdentifier>{03e22b39-df4a-4c95-9a8c-3f227f820014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\Export">
+      <UniqueIdentifier>{850e155d-ad1d-499b-8991-4030cad550aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di origine\algoritmi">
+      <UniqueIdentifier>{b73f3b3c-39f3-494b-b3c4-64483c3863b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\Import">
+      <UniqueIdentifier>{4a39be33-0e1c-4ab8-beb4-6471d886a8ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\Export">
+      <UniqueIdentifier>{86cae20a-d2e2-41ae-b186-d9c60a8dc68f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\Algoritmi">
+      <UniqueIdentifier>{685b51ed-614e-4540-ad0d-d629c4157f7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FormMain.cpp">
@@ -96,28 +114,37 @@
     <ClCompile Include="Matrici\svd.cpp">
       <Filter>matrice</Filter>
     </ClCompile>
-    <ClCompile Include="ClassePadreDifferenze.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="CSVexport.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="CSVimport.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="Differenze_esplicite.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
-    <ClCompile Include="differenze_implicite.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="CSVimport.cpp">
+      <Filter>File di origine\Import</Filter>
+    </ClCompile>
     <ClCompile Include="PadreImport.cpp">
-      <Filter>File di origine</Filter>
+      <Filter>File di origine\Import</Filter>
     </ClCompile>
     <ClCompile Include="ImportTXT.cpp">
+      <Filter>File di origine\Import</Filter>
+    </ClCompile>
+    <ClCompile Include="PadreExport.cpp">
+      <Filter>File di origine\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassePadreDifferenze.cpp">
+      <Filter>File di origine\algoritmi</Filter>
+    </ClCompile>
+    <ClCompile Include="Differenze_esplicite.cpp">
+      <Filter>File di origine\algoritmi</Filter>
+    </ClCompile>
+    <ClCompile Include="differenze_implicite.cpp">
+      <Filter>File di origine\algoritmi</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportCSV.cpp">
+      <Filter>File di origine\Export</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportTXT.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportINI.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -161,28 +188,37 @@
     <ClInclude Include="Matrici\tmt.h">
       <Filter>matrice</Filter>
     </ClInclude>
-    <ClInclude Include="ClassePadreDifferenze.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="CSVexport.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="CSVimport.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="Differenze_esplicite.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="differenze_implicite.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="ImportTXT.h">
+      <Filter>File di intestazione\Import</Filter>
+    </ClInclude>
     <ClInclude Include="PadreImport.h">
+      <Filter>File di intestazione\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVimport.h">
+      <Filter>File di intestazione\Import</Filter>
+    </ClInclude>
+    <ClInclude Include="PadreExport.h">
+      <Filter>File di intestazione\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportCSV.h">
+      <Filter>File di intestazione\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassePadreDifferenze.h">
+      <Filter>File di intestazione\Algoritmi</Filter>
+    </ClInclude>
+    <ClInclude Include="Differenze_esplicite.h">
+      <Filter>File di intestazione\Algoritmi</Filter>
+    </ClInclude>
+    <ClInclude Include="differenze_implicite.h">
+      <Filter>File di intestazione\Algoritmi</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportTXT.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="ImportTXT.h">
+    <ClInclude Include="ExportINI.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
@@ -190,10 +226,5 @@
     <EmbeddedResource Include="FormMain.resx">
       <Filter>File di risorse</Filter>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="TXTinput.txt">
-      <Filter>File di origine</Filter>
-    </Text>
   </ItemGroup>
 </Project>

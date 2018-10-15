@@ -5,7 +5,7 @@
 #include <msclr\marshal_cppstd.h>
 #include <iostream>
 #include "CSVimport.h"
-#include "CSVexport.h"
+#include"ExportCSV.h"
 #include "ImportTXT.h"
 #include <vector>
 #include "differenze_implicite.h"
@@ -104,6 +104,13 @@ namespace Differenzefinite {
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::TextBox^  textBox12;
 	private: System::Windows::Forms::Button^  button4;
+	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
+	private: System::Windows::Forms::Label^  label12;
+	private: System::Windows::Forms::Label^  label13;
+	private: System::Windows::Forms::CheckBox^  checkBox5;
+	private: System::Windows::Forms::CheckBox^  checkBox6;
+	private: System::Windows::Forms::CheckBox^  checkBox7;
+	private: System::Windows::Forms::CheckBox^  checkBox8;
 
 
 	protected:
@@ -153,6 +160,13 @@ namespace Differenzefinite {
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox6 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox7 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox8 = (gcnew System::Windows::Forms::CheckBox());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -167,12 +181,14 @@ namespace Differenzefinite {
 			// 
 			// button2
 			// 
+			this->button2->Enabled = false;
 			this->button2->Location = System::Drawing::Point(526, 558);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(90, 38);
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"SALVA";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &FormMain::button2_Click);
 			// 
 			// button3
 			// 
@@ -331,11 +347,12 @@ namespace Differenzefinite {
 			this->openFileDialog1->DefaultExt = L"csv";
 			this->openFileDialog1->FileName = L"CSVinput.csv";
 			this->openFileDialog1->Filter = L"Files TXT (*.txt)|*.TXT|Files CSV (*.csv)|*.csv|Files INI (*.ini)|*.ini;";
+			this->openFileDialog1->FilterIndex = 2;
 			// 
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(266, 110);
+			this->checkBox1->Location = System::Drawing::Point(157, 130);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(158, 17);
 			this->checkBox1->TabIndex = 20;
@@ -345,7 +362,7 @@ namespace Differenzefinite {
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(266, 133);
+			this->checkBox2->Location = System::Drawing::Point(157, 153);
 			this->checkBox2->Name = L"checkBox2";
 			this->checkBox2->Size = System::Drawing::Size(158, 17);
 			this->checkBox2->TabIndex = 21;
@@ -355,7 +372,7 @@ namespace Differenzefinite {
 			// checkBox3
 			// 
 			this->checkBox3->AutoSize = true;
-			this->checkBox3->Location = System::Drawing::Point(266, 156);
+			this->checkBox3->Location = System::Drawing::Point(157, 176);
 			this->checkBox3->Name = L"checkBox3";
 			this->checkBox3->Size = System::Drawing::Size(157, 17);
 			this->checkBox3->TabIndex = 22;
@@ -365,7 +382,7 @@ namespace Differenzefinite {
 			// checkBox4
 			// 
 			this->checkBox4->AutoSize = true;
-			this->checkBox4->Location = System::Drawing::Point(266, 179);
+			this->checkBox4->Location = System::Drawing::Point(157, 199);
 			this->checkBox4->Name = L"checkBox4";
 			this->checkBox4->Size = System::Drawing::Size(157, 17);
 			this->checkBox4->TabIndex = 23;
@@ -474,11 +491,86 @@ namespace Differenzefinite {
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &FormMain::button4_Click);
 			// 
+			// saveFileDialog1
+			// 
+			this->saveFileDialog1->Filter = L"Files TXT (*.txt)|*.TXT|Files CSV (*.csv)|*.csv|Files INI (*.ini)|*.ini;";
+			this->saveFileDialog1->FilterIndex = 2;
+			// 
+			// label12
+			// 
+			this->label12->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(204, 103);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(56, 13);
+			this->label12->TabIndex = 37;
+			this->label12->Text = L"CALCOLO";
+			this->label12->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// label13
+			// 
+			this->label13->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(419, 103);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(51, 13);
+			this->label13->TabIndex = 42;
+			this->label13->Text = L"EXPORT";
+			this->label13->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// checkBox5
+			// 
+			this->checkBox5->AutoSize = true;
+			this->checkBox5->Location = System::Drawing::Point(372, 199);
+			this->checkBox5->Name = L"checkBox5";
+			this->checkBox5->Size = System::Drawing::Size(157, 17);
+			this->checkBox5->TabIndex = 41;
+			this->checkBox5->Text = L"Differenze finite implicite US";
+			this->checkBox5->UseVisualStyleBackColor = true;
+			// 
+			// checkBox6
+			// 
+			this->checkBox6->AutoSize = true;
+			this->checkBox6->Location = System::Drawing::Point(372, 176);
+			this->checkBox6->Name = L"checkBox6";
+			this->checkBox6->Size = System::Drawing::Size(157, 17);
+			this->checkBox6->TabIndex = 40;
+			this->checkBox6->Text = L"Differenze finite implicite EU";
+			this->checkBox6->UseVisualStyleBackColor = true;
+			// 
+			// checkBox7
+			// 
+			this->checkBox7->AutoSize = true;
+			this->checkBox7->Location = System::Drawing::Point(372, 153);
+			this->checkBox7->Name = L"checkBox7";
+			this->checkBox7->Size = System::Drawing::Size(158, 17);
+			this->checkBox7->TabIndex = 39;
+			this->checkBox7->Text = L"Differenze finite esplicite US";
+			this->checkBox7->UseVisualStyleBackColor = true;
+			// 
+			// checkBox8
+			// 
+			this->checkBox8->AutoSize = true;
+			this->checkBox8->Location = System::Drawing::Point(372, 130);
+			this->checkBox8->Name = L"checkBox8";
+			this->checkBox8->Size = System::Drawing::Size(158, 17);
+			this->checkBox8->TabIndex = 38;
+			this->checkBox8->Text = L"Differenze finite esplicite EU";
+			this->checkBox8->UseVisualStyleBackColor = true;
+			// 
 			// FormMain
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(702, 629);
+			this->Controls->Add(this->label13);
+			this->Controls->Add(this->checkBox5);
+			this->Controls->Add(this->checkBox6);
+			this->Controls->Add(this->checkBox7);
+			this->Controls->Add(this->checkBox8);
+			this->Controls->Add(this->label12);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->textBox12);
 			this->Controls->Add(this->label11);
@@ -511,6 +603,7 @@ namespace Differenzefinite {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->MaximizeBox = false;
 			this->Name = L"FormMain";
 			this->Text = L"Differenze Finite";
 			this->Load += gcnew System::EventHandler(this, &FormMain::FormMain_Load);
@@ -672,7 +765,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 			
 			expeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
 			risexpeu[i] = expeu.option_price_put_european_finite_diff_explicit();
-			cout << risexpeu[i] << endl;
+			button2->Enabled = 1;
 		}
 	
 
@@ -685,7 +778,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 		{
 			expus.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
 			risexpus[i] = expus.option_price_put_american_finite_diff_explicit();
-			cout << risexpus[i] << endl;
+			button2->Enabled = 1;
 		}
 	
 	
@@ -699,7 +792,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 		{
 			impeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
 			risimpeu[i] = impeu.option_price_put_european_finite_diff_implicit();
-			cout << risimpeu[i] << endl;
+			button2->Enabled = 1;
 		}
 	}
 	if (checkBox4->Checked && fileinserito == 1)
@@ -709,7 +802,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 		{
 			impus.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
 			risimpus[i] = impus.option_price_put_american_finite_diff_implicit();
-			cout << risimpus[i] << endl;
+			button2->Enabled = 1;
 		}
 	}
 	if (fileinserito==0) {
@@ -783,9 +876,44 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 		timev.clear();
 		no_S_stepsv.clear();
 		no_t_stepsv.clear();
-
+		button2->Enabled = 0;
 
 
 		}
+public: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+	saveFileDialog1->ShowDialog();
+	String^ nomeexport = saveFileDialog1->FileName;
+	
+	bool fileimportcsv = nomeexport->Contains(".csv");
+	bool fileimporttxt = nomeexport->Contains(".txt");
+	bool fileimportini = nomeexport->Contains(".ini");
+
+	int expeu = 1;
+	int expus = 2;
+	int impeu = 3;
+	int impus = 4;
+
+
+	if (fileimportcsv = 1) {
+		System::Diagnostics::Debug::WriteLine(nomeexport);
+		ExportCSV expcsv;
+		if (checkBox8->Checked)
+		{
+			expcsv.exportfile(expeu,risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+		}
+		if (checkBox7->Checked)
+		{
+			expcsv.exportfile(expus,risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+		}
+		if (checkBox6->Checked)
+		{
+			expcsv.exportfile(impeu,risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+		}
+		if (checkBox5->Checked)
+		{
+			expcsv.exportfile(impus,risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+		}
+	}
+}
 };
 }

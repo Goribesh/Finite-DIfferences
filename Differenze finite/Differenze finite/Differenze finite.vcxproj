@@ -110,6 +110,7 @@
       <AdditionalDependencies />
       <EntryPointSymbol>main</EntryPointSymbol>
       <AdditionalLibraryDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Differenze finite\Differenze finite\Matrici;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,6 +123,8 @@
     <Link>
       <AdditionalDependencies />
       <AdditionalLibraryDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Differenze finite\Differenze finite\Matrici;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -134,6 +137,8 @@
     <Link>
       <AdditionalDependencies />
       <AdditionalLibraryDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Differenze finite\Differenze finite\Matrici;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -145,10 +150,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClassePadreDifferenze.cpp" />
-    <ClCompile Include="CSVexport.cpp" />
     <ClCompile Include="CSVimport.cpp" />
     <ClCompile Include="Differenze_esplicite.cpp" />
     <ClCompile Include="differenze_implicite.cpp" />
+    <ClCompile Include="ExportCSV.cpp" />
+    <ClCompile Include="ExportINI.cpp" />
+    <ClCompile Include="ExportTXT.cpp" />
     <ClCompile Include="FormMain.cpp" />
     <ClCompile Include="ImportTXT.cpp" />
     <ClCompile Include="Matrici\bandmat.cpp" />
@@ -176,15 +183,18 @@
     <ClCompile Include="Matrici\sort.cpp" />
     <ClCompile Include="Matrici\submat.cpp" />
     <ClCompile Include="Matrici\svd.cpp" />
+    <ClCompile Include="PadreExport.cpp" />
     <ClCompile Include="PadreImport.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassePadreDifferenze.h" />
-    <ClInclude Include="CSVexport.h" />
     <ClInclude Include="CSVimport.h" />
     <ClInclude Include="Differenze_esplicite.h" />
     <ClInclude Include="differenze_implicite.h" />
+    <ClInclude Include="ExportCSV.h" />
+    <ClInclude Include="ExportINI.h" />
+    <ClInclude Include="ExportTXT.h" />
     <ClInclude Include="FormMain.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -201,6 +211,7 @@
     <ClInclude Include="Matrici\precisio.h" />
     <ClInclude Include="Matrici\solution.h" />
     <ClInclude Include="Matrici\tmt.h" />
+    <ClInclude Include="PadreExport.h" />
     <ClInclude Include="PadreImport.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
@@ -208,9 +219,6 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.h</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="TXTinput.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
