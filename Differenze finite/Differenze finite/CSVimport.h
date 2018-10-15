@@ -1,9 +1,5 @@
 
 #include "pch.h"
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
 #include "PadreImport.h"
 using namespace std;
 
@@ -18,7 +14,7 @@ public:
 	
 	
 	
-	//vector<double> results(contatore);
+
 
 
 

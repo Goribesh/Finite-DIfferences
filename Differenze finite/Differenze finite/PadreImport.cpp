@@ -5,17 +5,15 @@
 
 PadreImport::PadreImport(System::String^ file) {
 	nome = file;
-
 	System::IO::StreamReader^ din = System::IO::File::OpenText(nome);
-
 	try {
 
-		System::Diagnostics::Debug::WriteLine("File Aperto");
-
-
 		System::String^ str;
-		while ((str = din->ReadLine()) != nullptr) {      //leggo numero di righe di valori
-			contatore++;
+		while ((str = din->ReadLine()) != nullptr) {			//leggo numero di righe di valori
+			if (!System::String::IsNullOrEmpty(str)) 
+			{
+				contatore++;
+			}
 		}
 
 		System::Diagnostics::Debug::WriteLine(contatore);

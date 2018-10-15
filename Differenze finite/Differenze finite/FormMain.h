@@ -6,6 +6,7 @@
 #include <iostream>
 #include "CSVimport.h"
 #include "CSVexport.h"
+#include "ImportTXT.h"
 #include <vector>
 #include "differenze_implicite.h"
 
@@ -102,6 +103,7 @@ namespace Differenzefinite {
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::TextBox^  textBox12;
+	private: System::Windows::Forms::Button^  button4;
 
 
 	protected:
@@ -150,6 +152,7 @@ namespace Differenzefinite {
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -327,6 +330,7 @@ namespace Differenzefinite {
 			// 
 			this->openFileDialog1->DefaultExt = L"csv";
 			this->openFileDialog1->FileName = L"CSVinput.csv";
+			this->openFileDialog1->Filter = L"Files TXT (*.txt)|*.TXT|Files CSV (*.csv)|*.csv|Files INI (*.ini)|*.ini;";
 			// 
 			// checkBox1
 			// 
@@ -460,11 +464,22 @@ namespace Differenzefinite {
 			this->textBox12->Size = System::Drawing::Size(524, 20);
 			this->textBox12->TabIndex = 35;
 			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(26, 61);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(100, 20);
+			this->button4->TabIndex = 36;
+			this->button4->Text = L"ANNULLA";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &FormMain::button4_Click);
+			// 
 			// FormMain
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(702, 629);
+			this->Controls->Add(this->button4);
 			this->Controls->Add(this->textBox12);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
@@ -495,6 +510,7 @@ namespace Differenzefinite {
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"FormMain";
 			this->Text = L"Differenze Finite";
 			this->Load += gcnew System::EventHandler(this, &FormMain::FormMain_Load);
@@ -509,62 +525,145 @@ namespace Differenzefinite {
 
 		msclr::interop::marshal_context context;
 		
-		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		{
+
 			openFileDialog1->OpenFile();
 			textBox12->Text = openFileDialog1->FileName;
 			String^ Snome_file = openFileDialog1->SafeFileName;
 			fileinserito = 1;
-			parametriCSV inputcsv(Snome_file);
-			inputcsv.leggifile();
-			System::Diagnostics::Debug::WriteLine(inputcsv.nome);
-			MessageBox::Show("Import file effettuato");
-			textBox1->Enabled = 0;
-			textBox2->Enabled = 0;
-			textBox3->Enabled = 0;
-			textBox4->Enabled = 0;
-			textBox5->Enabled = 0;
-			textBox6->Enabled = 0;
-			textBox7->Enabled = 0;
-			righe = inputcsv.contatore;
+			bool filecsv = Snome_file->Contains(".csv");
+			bool filetxt = Snome_file->Contains(".txt");
+			bool fileini = Snome_file->Contains(".ini");
+
+			if (filecsv == 1)
+			{
+				parametriCSV inputcsv(Snome_file);
+				inputcsv.leggifile();
+				righe = inputcsv.contatore;
+				MessageBox::Show("Import file effettuato");
+				textBox1->Enabled = 0;
+				textBox2->Enabled = 0;
+				textBox3->Enabled = 0;
+				textBox4->Enabled = 0;
+				textBox5->Enabled = 0;
+				textBox6->Enabled = 0;
+				textBox7->Enabled = 0;
+
+				Sv.resize(righe);
+				Kv.resize(righe);
+				rv.resize(righe);
+				sigmav.resize(righe);
+				timev.resize(righe);
+				no_S_stepsv.resize(righe);
+				no_t_stepsv.resize(righe);
+				risexpeu.resize(righe);
+				risexpus.resize(righe);
+				risimpeu.resize(righe);
+				risimpus.resize(righe);
 
 
-			Sv.resize(righe);
-			Kv.resize(righe);
-			rv.resize(righe);
-			sigmav.resize(righe);
-			timev.resize(righe);
-			no_S_stepsv.resize(righe);
-			no_t_stepsv.resize(righe);
-			risexpeu.resize(righe);
-			risexpus.resize(righe);
-			risimpeu.resize(righe);
-			risimpus.resize(righe);
-
-		
-		
-			
-
-			//label12->Text = righe.ToString();
-
-			for (int i = 0; i < righe; i++) {
-				Sv[i] = inputcsv.S[i];						
-				Kv[i] = inputcsv.K[i];			
-				rv[i] = inputcsv.r[i];
-				sigmav[i] = inputcsv.sigma[i];
-				timev[i] = inputcsv.time[i];
-				no_S_stepsv[i] = inputcsv.no_s_steps[i];
-				no_t_stepsv[i] = inputcsv.no_t_steps[i];
 
 
+				for (int i = 0; i < righe; i++)
+				{
+					Sv[i] = inputcsv.S[i];
+					Kv[i] = inputcsv.K[i];
+					rv[i] = inputcsv.r[i];
+					sigmav[i] = inputcsv.sigma[i];
+					timev[i] = inputcsv.time[i];
+					no_S_stepsv[i] = inputcsv.no_s_steps[i];
+					no_t_stepsv[i] = inputcsv.no_t_steps[i];
+				}
 			}
 
+			if (filetxt == 1)
+			{
+				parametriTXT inputtxt(Snome_file);
+				inputtxt.leggifile();
+				righe = inputtxt.contatore;
+				MessageBox::Show("Import file effettuato");
+				textBox1->Enabled = 0;
+				textBox2->Enabled = 0;
+				textBox3->Enabled = 0;
+				textBox4->Enabled = 0;
+				textBox5->Enabled = 0;
+				textBox6->Enabled = 0;
+				textBox7->Enabled = 0;
 
+				Sv.resize(righe);
+				Kv.resize(righe);
+				rv.resize(righe);
+				sigmav.resize(righe);
+				timev.resize(righe);
+				no_S_stepsv.resize(righe);
+				no_t_stepsv.resize(righe);
+				risexpeu.resize(righe);
+				risexpus.resize(righe);
+				risimpeu.resize(righe);
+				risimpus.resize(righe);
+
+
+
+
+				for (int i = 0; i < righe; i++)
+				{
+					Sv[i] = inputtxt.S[i];
+					Kv[i] = inputtxt.K[i];
+					rv[i] = inputtxt.r[i];
+					sigmav[i] = inputtxt.sigma[i];
+					timev[i] = inputtxt.time[i];
+					no_S_stepsv[i] = inputtxt.no_s_steps[i];
+					no_t_stepsv[i] = inputtxt.no_t_steps[i];
+				}
+			}
+
+			/*if (filecsv == 1)
+			{
+				parametriCSV inputcsv(Snome_file);
+				inputcsv.leggifile();
+				righe = inputcsv.contatore;
+				MessageBox::Show("Import file effettuato");
+				textBox1->Enabled = 0;
+				textBox2->Enabled = 0;
+				textBox3->Enabled = 0;
+				textBox4->Enabled = 0;
+				textBox5->Enabled = 0;
+				textBox6->Enabled = 0;
+				textBox7->Enabled = 0;
+
+				Sv.resize(righe);
+				Kv.resize(righe);
+				rv.resize(righe);
+				sigmav.resize(righe);
+				timev.resize(righe);
+				no_S_stepsv.resize(righe);
+				no_t_stepsv.resize(righe);
+				risexpeu.resize(righe);
+				risexpus.resize(righe);
+				risimpeu.resize(righe);
+				risimpus.resize(righe);
+
+
+
+
+				for (int i = 0; i < righe; i++)
+				{
+					Sv[i] = inputcsv.S[i];
+					Kv[i] = inputcsv.K[i];
+					rv[i] = inputcsv.r[i];
+					sigmav[i] = inputcsv.sigma[i];
+					timev[i] = inputcsv.time[i];
+					no_S_stepsv[i] = inputcsv.no_s_steps[i];
+					no_t_stepsv[i] = inputcsv.no_t_steps[i];
+				}
+			}*/
 
 		}
 		
 	}
 public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (checkBox1->Checked || fileinserito ==1) 
+	if (checkBox1->Checked && fileinserito ==1) 
 	{
 		
 		for (int i = 0; i < righe; i++) 
@@ -578,7 +677,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 	
 
 	}
-	if (checkBox2->Checked  || fileinserito == 1)
+	if (checkBox2->Checked  && fileinserito == 1)
 	{
 		Differenze_esplicite expus;
 		
@@ -592,7 +691,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 	
 
 	}
-	if (checkBox3->Checked  || fileinserito == 1)
+	if (checkBox3->Checked  && fileinserito == 1)
 	{
 		differenze_implicite impeu;
 		
@@ -603,7 +702,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 			cout << risimpeu[i] << endl;
 		}
 	}
-	if (checkBox4->Checked || fileinserito == 1)
+	if (checkBox4->Checked && fileinserito == 1)
 	{
 		differenze_implicite impus;
 		for (int i = 0; i < righe; i++) 
@@ -665,5 +764,28 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 
 	}
 }
+private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e)
+		{
+
+		fileinserito = 0;
+		textBox1->Enabled = 1;
+		textBox2->Enabled = 1;
+		textBox3->Enabled = 1;
+		textBox4->Enabled = 1;
+		textBox5->Enabled = 1;
+		textBox6->Enabled = 1;
+		textBox7->Enabled = 1;
+		textBox12->Text = "";
+		Sv.clear();
+		Kv.clear();
+		rv.clear();
+		sigmav.clear();
+		timev.clear();
+		no_S_stepsv.clear();
+		no_t_stepsv.clear();
+
+
+
+		}
 };
 }

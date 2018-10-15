@@ -116,18 +116,24 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Differenze finite\Differenze finite\Matrici;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <AdditionalLibraryDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Differenze finite\Differenze finite\Matrici;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Differenze finite\Differenze finite\Matrici;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <AdditionalLibraryDirectories>C:\Users\alleg\Documents\GitHub\Finite-Differences\Differenze finite\Differenze finite\Matrici;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -144,6 +150,7 @@
     <ClCompile Include="Differenze_esplicite.cpp" />
     <ClCompile Include="differenze_implicite.cpp" />
     <ClCompile Include="FormMain.cpp" />
+    <ClCompile Include="ImportTXT.cpp" />
     <ClCompile Include="Matrici\bandmat.cpp" />
     <ClCompile Include="Matrici\cholesky.cpp" />
     <ClCompile Include="Matrici\evalue.cpp" />
@@ -181,6 +188,7 @@
     <ClInclude Include="FormMain.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ImportTXT.h" />
     <ClInclude Include="Matrici\controlw.h" />
     <ClInclude Include="Matrici\include.h" />
     <ClInclude Include="Matrici\myexcept.h" />
