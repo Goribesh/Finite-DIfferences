@@ -10,7 +10,9 @@
 #include <vector>
 #include "differenze_implicite.h"
 
-int righe = 0;
+// definisco le variaibli globali che usero poi
+
+int righe = 0;	
 vector <double> Sv;
 vector <double> Kv;
 vector <double> rv;
@@ -18,9 +20,7 @@ vector <double> sigmav;
 vector <double> timev;
 vector <int> no_S_stepsv;
 vector <int> no_t_stepsv;
-
 bool fileinserito = 0;
-
 vector<double> risexpeu;
 vector<double> risexpus;
 vector<double> risimpeu;
@@ -614,35 +614,35 @@ namespace Differenzefinite {
 #pragma endregion
 	private: System::Void FormMain_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
-	public: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+	public: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {	//bottone INSERISCI FILE
 
-		msclr::interop::marshal_context context;
+		msclr::interop::marshal_context context; // Utilizzo la libreria marshal per convertire le stringhe
 		
-		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)	// apro la finistra per la selezione file ed eseguo il codice sottostante solo se premo apri
 		{
 
-			openFileDialog1->OpenFile();
-			textBox12->Text = openFileDialog1->FileName;
-			String^ Snome_file = openFileDialog1->SafeFileName;
-			fileinserito = 1;
-			bool filecsv = Snome_file->Contains(".csv");
+			openFileDialog1->OpenFile();							//apro il file per la lettura
+			textBox12->Text = openFileDialog1->FileName;			//leggo il suo nome e lo stampo a video
+			String^ Snome_file = openFileDialog1->SafeFileName;		// salvo il nome per riutilizzarlo nelle future classi
+			fileinserito = 1;										// dico alle classi future che il file è inserito
+			bool filecsv = Snome_file->Contains(".csv");			//preparo le variabili per la futura selezione della classe in base all estensione
 			bool filetxt = Snome_file->Contains(".txt");
 			bool fileini = Snome_file->Contains(".ini");
 
-			if (filecsv == 1)
+			if (filecsv == 1)										// nel caso il file contiene .csv nel nome creo le relative classi
 			{
-				parametriCSV inputcsv(Snome_file);
-				inputcsv.leggifile();
-				righe = inputcsv.contatore;
-				MessageBox::Show("Import file effettuato");
-				textBox1->Enabled = 0;
+				parametriCSV inputcsv(Snome_file);					//inizializzo l oggetto inputcsv che prende in ingresso il nome del file
+				inputcsv.leggifile();								//chiamo la funzione leggifile
+				righe = inputcsv.contatore;							// salvo le righe del file per le future operazioni
+				MessageBox::Show("Import file effettuato");			// faccio comparire un messaggio per l' import 
+				textBox1->Enabled = 0;								// diabilito le textbox dell input manuale
 				textBox2->Enabled = 0;
 				textBox3->Enabled = 0;
 				textBox4->Enabled = 0;
 				textBox5->Enabled = 0;
 				textBox6->Enabled = 0;
 				textBox7->Enabled = 0;
-
+				/* cambio la dimensione delle mie variabili in base al numero delle righe contate per non sprecare memoria*/
 				Sv.resize(righe);
 				Kv.resize(righe);
 				rv.resize(righe);
@@ -656,7 +656,7 @@ namespace Differenzefinite {
 				risimpus.resize(righe);
 
 
-
+				// salvo i miei parametri nelle variabili globali
 
 				for (int i = 0; i < righe; i++)
 				{
@@ -669,6 +669,8 @@ namespace Differenzefinite {
 					no_t_stepsv[i] = inputcsv.no_t_steps[i];
 				}
 			}
+
+			// rieseguo le stesse operazioni  per i file txt
 
 			if (filetxt == 1)
 			{
@@ -711,61 +713,27 @@ namespace Differenzefinite {
 				}
 			}
 
-			/*if (filecsv == 1)
-			{
-				parametriCSV inputcsv(Snome_file);
-				inputcsv.leggifile();
-				righe = inputcsv.contatore;
-				MessageBox::Show("Import file effettuato");
-				textBox1->Enabled = 0;
-				textBox2->Enabled = 0;
-				textBox3->Enabled = 0;
-				textBox4->Enabled = 0;
-				textBox5->Enabled = 0;
-				textBox6->Enabled = 0;
-				textBox7->Enabled = 0;
-
-				Sv.resize(righe);
-				Kv.resize(righe);
-				rv.resize(righe);
-				sigmav.resize(righe);
-				timev.resize(righe);
-				no_S_stepsv.resize(righe);
-				no_t_stepsv.resize(righe);
-				risexpeu.resize(righe);
-				risexpus.resize(righe);
-				risimpeu.resize(righe);
-				risimpus.resize(righe);
-
-
-
-
-				for (int i = 0; i < righe; i++)
-				{
-					Sv[i] = inputcsv.S[i];
-					Kv[i] = inputcsv.K[i];
-					rv[i] = inputcsv.r[i];
-					sigmav[i] = inputcsv.sigma[i];
-					timev[i] = inputcsv.time[i];
-					no_S_stepsv[i] = inputcsv.no_s_steps[i];
-					no_t_stepsv[i] = inputcsv.no_t_steps[i];
-				}
-			}*/
-
 		}
 		
 	}
+
+
+
+	/*PULSANTE CALCOLA*/
+
+
 public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (checkBox1->Checked && fileinserito ==1) 
+	/* In base a le variabili settate in precedenza eseguo diversi tipi di calcoli*/
+	if (checkBox1->Checked && fileinserito ==1)									// se il file è inserito e il primo checkbox è checkato
 	{
 		
-		for (int i = 0; i < righe; i++) 
+		for (int i = 0; i < righe; i++)											// eseguo il primo algoritmo su tutti i parametri nelle variabili globali
 		{
-			Differenze_esplicite expeu;
+			Differenze_esplicite expeu;											// creo una classe per le differenze finite esplicite europee
 			
-			expeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
-			risexpeu[i] = expeu.option_price_put_european_finite_diff_explicit();
-			button2->Enabled = 1;
+			expeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	// setto le variabili utilizzate nell algoritmo per ogni ciclo
+			risexpeu[i] = expeu.option_price_put_european_finite_diff_explicit();		// salvo i risultato nel vettore dei risultati apposito
+			button2->Enabled = 1;														// abilito il pulsante per salvare
 		}
 	
 
@@ -805,18 +773,21 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 			button2->Enabled = 1;
 		}
 	}
+
+	//FILE DISINSERITO
+
 	if (fileinserito==0) {
 
-		double Sman = System::Convert::ToDouble(textBox1->Text);
+		double Sman = System::Convert::ToDouble(textBox1->Text);				//creo delle variabili locali per salvare i dati dell inserimento manuale
 		double Kman = System::Convert::ToDouble(textBox2->Text);
 		double rman = System::Convert::ToDouble(textBox3->Text);
 		double sigmaman = System::Convert::ToDouble(textBox4->Text);
 		double timeman = System::Convert::ToDouble(textBox5->Text);
-		int no_s_stepsman = System::Convert::ToDouble(textBox6->Text);
-		int no_t_stepsman = System::Convert::ToDouble(textBox7->Text);
+		int no_s_stepsman = System::Convert::ToInt32(textBox6->Text);
+		int no_t_stepsman = System::Convert::ToInt32(textBox7->Text);
 
 
-		if (checkBox1->Checked == 1)
+		if (checkBox1->Checked == 1)											//eseguo i vari algoritmi per i parametri manuali
 		{
 			Differenze_esplicite expman;
 			expman.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
@@ -857,10 +828,16 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 
 	}
 }
+
+
+		/*BOTTONE ANNULLA*/
+
+
+
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e)
 		{
 
-		fileinserito = 0;
+		fileinserito = 0;			//riabilito l' inserimento manuale
 		textBox1->Enabled = 1;
 		textBox2->Enabled = 1;
 		textBox3->Enabled = 1;
@@ -868,36 +845,40 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 		textBox5->Enabled = 1;
 		textBox6->Enabled = 1;
 		textBox7->Enabled = 1;
-		textBox12->Text = "";
-		Sv.clear();
+		textBox12->Text = "";		//pulisco la textbox del file
+		Sv.clear();					// azzero i vari vettori per liberare la memoria
 		Kv.clear();
 		rv.clear();
 		sigmav.clear();
 		timev.clear();
 		no_S_stepsv.clear();
 		no_t_stepsv.clear();
-		button2->Enabled = 0;
+		button2->Enabled = 0;		//disabilito bottone salva
 
 
 		}
+
+
+		 /*Bottone salva*/
+
 public: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-	saveFileDialog1->ShowDialog();
-	String^ nomeexport = saveFileDialog1->FileName;
+	saveFileDialog1->ShowDialog();					//eseguo la finistra per il salvataggio del file
+	String^ nomeexport = saveFileDialog1->FileName;	//salvo il nome del file per poi utilizzarlo
 	
-	bool fileimportcsv = nomeexport->Contains(".csv");
+	bool fileimportcsv = nomeexport->Contains(".csv");	//guardo l' estensione del file per decidere quale classe usare
 	bool fileimporttxt = nomeexport->Contains(".txt");
 	bool fileimportini = nomeexport->Contains(".ini");
 
-	int expeu = 1;
+	int expeu = 1;										//inizializzo le variabili per lo switch case
 	int expus = 2;
 	int impeu = 3;
 	int impus = 4;
 
 
-	if (fileimportcsv = 1) {
-		System::Diagnostics::Debug::WriteLine(nomeexport);
-		ExportCSV expcsv;
-		if (checkBox8->Checked)
+	if (fileimportcsv = 1) {							//se il file è in formato csv
+		System::Diagnostics::Debug::WriteLine(nomeexport); 
+		ExportCSV expcsv;								//creo una classe per l' export in csv
+		if (checkBox8->Checked)							//guardo quali risultati devo esportare
 		{
 			expcsv.exportfile(expeu,risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
 		}
