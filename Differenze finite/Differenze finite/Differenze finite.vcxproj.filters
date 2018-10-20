@@ -129,9 +129,6 @@
     <ClCompile Include="PadreExport.cpp">
       <Filter>File di origine\Export</Filter>
     </ClCompile>
-    <ClCompile Include="ClassePadreDifferenze.cpp">
-      <Filter>File di origine\algoritmi</Filter>
-    </ClCompile>
     <ClCompile Include="Differenze_esplicite.cpp">
       <Filter>File di origine\algoritmi</Filter>
     </ClCompile>

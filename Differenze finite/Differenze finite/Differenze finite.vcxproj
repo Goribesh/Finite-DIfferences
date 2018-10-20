@@ -149,7 +149,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ClassePadreDifferenze.cpp" />
     <ClCompile Include="CSVimport.cpp" />
     <ClCompile Include="Differenze_esplicite.cpp" />
     <ClCompile Include="differenze_implicite.cpp" />

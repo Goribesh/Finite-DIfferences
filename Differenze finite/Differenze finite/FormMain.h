@@ -880,7 +880,7 @@ public: System::Void button2_Click(System::Object^  sender, System::EventArgs^  
 		ExportCSV expcsv;								//creo una classe per l' export in csv
 		if (checkBox8->Checked)							//guardo quali risultati devo esportare
 		{
-			expcsv.exportfile(expeu,risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+			expcsv.exportfile(expeu,risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
 		}
 		if (checkBox7->Checked)
 		{
