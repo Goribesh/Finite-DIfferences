@@ -633,6 +633,7 @@ namespace Differenzefinite {
 			{
 				parametriCSV inputcsv(Snome_file);					//inizializzo l oggetto inputcsv che prende in ingresso il nome del file
 				inputcsv.leggifile();								//chiamo la funzione leggifile
+			//	if (inputcsv.ex== 1) { break; }
 				righe = inputcsv.contatore;							// salvo le righe del file per le future operazioni
 				MessageBox::Show("Import file effettuato");			// faccio comparire un messaggio per l' import 
 				textBox1->Enabled = 0;								// diabilito le textbox dell input manuale

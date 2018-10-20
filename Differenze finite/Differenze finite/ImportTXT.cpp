@@ -8,8 +8,6 @@ void parametriTXT::leggifile() {
 	System::IO::StreamReader^ din = System::IO::File::OpenText(PadreImport::nome);
 	System::String^ tempstring;
 	cli::array<System::String^>^ pezzi;
-	cli::array<System::String^>^ stringcompare = gcnew cli::array<System::String^>(1);
-	stringcompare[0] = ";", "\n";
 	for (int i = 0; i < PadreImport::num_righe; i++) {
 		tempstring = din->ReadLine();
 		if (!System::String::IsNullOrEmpty(tempstring)) 
