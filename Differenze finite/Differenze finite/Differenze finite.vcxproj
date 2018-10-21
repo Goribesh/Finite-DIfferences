@@ -156,6 +156,7 @@
     <ClCompile Include="ExportINI.cpp" />
     <ClCompile Include="ExportTXT.cpp" />
     <ClCompile Include="FormMain.cpp" />
+    <ClCompile Include="ImportINI.cpp" />
     <ClCompile Include="ImportTXT.cpp" />
     <ClCompile Include="Matrici\bandmat.cpp" />
     <ClCompile Include="Matrici\cholesky.cpp" />
@@ -197,6 +198,7 @@
     <ClInclude Include="FormMain.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ImportINI.h" />
     <ClInclude Include="ImportTXT.h" />
     <ClInclude Include="Matrici\controlw.h" />
     <ClInclude Include="Matrici\include.h" />

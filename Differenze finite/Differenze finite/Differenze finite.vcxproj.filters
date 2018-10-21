@@ -144,6 +144,9 @@
     <ClCompile Include="ExportTXT.cpp">
       <Filter>File di origine\Export</Filter>
     </ClCompile>
+    <ClCompile Include="ImportINI.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FormMain.h">
@@ -217,6 +220,9 @@
     </ClInclude>
     <ClInclude Include="ExportTXT.h">
       <Filter>File di intestazione\Export</Filter>
+    </ClInclude>
+    <ClInclude Include="ImportINI.h">
+      <Filter>File di intestazione\Import</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

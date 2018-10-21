@@ -2,11 +2,11 @@
 #include <string>
 #include "Differenze_esplicite.h"
 #include "PadreImport.h"
-#include <msclr\marshal_cppstd.h>
 #include <iostream>
 #include "CSVimport.h"
 #include"ExportCSV.h"
 #include "ImportTXT.h"
+#include "ImportINI.h"
 #include <vector>
 #include "differenze_implicite.h"
 
@@ -523,6 +523,7 @@ namespace Differenzefinite {
 			// checkBox5
 			// 
 			this->checkBox5->AutoSize = true;
+			this->checkBox5->Enabled = false;
 			this->checkBox5->Location = System::Drawing::Point(372, 199);
 			this->checkBox5->Name = L"checkBox5";
 			this->checkBox5->Size = System::Drawing::Size(157, 17);
@@ -533,6 +534,7 @@ namespace Differenzefinite {
 			// checkBox6
 			// 
 			this->checkBox6->AutoSize = true;
+			this->checkBox6->Enabled = false;
 			this->checkBox6->Location = System::Drawing::Point(372, 176);
 			this->checkBox6->Name = L"checkBox6";
 			this->checkBox6->Size = System::Drawing::Size(157, 17);
@@ -543,6 +545,7 @@ namespace Differenzefinite {
 			// checkBox7
 			// 
 			this->checkBox7->AutoSize = true;
+			this->checkBox7->Enabled = false;
 			this->checkBox7->Location = System::Drawing::Point(372, 153);
 			this->checkBox7->Name = L"checkBox7";
 			this->checkBox7->Size = System::Drawing::Size(158, 17);
@@ -553,6 +556,7 @@ namespace Differenzefinite {
 			// checkBox8
 			// 
 			this->checkBox8->AutoSize = true;
+			this->checkBox8->Enabled = false;
 			this->checkBox8->Location = System::Drawing::Point(372, 130);
 			this->checkBox8->Name = L"checkBox8";
 			this->checkBox8->Size = System::Drawing::Size(158, 17);
@@ -616,7 +620,7 @@ namespace Differenzefinite {
 	}
 	public: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {	//bottone INSERISCI FILE
 
-		msclr::interop::marshal_context context; // Utilizzo la libreria marshal per convertire le stringhe
+	
 		
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)	// apro la finistra per la selezione file ed eseguo il codice sottostante solo se premo apri
 		{
@@ -632,8 +636,10 @@ namespace Differenzefinite {
 			if (filecsv == 1)										// nel caso il file contiene .csv nel nome creo le relative classi
 			{
 				parametriCSV inputcsv(Snome_file);					//inizializzo l oggetto inputcsv che prende in ingresso il nome del file
+
+
 				inputcsv.leggifile();								//chiamo la funzione leggifile
-			//	if (inputcsv.ex== 1) { break; }
+				
 				righe = inputcsv.contatore;							// salvo le righe del file per le future operazioni
 				MessageBox::Show("Import file effettuato");			// faccio comparire un messaggio per l' import 
 				textBox1->Enabled = 0;								// diabilito le textbox dell input manuale
@@ -643,7 +649,13 @@ namespace Differenzefinite {
 				textBox5->Enabled = 0;
 				textBox6->Enabled = 0;
 				textBox7->Enabled = 0;
-				/* cambio la dimensione delle mie variabili in base al numero delle righe contate per non sprecare memoria*/
+
+				checkBox5->Enabled = 1;
+				checkBox6->Enabled = 1;
+				checkBox7->Enabled = 1;
+				checkBox8->Enabled = 1;
+
+								/* cambio la dimensione delle mie variabili in base al numero delle righe contate per non sprecare memoria*/
 				Sv.resize(righe);
 				Kv.resize(righe);
 				rv.resize(righe);
@@ -673,6 +685,51 @@ namespace Differenzefinite {
 
 			// rieseguo le stesse operazioni  per i file txt
 
+			if (fileini == 1)
+			{
+				parametriINI inputINI(Snome_file);
+				inputINI.leggifile();
+				righe = inputINI.contatore;
+				MessageBox::Show("Import file effettuato");
+				textBox1->Enabled = 0;
+				textBox2->Enabled = 0;
+				textBox3->Enabled = 0;
+				textBox4->Enabled = 0;
+				textBox5->Enabled = 0;
+				textBox6->Enabled = 0;
+				textBox7->Enabled = 0;
+
+				Sv.resize(righe);
+				Kv.resize(righe);
+				rv.resize(righe);
+				sigmav.resize(righe);
+				timev.resize(righe);
+				no_S_stepsv.resize(righe);
+				no_t_stepsv.resize(righe);
+				risexpeu.resize(righe);
+				risexpus.resize(righe);
+				risimpeu.resize(righe);
+				risimpus.resize(righe);
+
+				checkBox5->Enabled = 1;
+				checkBox6->Enabled = 1;
+				checkBox7->Enabled = 1;
+				checkBox8->Enabled = 1;
+
+
+				for (int i = 0; i < righe; i++)
+				{
+					Sv[i] = inputINI.S[i];
+					Kv[i] = inputINI.K[i];
+					rv[i] = inputINI.r[i];
+					sigmav[i] = inputINI.sigma[i];
+					timev[i] = inputINI.time[i];
+					no_S_stepsv[i] = inputINI.no_s_steps[i];
+					no_t_stepsv[i] = inputINI.no_t_steps[i];
+				}
+			}
+			// rieseguo le stesse operazioni  per i file ini
+
 			if (filetxt == 1)
 			{
 				parametriTXT inputtxt(Snome_file);
@@ -700,7 +757,10 @@ namespace Differenzefinite {
 				risimpus.resize(righe);
 
 
-
+				checkBox5->Enabled = 1;
+				checkBox6->Enabled = 1;
+				checkBox7->Enabled = 1;
+				checkBox8->Enabled = 1;
 
 				for (int i = 0; i < righe; i++)
 				{
@@ -725,7 +785,7 @@ namespace Differenzefinite {
 
 public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 	/* In base a le variabili settate in precedenza eseguo diversi tipi di calcoli*/
-	if (checkBox1->Checked && fileinserito ==1)									// se il file è inserito e il primo checkbox è checkato
+	if (checkBox1->Checked && fileinserito == 1)									// se il file è inserito e il primo checkbox è checkato
 	{
 		
 		for (int i = 0; i < righe; i++)											// eseguo il primo algoritmo su tutti i parametri nelle variabili globali
@@ -739,7 +799,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 	
 
 	}
-	if (checkBox2->Checked  && fileinserito == 1)
+	if (checkBox2->Checked && fileinserito == 1)
 	{
 		Differenze_esplicite expus;
 		
@@ -753,7 +813,7 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 	
 
 	}
-	if (checkBox3->Checked  && fileinserito == 1)
+	if (checkBox3->Checked && fileinserito == 1)
 	{
 		differenze_implicite impeu;
 		
@@ -855,12 +915,16 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 		no_S_stepsv.clear();
 		no_t_stepsv.clear();
 		button2->Enabled = 0;		//disabilito bottone salva
+		checkBox5->Enabled = 0;
+		checkBox6->Enabled = 0;
+		checkBox7->Enabled = 0;
+		checkBox8->Enabled = 0;
 
 
 		}
 
 
-		 /*Bottone salva*/
+		 /*BOTTONE SALVA*/
 
 public: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	saveFileDialog1->ShowDialog();					//eseguo la finistra per il salvataggio del file

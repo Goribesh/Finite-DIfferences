@@ -7,23 +7,23 @@ using namespace std;
 
 
 
- ref class parametriCSV :public PadreImport
+ref class parametriINI :public PadreImport
 {
 public:
-	parametriCSV(System::String^ file) : PadreImport(file) {};
+	parametriINI(System::String^ file) : PadreImport(file) {};
 
 	void leggifile();			// legge parametriCSV dal file
-	
-
-	
 
 
 
 
-	
-	
 
-	
+
+
+
+
+
+
 
 
 

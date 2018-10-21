@@ -10,5 +10,6 @@ void main(cli::array<System::String^>^ args) {
 	Application::SetCompatibleTextRenderingDefault(false);
 	Differenzefinite::FormMain form;
 	Application::Run(%form);
+	
 
 }
