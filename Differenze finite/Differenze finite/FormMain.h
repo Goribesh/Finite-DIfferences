@@ -111,6 +111,7 @@ namespace Differenzefinite {
 	private: System::Windows::Forms::CheckBox^  checkBox6;
 	private: System::Windows::Forms::CheckBox^  checkBox7;
 	private: System::Windows::Forms::CheckBox^  checkBox8;
+	private: System::Windows::Forms::ProgressBar^  progressBar1;
 
 
 	protected:
@@ -128,6 +129,7 @@ namespace Differenzefinite {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(FormMain::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -167,6 +169,7 @@ namespace Differenzefinite {
 			this->checkBox6 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox7 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox8 = (gcnew System::Windows::Forms::CheckBox());
+			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -206,8 +209,9 @@ namespace Differenzefinite {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(55, 20);
 			this->textBox1->TabIndex = 3;
-			this->textBox1->Text = L"50.0";
+			this->textBox1->Text = L"50";
 			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &FormMain::textBox1_TextChanged);
 			// 
 			// textBox2
 			// 
@@ -215,7 +219,7 @@ namespace Differenzefinite {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(55, 20);
 			this->textBox2->TabIndex = 4;
-			this->textBox2->Text = L"50.0";
+			this->textBox2->Text = L"50";
 			this->textBox2->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox3
@@ -224,7 +228,7 @@ namespace Differenzefinite {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(55, 20);
 			this->textBox3->TabIndex = 6;
-			this->textBox3->Text = L"0.1";
+			this->textBox3->Text = L"1";
 			this->textBox3->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox4
@@ -233,7 +237,7 @@ namespace Differenzefinite {
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(55, 20);
 			this->textBox4->TabIndex = 5;
-			this->textBox4->Text = L"0.4";
+			this->textBox4->Text = L"1";
 			this->textBox4->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox5
@@ -242,7 +246,7 @@ namespace Differenzefinite {
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(55, 20);
 			this->textBox5->TabIndex = 9;
-			this->textBox5->Text = L"0.4167";
+			this->textBox5->Text = L"1";
 			this->textBox5->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
 			// textBox6
@@ -495,6 +499,7 @@ namespace Differenzefinite {
 			// 
 			this->saveFileDialog1->Filter = L"Files TXT (*.txt)|*.TXT|Files CSV (*.csv)|*.csv|Files INI (*.ini)|*.ini;";
 			this->saveFileDialog1->FilterIndex = 2;
+			this->saveFileDialog1->FileOk += gcnew System::ComponentModel::CancelEventHandler(this, &FormMain::saveFileDialog1_FileOk);
 			// 
 			// label12
 			// 
@@ -564,11 +569,19 @@ namespace Differenzefinite {
 			this->checkBox8->Text = L"Differenze finite esplicite EU";
 			this->checkBox8->UseVisualStyleBackColor = true;
 			// 
+			// progressBar1
+			// 
+			this->progressBar1->Location = System::Drawing::Point(124, 489);
+			this->progressBar1->Name = L"progressBar1";
+			this->progressBar1->Size = System::Drawing::Size(447, 23);
+			this->progressBar1->TabIndex = 43;
+			// 
 			// FormMain
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(702, 629);
+			this->Controls->Add(this->progressBar1);
 			this->Controls->Add(this->label13);
 			this->Controls->Add(this->checkBox5);
 			this->Controls->Add(this->checkBox6);
@@ -607,6 +620,7 @@ namespace Differenzefinite {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->Name = L"FormMain";
 			this->Text = L"Differenze Finite";
@@ -627,7 +641,7 @@ namespace Differenzefinite {
 
 			openFileDialog1->OpenFile();							//apro il file per la lettura
 			textBox12->Text = openFileDialog1->FileName;			//leggo il suo nome e lo stampo a video
-			String^ Snome_file = openFileDialog1->SafeFileName;		// salvo il nome per riutilizzarlo nelle future classi
+			String^ Snome_file = openFileDialog1->FileName;		// salvo il nome per riutilizzarlo nelle future classi
 			fileinserito = 1;										// dico alle classi future che il file è inserito
 			bool filecsv = Snome_file->Contains(".csv");			//preparo le variabili per la futura selezione della classe in base all estensione
 			bool filetxt = Snome_file->Contains(".txt");
@@ -728,6 +742,7 @@ namespace Differenzefinite {
 					no_t_stepsv[i] = inputINI.no_t_steps[i];
 				}
 			}
+
 			// rieseguo le stesse operazioni  per i file ini
 
 			if (filetxt == 1)
@@ -785,6 +800,8 @@ namespace Differenzefinite {
 
 public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 	/* In base a le variabili settate in precedenza eseguo diversi tipi di calcoli*/
+	progressBar1->Value = 0;
+
 	if (checkBox1->Checked && fileinserito == 1)									// se il file è inserito e il primo checkbox è checkato
 	{
 		
@@ -835,59 +852,73 @@ public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  
 		}
 	}
 
+	if ((checkBox1->Checked || checkBox2->Checked || checkBox3->Checked || checkBox4->Checked) && fileinserito == 1) { progressBar1->Value = 100; }
 	//FILE DISINSERITO
+	textBox11->Text = "";		// pulisco le textbox nel caso i dati cambino e non mi interra un particolare risultato
+	textBox10->Text = "";
+	textBox9->Text = "";
+	textBox8->Text = "";
+
 
 	if (fileinserito==0) {
+		try {
+			double Sman = System::Convert::ToDouble(textBox1->Text);				//creo delle variabili locali per salvare i dati dell inserimento manuale
+			double Kman = System::Convert::ToDouble(textBox2->Text);
+			double rman = System::Convert::ToDouble(textBox3->Text);
+			double sigmaman = System::Convert::ToDouble(textBox4->Text);
+			double timeman = System::Convert::ToDouble(textBox5->Text);
+			int no_s_stepsman = System::Convert::ToInt32(textBox6->Text);
+			int no_t_stepsman = System::Convert::ToInt32(textBox7->Text);
 
-		double Sman = System::Convert::ToDouble(textBox1->Text);				//creo delle variabili locali per salvare i dati dell inserimento manuale
-		double Kman = System::Convert::ToDouble(textBox2->Text);
-		double rman = System::Convert::ToDouble(textBox3->Text);
-		double sigmaman = System::Convert::ToDouble(textBox4->Text);
-		double timeman = System::Convert::ToDouble(textBox5->Text);
-		int no_s_stepsman = System::Convert::ToInt32(textBox6->Text);
-		int no_t_stepsman = System::Convert::ToInt32(textBox7->Text);
 
 
-		if (checkBox1->Checked == 1)											//eseguo i vari algoritmi per i parametri manuali
-		{
-			Differenze_esplicite expman;
-			expman.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
-			double risexpeuman = expman.option_price_put_european_finite_diff_explicit();
-			cout << risexpeuman << endl;
-			textBox11->Text = System::Convert::ToString(risexpeuman);
+			if (checkBox1->Checked || checkBox2->Checked || checkBox3->Checked || checkBox4->Checked == 1) { progressBar1->Value = 100; }
 
+			if (checkBox1->Checked == 1)											//eseguo i vari algoritmi per i parametri manuali
+			{
+				Differenze_esplicite expman;
+				expman.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
+				double risexpeuman = expman.option_price_put_european_finite_diff_explicit();
+				cout << risexpeuman << endl;
+				textBox11->Text = System::Convert::ToString(risexpeuman);
+
+			}
+			if (checkBox2->Checked == 1)
+			{
+				Differenze_esplicite expman2;
+				expman2.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
+				double risexpusman = expman2.option_price_put_american_finite_diff_explicit();
+				cout << risexpusman << endl;
+				textBox10->Text = System::Convert::ToString(risexpusman);
+
+			}
+			if (checkBox3->Checked == 1)
+			{
+				differenze_implicite impman;
+				impman.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
+				double risimpeuman = impman.option_price_put_european_finite_diff_implicit();
+				cout << risimpeuman << endl;
+				textBox9->Text = System::Convert::ToString(risimpeuman);
+
+			}
+			if (checkBox4->Checked == 1)
+			{
+				differenze_implicite impman2;
+				impman2.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
+				double risimpusman = impman2.option_price_put_american_finite_diff_implicit();
+				cout << risimpusman << endl;
+				textBox8->Text = System::Convert::ToString(risimpusman);
+
+			}
 		}
-		if (checkBox2->Checked == 1)
-		{
-			Differenze_esplicite expman2;
-			expman2.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
-			double risexpusman = expman2.option_price_put_american_finite_diff_explicit();
-			cout << risexpusman << endl;
-			textBox10->Text = System::Convert::ToString(risexpusman);
-
+		catch (System::FormatException^ e) {
+			MessageBox::Show("Errore di input nella text box");
 		}
-		if (checkBox3->Checked == 1)
-		{
-			differenze_implicite impman;
-			impman.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
-			double risimpeuman = impman.option_price_put_european_finite_diff_implicit();
-			cout << risimpeuman << endl;
-			textBox9->Text = System::Convert::ToString(risimpeuman);
-
-		}
-		if (checkBox4->Checked == 1)
-		{
-			differenze_implicite impman2;
-			impman2.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
-			double risimpusman = impman2.option_price_put_american_finite_diff_implicit();
-			cout << risimpusman << endl;
-			textBox8->Text = System::Convert::ToString(risimpusman);
-
-		}
-
 
 
 	}
+
+	
 }
 
 
@@ -923,43 +954,54 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 
 		}
 
+ public: System::Void saveFileDialog1_FileOk(System::Object^  sender, System::ComponentModel::CancelEventArgs^  e) {
+		 }
+
 
 		 /*BOTTONE SALVA*/
 
 public: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-	saveFileDialog1->ShowDialog();					//eseguo la finistra per il salvataggio del file
-	String^ nomeexport = saveFileDialog1->FileName;	//salvo il nome del file per poi utilizzarlo
-	
-	bool fileimportcsv = nomeexport->Contains(".csv");	//guardo l' estensione del file per decidere quale classe usare
-	bool fileimporttxt = nomeexport->Contains(".txt");
-	bool fileimportini = nomeexport->Contains(".ini");
+				
 
-	int expeu = 1;										//inizializzo le variabili per lo switch case
-	int expus = 2;
-	int impeu = 3;
-	int impus = 4;
+		
+		if(saveFileDialog1->ShowDialog()== System::Windows::Forms::DialogResult::OK){	//eseguo la finistra per il salvataggio del file	
+
+		String^ nomeexport = saveFileDialog1->FileName;	//salvo il nome del file per poi utilizzarlo
+		bool fileimportcsv = nomeexport->Contains(".csv");	//guardo l' estensione del file per decidere quale classe usare
+		bool fileimporttxt = nomeexport->Contains(".txt");
+		bool fileimportini = nomeexport->Contains(".ini");
+		
+		int expeu = 1;										//inizializzo le variabili per lo switch case
+		int expus = 2;
+		int impeu = 3;
+		int impus = 4;
 
 
-	if (fileimportcsv = 1) {							//se il file è in formato csv
-		System::Diagnostics::Debug::WriteLine(nomeexport); 
-		ExportCSV expcsv;								//creo una classe per l' export in csv
-		if (checkBox8->Checked)							//guardo quali risultati devo esportare
-		{
-			expcsv.exportfile(expeu,risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
-		}
-		if (checkBox7->Checked)
-		{
-			expcsv.exportfile(expus,risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
-		}
-		if (checkBox6->Checked)
-		{
-			expcsv.exportfile(impeu,risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
-		}
-		if (checkBox5->Checked)
-		{
-			expcsv.exportfile(impus,risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+		if (fileimportcsv = 1) {							//se il file è in formato csv
+			System::Diagnostics::Debug::WriteLine(nomeexport);
+			ExportCSV expcsv;								//creo una classe per l' export in csv
+			if (checkBox8->Checked)							//guardo quali risultati devo esportare
+			{
+				expcsv.exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
+			}
+			if (checkBox7->Checked)
+			{
+				expcsv.exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+			}
+			if (checkBox6->Checked)
+			{
+				expcsv.exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+			}
+			if (checkBox5->Checked)
+			{
+				expcsv.exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+			}
 		}
 	}
 }
+
+	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {}
+
+
 };
 }

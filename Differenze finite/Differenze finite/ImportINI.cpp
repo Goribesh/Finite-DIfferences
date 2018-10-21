@@ -1,5 +1,5 @@
 // file per importazione di un file INI, il file comprende i parametriINI: S, K, r, sigma, time, no_s_steps, no_t_step
-//separati da una virgola
+//separati da uno spazio
 
 
 #include "importINI.h"
@@ -40,7 +40,7 @@ void parametriINI::leggifile() {
 		}
 	}
 	catch (System::IndexOutOfRangeException^ e) {										// controllo le eccezioni per gli errori nei vettori
-		System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano punti e verigola.\n PREMERE ANNULLA E RIPROVARE");
+		System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano punti e verigola.\nPREMERE ANNULLA E RIPROVARE");
 		PadreImport::SS.clear();
 		PadreImport::SK.clear();
 		PadreImport::Sr.clear();
