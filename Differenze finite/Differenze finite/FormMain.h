@@ -1062,6 +1062,72 @@ namespace Differenzefinite {
 
 	private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
 		MyForm^ second = gcnew MyForm();
+		
+		if (checkBox1->Checked == 1)
+		{
+			second->richTextBox1->AppendText("---------RISULTATI ESPLICITI EUROPEI---------\n");
+			for (int i = 0; i < righe; i++) {
+				second->richTextBox1->AppendText("I dati sono: S="+ System::Convert::ToString(Sv[i])
+																+" K= "+System::Convert::ToString(Kv[i])
+					+ " r= "+System::Convert::ToString(rv[i])
+					+ " sigma= "+System::Convert::ToString(sigmav[i])
+					+ " time= "+System::Convert::ToString(timev[i])
+					+ " no_S_steps= "+System::Convert::ToString(no_S_stepsv[i])
+					+ " no_t_steps= "+System::Convert::ToString(no_t_stepsv[i]+"\n"));
+
+				second->richTextBox1->AppendText("Il risultato è: "+System::Convert::ToString(risexpeu[i]) + "\n\n");
+			}
+		}
+
+		if (checkBox2->Checked == 1)
+		{
+			second->richTextBox1->AppendText("---------RISULTATI ESPLICITI AMERICANI---------\n");
+			for (int i = 0; i < righe; i++) {
+				second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])
+					+ " K= " + System::Convert::ToString(Kv[i])
+					+ " r= " + System::Convert::ToString(rv[i])
+					+ " sigma= " + System::Convert::ToString(sigmav[i])
+					+ " time= " + System::Convert::ToString(timev[i])
+					+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
+					+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
+
+				second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risexpus[i]) + "\n\n");
+			}
+		}
+
+		if (checkBox3->Checked == 1)
+		{
+			second->richTextBox1->AppendText("---------RISULTATI IMPLICITI EUROPEI---------\n");
+			for (int i = 0; i < righe; i++) {
+				second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])
+					+ " K= " + System::Convert::ToString(Kv[i])
+					+ " r= " + System::Convert::ToString(rv[i])
+					+ " sigma= " + System::Convert::ToString(sigmav[i])
+					+ " time= " + System::Convert::ToString(timev[i])
+					+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
+					+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
+
+				second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risimpeu[i]) + "\n\n");
+			}
+		}
+
+		if (checkBox4->Checked == 1)
+		{
+			second->richTextBox1->AppendText("---------RISULTATI IMPLICITI AMERICANI---------\n");
+			for (int i = 0; i < righe; i++) {
+				second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])
+					+ " K= " + System::Convert::ToString(Kv[i])
+					+ " r= " + System::Convert::ToString(rv[i])
+					+ " sigma= " + System::Convert::ToString(sigmav[i])
+					+ " time= " + System::Convert::ToString(timev[i])
+					+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
+					+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
+
+				second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risimpus[i]) + "\n\n");
+			}
+		}
+
+
 		second->ShowDialog();
 		
 	};

@@ -12,7 +12,7 @@ void parametriTXT::leggifile() {
 		tempstring = din->ReadLine();
 		if (!System::String::IsNullOrEmpty(tempstring)) 
 		{
-			System::Diagnostics::Debug::WriteLine(tempstring);
+			
 			pezzi = tempstring->Split(',');
 
 			PadreImport::SS[i] = pezzi[0];

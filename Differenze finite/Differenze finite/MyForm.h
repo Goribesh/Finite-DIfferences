@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 namespace Differenzefinite {
 
@@ -15,12 +16,10 @@ namespace Differenzefinite {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void)
+		MyForm()
 		{
 			InitializeComponent();
-			//
-			//TODO: aggiungere qui il codice del costruttore.
-			//
+			
 		}
 
 	protected:
@@ -34,7 +33,9 @@ namespace Differenzefinite {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::RichTextBox^  richTextBox1;
+	public: System::Windows::Forms::RichTextBox^  richTextBox1;
+	protected:
+
 	protected:
 
 	private:
@@ -57,7 +58,9 @@ namespace Differenzefinite {
 			// 
 			this->richTextBox1->Location = System::Drawing::Point(12, 12);
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(988, 564);
+			this->richTextBox1->ReadOnly = true;
+			this->richTextBox1->ScrollBars = System::Windows::Forms::RichTextBoxScrollBars::ForcedVertical;
+			this->richTextBox1->Size = System::Drawing::Size(1012, 564);
 			this->richTextBox1->TabIndex = 0;
 			this->richTextBox1->Text = L"";
 			// 
@@ -67,6 +70,7 @@ namespace Differenzefinite {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1036, 588);
 			this->Controls->Add(this->richTextBox1);
+			this->MaximizeBox = false;
 			this->Name = L"MyForm";
 			this->Text = L"Risultati";
 			this->ResumeLayout(false);
