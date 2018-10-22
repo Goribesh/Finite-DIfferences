@@ -10,7 +10,7 @@ using namespace std;
 
 
 
- ref class PadreImport
+ public ref  class PadreImport
 {
 public:
 
@@ -35,6 +35,24 @@ public:
 	cliext::vector<int> no_s_steps;
 	cliext::vector<int> no_t_steps;
 
+	void clear() {
+		SS.clear();						// nel caso di eccezioni pulisco
+		SK.clear();
+		Sr.clear();
+		Ssigma.clear();
+		Stime.clear();
+		Sno_s_steps.clear();
+		Sno_t_steps.clear();
 
+		S.clear();						// nel caso di eccezioni pulisco
+		K.clear();
+		r.clear();
+		sigma.clear();
+		time.clear();
+		no_s_steps.clear();
+		no_t_steps.clear();
+
+		contatore = 0;
+	}
 };
 

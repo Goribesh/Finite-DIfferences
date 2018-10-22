@@ -651,49 +651,63 @@ namespace Differenzefinite {
 			{
 				parametriCSV inputcsv(Snome_file);					//inizializzo l oggetto inputcsv che prende in ingresso il nome del file
 
+				try {
+					inputcsv.leggifile();
+					//chiamo la funzione leggifile
 
-				inputcsv.leggifile();								//chiamo la funzione leggifile
-				
-				righe = inputcsv.contatore;							// salvo le righe del file per le future operazioni
-				MessageBox::Show("Import file effettuato");			// faccio comparire un messaggio per l' import 
-				textBox1->Enabled = 0;								// diabilito le textbox dell input manuale
-				textBox2->Enabled = 0;
-				textBox3->Enabled = 0;
-				textBox4->Enabled = 0;
-				textBox5->Enabled = 0;
-				textBox6->Enabled = 0;
-				textBox7->Enabled = 0;
+					righe = inputcsv.contatore;							// salvo le righe del file per le future operazioni
+					MessageBox::Show("Import file effettuato");			// faccio comparire un messaggio per l' import 
+					textBox1->Enabled = 0;								// diabilito le textbox dell input manuale
+					textBox2->Enabled = 0;
+					textBox3->Enabled = 0;
+					textBox4->Enabled = 0;
+					textBox5->Enabled = 0;
+					textBox6->Enabled = 0;
+					textBox7->Enabled = 0;
 
-				checkBox5->Enabled = 1;
-				checkBox6->Enabled = 1;
-				checkBox7->Enabled = 1;
-				checkBox8->Enabled = 1;
+					checkBox5->Enabled = 1;
+					checkBox6->Enabled = 1;
+					checkBox7->Enabled = 1;
+					checkBox8->Enabled = 1;
 
-								/* cambio la dimensione delle mie variabili in base al numero delle righe contate per non sprecare memoria*/
-				Sv.resize(righe);
-				Kv.resize(righe);
-				rv.resize(righe);
-				sigmav.resize(righe);
-				timev.resize(righe);
-				no_S_stepsv.resize(righe);
-				no_t_stepsv.resize(righe);
-				risexpeu.resize(righe);
-				risexpus.resize(righe);
-				risimpeu.resize(righe);
-				risimpus.resize(righe);
+					/* cambio la dimensione delle mie variabili in base al numero delle righe contate per non sprecare memoria*/
+					Sv.resize(righe);
+					Kv.resize(righe);
+					rv.resize(righe);
+					sigmav.resize(righe);
+					timev.resize(righe);
+					no_S_stepsv.resize(righe);
+					no_t_stepsv.resize(righe);
+					risexpeu.resize(righe);
+					risexpus.resize(righe);
+					risimpeu.resize(righe);
+					risimpus.resize(righe);
 
 
-				// salvo i miei parametri nelle variabili globali
+					// salvo i miei parametri nelle variabili globali
 
-				for (int i = 0; i < righe; i++)
+					for (int i = 0; i < righe; i++)
+					{
+						Sv[i] = inputcsv.S[i];
+						Kv[i] = inputcsv.K[i];
+						rv[i] = inputcsv.r[i];
+						sigmav[i] = inputcsv.sigma[i];
+						timev[i] = inputcsv.time[i];
+						no_S_stepsv[i] = inputcsv.no_s_steps[i];
+						no_t_stepsv[i] = inputcsv.no_t_steps[i];
+					}
+				}
+				catch (System::IndexOutOfRangeException^ e)
 				{
-					Sv[i] = inputcsv.S[i];
-					Kv[i] = inputcsv.K[i];
-					rv[i] = inputcsv.r[i];
-					sigmav[i] = inputcsv.sigma[i];
-					timev[i] = inputcsv.time[i];
-					no_S_stepsv[i] = inputcsv.no_s_steps[i];
-					no_t_stepsv[i] = inputcsv.no_t_steps[i];
+					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
+					inputcsv.clear();
+					Sv.clear();
+					Kv.clear();
+					rv.clear();
+					sigmav.clear();
+					timev.clear();
+					no_S_stepsv.clear();
+					no_t_stepsv.clear();
 				}
 			}
 
@@ -702,44 +716,58 @@ namespace Differenzefinite {
 			if (fileini == 1)
 			{
 				parametriINI inputINI(Snome_file);
-				inputINI.leggifile();
-				righe = inputINI.contatore;
-				MessageBox::Show("Import file effettuato");
-				textBox1->Enabled = 0;
-				textBox2->Enabled = 0;
-				textBox3->Enabled = 0;
-				textBox4->Enabled = 0;
-				textBox5->Enabled = 0;
-				textBox6->Enabled = 0;
-				textBox7->Enabled = 0;
+				try {
+					inputINI.leggifile();
+					righe = inputINI.contatore;
+					MessageBox::Show("Import file effettuato");
+					textBox1->Enabled = 0;
+					textBox2->Enabled = 0;
+					textBox3->Enabled = 0;
+					textBox4->Enabled = 0;
+					textBox5->Enabled = 0;
+					textBox6->Enabled = 0;
+					textBox7->Enabled = 0;
 
-				Sv.resize(righe);
-				Kv.resize(righe);
-				rv.resize(righe);
-				sigmav.resize(righe);
-				timev.resize(righe);
-				no_S_stepsv.resize(righe);
-				no_t_stepsv.resize(righe);
-				risexpeu.resize(righe);
-				risexpus.resize(righe);
-				risimpeu.resize(righe);
-				risimpus.resize(righe);
+					Sv.resize(righe);
+					Kv.resize(righe);
+					rv.resize(righe);
+					sigmav.resize(righe);
+					timev.resize(righe);
+					no_S_stepsv.resize(righe);
+					no_t_stepsv.resize(righe);
+					risexpeu.resize(righe);
+					risexpus.resize(righe);
+					risimpeu.resize(righe);
+					risimpus.resize(righe);
 
-				checkBox5->Enabled = 1;
-				checkBox6->Enabled = 1;
-				checkBox7->Enabled = 1;
-				checkBox8->Enabled = 1;
+					checkBox5->Enabled = 1;
+					checkBox6->Enabled = 1;
+					checkBox7->Enabled = 1;
+					checkBox8->Enabled = 1;
 
 
-				for (int i = 0; i < righe; i++)
+					for (int i = 0; i < righe; i++)
+					{
+						Sv[i] = inputINI.S[i];
+						Kv[i] = inputINI.K[i];
+						rv[i] = inputINI.r[i];
+						sigmav[i] = inputINI.sigma[i];
+						timev[i] = inputINI.time[i];
+						no_S_stepsv[i] = inputINI.no_s_steps[i];
+						no_t_stepsv[i] = inputINI.no_t_steps[i];
+					}
+				}
+				catch (System::IndexOutOfRangeException^ e)
 				{
-					Sv[i] = inputINI.S[i];
-					Kv[i] = inputINI.K[i];
-					rv[i] = inputINI.r[i];
-					sigmav[i] = inputINI.sigma[i];
-					timev[i] = inputINI.time[i];
-					no_S_stepsv[i] = inputINI.no_s_steps[i];
-					no_t_stepsv[i] = inputINI.no_t_steps[i];
+					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
+					inputINI.clear();
+					Sv.clear();
+					Kv.clear();
+					rv.clear();
+					sigmav.clear();
+					timev.clear();
+					no_S_stepsv.clear();
+					no_t_stepsv.clear();
 				}
 			}
 
@@ -748,44 +776,58 @@ namespace Differenzefinite {
 			if (filetxt == 1)
 			{
 				parametriTXT inputtxt(Snome_file);
-				inputtxt.leggifile();
-				righe = inputtxt.contatore;
-				MessageBox::Show("Import file effettuato");
-				textBox1->Enabled = 0;
-				textBox2->Enabled = 0;
-				textBox3->Enabled = 0;
-				textBox4->Enabled = 0;
-				textBox5->Enabled = 0;
-				textBox6->Enabled = 0;
-				textBox7->Enabled = 0;
+				try {
+					inputtxt.leggifile();
+					righe = inputtxt.contatore;
+					MessageBox::Show("Import file effettuato");
+					textBox1->Enabled = 0;
+					textBox2->Enabled = 0;
+					textBox3->Enabled = 0;
+					textBox4->Enabled = 0;
+					textBox5->Enabled = 0;
+					textBox6->Enabled = 0;
+					textBox7->Enabled = 0;
 
-				Sv.resize(righe);
-				Kv.resize(righe);
-				rv.resize(righe);
-				sigmav.resize(righe);
-				timev.resize(righe);
-				no_S_stepsv.resize(righe);
-				no_t_stepsv.resize(righe);
-				risexpeu.resize(righe);
-				risexpus.resize(righe);
-				risimpeu.resize(righe);
-				risimpus.resize(righe);
+					Sv.resize(righe);
+					Kv.resize(righe);
+					rv.resize(righe);
+					sigmav.resize(righe);
+					timev.resize(righe);
+					no_S_stepsv.resize(righe);
+					no_t_stepsv.resize(righe);
+					risexpeu.resize(righe);
+					risexpus.resize(righe);
+					risimpeu.resize(righe);
+					risimpus.resize(righe);
 
 
-				checkBox5->Enabled = 1;
-				checkBox6->Enabled = 1;
-				checkBox7->Enabled = 1;
-				checkBox8->Enabled = 1;
+					checkBox5->Enabled = 1;
+					checkBox6->Enabled = 1;
+					checkBox7->Enabled = 1;
+					checkBox8->Enabled = 1;
 
-				for (int i = 0; i < righe; i++)
+					for (int i = 0; i < righe; i++)
+					{
+						Sv[i] = inputtxt.S[i];
+						Kv[i] = inputtxt.K[i];
+						rv[i] = inputtxt.r[i];
+						sigmav[i] = inputtxt.sigma[i];
+						timev[i] = inputtxt.time[i];
+						no_S_stepsv[i] = inputtxt.no_s_steps[i];
+						no_t_stepsv[i] = inputtxt.no_t_steps[i];
+					}
+				}
+				catch (System::IndexOutOfRangeException^ e)
 				{
-					Sv[i] = inputtxt.S[i];
-					Kv[i] = inputtxt.K[i];
-					rv[i] = inputtxt.r[i];
-					sigmav[i] = inputtxt.sigma[i];
-					timev[i] = inputtxt.time[i];
-					no_S_stepsv[i] = inputtxt.no_s_steps[i];
-					no_t_stepsv[i] = inputtxt.no_t_steps[i];
+					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
+					inputtxt.clear();
+					Sv.clear();
+					Kv.clear();
+					rv.clear();
+					sigmav.clear();
+					timev.clear();
+					no_S_stepsv.clear();
+					no_t_stepsv.clear();
 				}
 			}
 

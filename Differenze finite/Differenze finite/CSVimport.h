@@ -15,7 +15,6 @@ public:
 	void leggifile();			// legge parametriCSV dal file
 	
 
-	
 
 
 
