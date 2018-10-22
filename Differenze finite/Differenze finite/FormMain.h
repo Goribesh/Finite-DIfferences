@@ -1129,7 +1129,7 @@ namespace Differenzefinite {
 
 
 		second->ShowDialog();
-		
+		second->richTextBox1->Text = "";
 	};
 	};
 }

@@ -70,6 +70,7 @@ namespace Differenzefinite {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1036, 588);
 			this->Controls->Add(this->richTextBox1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"MyForm";
 			this->Text = L"Risultati";
