@@ -12,7 +12,7 @@ void parametriINI::leggifile() {
 	System::String^ tempstring;																	//creo una stringa per allocare temporaneamente la stringa letta dal file
 	cli::array<System::String^>^ pezzi;															//creo un array di stringhe su cui salvare i miei parametri
 
-	try {
+	
 		for (int i = 0; i < PadreImport::num_righe; i++) {											//leggo tutte le righe del file
 			tempstring = din->ReadLine();															//leggo la riga e la salvo nella stringa temporanea
 			if (!System::String::IsNullOrEmpty(tempstring)) {										//nel caso la stringa sia diversa da zero eseguo la divisione e il salvataggio dei parametri
@@ -38,28 +38,8 @@ void parametriINI::leggifile() {
 			}
 			else { i--; }
 		}
-	}
-	catch (System::IndexOutOfRangeException^ e) {										// controllo le eccezioni per gli errori nei vettori
-		System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano punti e verigola.\nPREMERE ANNULLA E RIPROVARE");
-		PadreImport::SS.clear();
-		PadreImport::SK.clear();
-		PadreImport::Sr.clear();
-		PadreImport::Ssigma.clear();
-		PadreImport::Stime.clear();
-		PadreImport::Sno_s_steps.clear();
-		PadreImport::Sno_t_steps.clear();
+	
 
-		PadreImport::S.clear();
-		PadreImport::K.clear();
-		PadreImport::r.clear();
-		PadreImport::sigma.clear();
-		PadreImport::time.clear();
-		PadreImport::no_s_steps.clear();
-		PadreImport::no_t_steps.clear();
-
-		PadreImport::contatore = 0;
-
-	}
 }
 
 
