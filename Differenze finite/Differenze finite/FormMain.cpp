@@ -5,7 +5,7 @@ using namespace System::Windows::Forms;
 //using namespace std;
 
 [STAThreadAttribute]
-void main(cli::array<System::String^>^ args) {
+int main(cli::array<System::String^>^ argv) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Differenzefinite::FormMain form;

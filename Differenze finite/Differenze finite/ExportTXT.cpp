@@ -1,6 +1,6 @@
 #include "ExportTXT.h"
 
-void ExportTXT::exportfile(int tipo, vector<double> vec, int righe, System::String^ file,   vector <double> Sexp,						//prendo i parametri in ingresso
+void ExportTXT::exportfile(int tipo, vector<double> vec, size_t righe, System::String^ file,   vector <double> Sexp,						//prendo i parametri in ingresso
 																							vector <double> Kexp,
 																							vector <double> rexp,
 																							vector <double> sigmaexp,

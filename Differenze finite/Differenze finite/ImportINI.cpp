@@ -36,7 +36,7 @@ void parametriINI::leggifile() {
 				PadreImport::no_s_steps[i] = System::Convert::ToInt32(PadreImport::Sno_s_steps[i]);
 				PadreImport::no_t_steps[i] = System::Convert::ToInt32(PadreImport::Sno_t_steps[i]);
 			}
-			else { i--; }
+			else { i--; }																	// nel caso la mia stringa sia vuota torno indietro di un i in modod da non perdere una riga
 		}
 	
 

@@ -13,7 +13,7 @@
 
 // definisco le variaibli globali che usero poi
 
-int righe = 0;	
+size_t righe = 0;	
 vector <double> Sv;
 vector <double> Kv;
 vector <double> rv;
@@ -114,6 +114,7 @@ namespace Differenzefinite {
 	private: System::Windows::Forms::CheckBox^  checkBox8;
 	private: System::Windows::Forms::ProgressBar^  progressBar1;
 	private: System::Windows::Forms::Button^  button5;
+	private: System::Windows::Forms::Label^  label14;
 
 
 	protected:
@@ -173,6 +174,7 @@ namespace Differenzefinite {
 			this->checkBox8 = (gcnew System::Windows::Forms::CheckBox());
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -590,11 +592,21 @@ namespace Differenzefinite {
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &FormMain::button5_Click);
 			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Location = System::Drawing::Point(132, 65);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(177, 13);
+			this->label14->TabIndex = 45;
+			this->label14->Text = L"<-- PREMERE DOPO UN ERRORE";
+			// 
 			// FormMain
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(702, 629);
+			this->Controls->Add(this->label14);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->progressBar1);
 			this->Controls->Add(this->label13);
@@ -712,7 +724,7 @@ namespace Differenzefinite {
 						no_t_stepsv[i] = inputcsv.no_t_steps[i];
 					}
 				}
-				catch (System::IndexOutOfRangeException^ e)
+				catch (System::Exception^)
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
 					inputcsv.clear();
@@ -772,7 +784,7 @@ namespace Differenzefinite {
 						no_t_stepsv[i] = inputINI.no_t_steps[i];
 					}
 				}
-				catch (System::IndexOutOfRangeException^ e)
+				catch (System::Exception^)
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
 					inputINI.clear();
@@ -832,7 +844,7 @@ namespace Differenzefinite {
 						no_t_stepsv[i] = inputtxt.no_t_steps[i];
 					}
 				}
-				catch (System::IndexOutOfRangeException^ e)
+				catch (System::Exception^ )
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
 					inputtxt.clear();
@@ -972,7 +984,7 @@ namespace Differenzefinite {
 
 				}
 			}
-			catch (System::FormatException^ e) {
+			catch (System::FormatException^) {
 				MessageBox::Show("Errore di input nella text box");
 			}
 
@@ -1134,7 +1146,7 @@ namespace Differenzefinite {
 		}
 
 		second->ShowDialog();
-		second->richTextBox1->Text = "";
+		second->richTextBox1->Text = ""; // pulisco la textbox alla fine per riscrivere nuovi risultati in caso di un altro inserimento
 	};
 	};
 }
