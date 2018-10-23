@@ -16,7 +16,7 @@ PadreImport::PadreImport(System::String^ file) {
 			}
 		}
 
-		System::Diagnostics::Debug::WriteLine(contatore);
+
 
 
 		int newsize = contatore;

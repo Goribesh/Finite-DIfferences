@@ -2,11 +2,13 @@
 #include <string>
 #include "Differenze_esplicite.h"
 #include "PadreImport.h"
-#include <iostream>
 #include "CSVimport.h"
-#include"ExportCSV.h"
 #include "ImportTXT.h"
 #include "ImportINI.h"
+#include "PadreExport.h"
+#include "ExportCSV.h"
+#include "ExportTXT.h"
+#include "ExportINI.h"
 #include <vector>
 #include "differenze_implicite.h"
 #include "MyForm.h"
@@ -115,6 +117,7 @@ namespace Differenzefinite {
 	private: System::Windows::Forms::ProgressBar^  progressBar1;
 	private: System::Windows::Forms::Button^  button5;
 	private: System::Windows::Forms::Label^  label14;
+	private: System::Windows::Forms::GroupBox^  groupBox1;
 
 
 	protected:
@@ -175,6 +178,8 @@ namespace Differenzefinite {
 			this->progressBar1 = (gcnew System::Windows::Forms::ProgressBar());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -210,7 +215,7 @@ namespace Differenzefinite {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(148, 283);
+			this->textBox1->Location = System::Drawing::Point(88, 46);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(55, 20);
 			this->textBox1->TabIndex = 3;
@@ -220,7 +225,7 @@ namespace Differenzefinite {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(204, 283);
+			this->textBox2->Location = System::Drawing::Point(144, 46);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(55, 20);
 			this->textBox2->TabIndex = 4;
@@ -229,7 +234,7 @@ namespace Differenzefinite {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(260, 283);
+			this->textBox3->Location = System::Drawing::Point(200, 46);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(55, 20);
 			this->textBox3->TabIndex = 6;
@@ -238,7 +243,7 @@ namespace Differenzefinite {
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(316, 283);
+			this->textBox4->Location = System::Drawing::Point(256, 46);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(55, 20);
 			this->textBox4->TabIndex = 5;
@@ -247,7 +252,7 @@ namespace Differenzefinite {
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(372, 283);
+			this->textBox5->Location = System::Drawing::Point(312, 46);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(55, 20);
 			this->textBox5->TabIndex = 9;
@@ -256,7 +261,7 @@ namespace Differenzefinite {
 			// 
 			// textBox6
 			// 
-			this->textBox6->Location = System::Drawing::Point(428, 283);
+			this->textBox6->Location = System::Drawing::Point(368, 46);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(55, 20);
 			this->textBox6->TabIndex = 8;
@@ -265,7 +270,7 @@ namespace Differenzefinite {
 			// 
 			// textBox7
 			// 
-			this->textBox7->Location = System::Drawing::Point(484, 283);
+			this->textBox7->Location = System::Drawing::Point(424, 46);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(55, 20);
 			this->textBox7->TabIndex = 7;
@@ -276,7 +281,7 @@ namespace Differenzefinite {
 			// 
 			this->label4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label4->Location = System::Drawing::Point(316, 267);
+			this->label4->Location = System::Drawing::Point(256, 30);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(55, 13);
 			this->label4->TabIndex = 13;
@@ -287,7 +292,7 @@ namespace Differenzefinite {
 			// 
 			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label1->Location = System::Drawing::Point(372, 267);
+			this->label1->Location = System::Drawing::Point(312, 30);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(55, 13);
 			this->label1->TabIndex = 14;
@@ -300,7 +305,7 @@ namespace Differenzefinite {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(428, 267);
+			this->label2->Location = System::Drawing::Point(368, 30);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(55, 13);
 			this->label2->TabIndex = 15;
@@ -311,7 +316,7 @@ namespace Differenzefinite {
 			// 
 			this->label3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label3->Location = System::Drawing::Point(484, 267);
+			this->label3->Location = System::Drawing::Point(424, 30);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(55, 13);
 			this->label3->TabIndex = 16;
@@ -322,7 +327,7 @@ namespace Differenzefinite {
 			// 
 			this->label5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label5->Location = System::Drawing::Point(260, 267);
+			this->label5->Location = System::Drawing::Point(200, 30);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(55, 13);
 			this->label5->TabIndex = 17;
@@ -333,7 +338,7 @@ namespace Differenzefinite {
 			// 
 			this->label6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label6->Location = System::Drawing::Point(204, 267);
+			this->label6->Location = System::Drawing::Point(144, 30);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(55, 13);
 			this->label6->TabIndex = 18;
@@ -344,7 +349,7 @@ namespace Differenzefinite {
 			// 
 			this->label7->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->label7->Location = System::Drawing::Point(148, 267);
+			this->label7->Location = System::Drawing::Point(88, 30);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(55, 13);
 			this->label7->TabIndex = 19;
@@ -400,7 +405,7 @@ namespace Differenzefinite {
 			// 
 			// textBox8
 			// 
-			this->textBox8->Location = System::Drawing::Point(461, 435);
+			this->textBox8->Location = System::Drawing::Point(401, 99);
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->ReadOnly = true;
 			this->textBox8->Size = System::Drawing::Size(110, 20);
@@ -409,7 +414,7 @@ namespace Differenzefinite {
 			// 
 			// textBox9
 			// 
-			this->textBox9->Location = System::Drawing::Point(349, 435);
+			this->textBox9->Location = System::Drawing::Point(289, 99);
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->ReadOnly = true;
 			this->textBox9->Size = System::Drawing::Size(110, 20);
@@ -418,7 +423,7 @@ namespace Differenzefinite {
 			// 
 			// textBox10
 			// 
-			this->textBox10->Location = System::Drawing::Point(236, 435);
+			this->textBox10->Location = System::Drawing::Point(176, 99);
 			this->textBox10->Name = L"textBox10";
 			this->textBox10->ReadOnly = true;
 			this->textBox10->Size = System::Drawing::Size(110, 20);
@@ -427,7 +432,7 @@ namespace Differenzefinite {
 			// 
 			// textBox11
 			// 
-			this->textBox11->Location = System::Drawing::Point(124, 435);
+			this->textBox11->Location = System::Drawing::Point(64, 99);
 			this->textBox11->Name = L"textBox11";
 			this->textBox11->ReadOnly = true;
 			this->textBox11->Size = System::Drawing::Size(110, 20);
@@ -439,7 +444,7 @@ namespace Differenzefinite {
 			this->label8->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(127, 419);
+			this->label8->Location = System::Drawing::Point(67, 83);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(103, 13);
 			this->label8->TabIndex = 31;
@@ -451,7 +456,7 @@ namespace Differenzefinite {
 			this->label9->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(239, 419);
+			this->label9->Location = System::Drawing::Point(179, 83);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(103, 13);
 			this->label9->TabIndex = 32;
@@ -463,7 +468,7 @@ namespace Differenzefinite {
 			this->label10->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(351, 419);
+			this->label10->Location = System::Drawing::Point(291, 83);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(102, 13);
 			this->label10->TabIndex = 33;
@@ -475,7 +480,7 @@ namespace Differenzefinite {
 			this->label11->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(462, 419);
+			this->label11->Location = System::Drawing::Point(402, 83);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(102, 13);
 			this->label11->TabIndex = 34;
@@ -502,7 +507,7 @@ namespace Differenzefinite {
 			// 
 			// saveFileDialog1
 			// 
-			this->saveFileDialog1->Filter = L"Files TXT (*.txt)|*.TXT|Files CSV (*.csv)|*.csv|Files INI (*.ini)|*.ini;";
+			this->saveFileDialog1->Filter = L"Files TXT (*.txt)|*.txt|Files CSV (*.csv)|*.csv|Files INI (*.ini)|*.ini;";
 			this->saveFileDialog1->FilterIndex = 2;
 			this->saveFileDialog1->FileOk += gcnew System::ComponentModel::CancelEventHandler(this, &FormMain::saveFileDialog1_FileOk);
 			// 
@@ -597,15 +602,47 @@ namespace Differenzefinite {
 			this->label14->AutoSize = true;
 			this->label14->Location = System::Drawing::Point(132, 65);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(177, 13);
+			this->label14->Size = System::Drawing::Size(382, 13);
 			this->label14->TabIndex = 45;
-			this->label14->Text = L"<-- PREMERE DOPO UN ERRORE";
+			this->label14->Text = L"<-- PREMERE DOPO UN ERRORE O PER TORNARE ALL INPUT MANUALE";
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->Controls->Add(this->textBox7);
+			this->groupBox1->Controls->Add(this->textBox1);
+			this->groupBox1->Controls->Add(this->textBox2);
+			this->groupBox1->Controls->Add(this->textBox4);
+			this->groupBox1->Controls->Add(this->textBox3);
+			this->groupBox1->Controls->Add(this->textBox6);
+			this->groupBox1->Controls->Add(this->textBox5);
+			this->groupBox1->Controls->Add(this->label4);
+			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Controls->Add(this->label2);
+			this->groupBox1->Controls->Add(this->label3);
+			this->groupBox1->Controls->Add(this->label5);
+			this->groupBox1->Controls->Add(this->label11);
+			this->groupBox1->Controls->Add(this->label6);
+			this->groupBox1->Controls->Add(this->label10);
+			this->groupBox1->Controls->Add(this->label7);
+			this->groupBox1->Controls->Add(this->label9);
+			this->groupBox1->Controls->Add(this->textBox11);
+			this->groupBox1->Controls->Add(this->label8);
+			this->groupBox1->Controls->Add(this->textBox10);
+			this->groupBox1->Controls->Add(this->textBox8);
+			this->groupBox1->Controls->Add(this->textBox9);
+			this->groupBox1->Location = System::Drawing::Point(57, 273);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(583, 150);
+			this->groupBox1->TabIndex = 46;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"INSERIMENTO MANUALE";
 			// 
 			// FormMain
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(702, 629);
+			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->label14);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->progressBar1);
@@ -617,32 +654,10 @@ namespace Differenzefinite {
 			this->Controls->Add(this->label12);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->textBox12);
-			this->Controls->Add(this->label11);
-			this->Controls->Add(this->label10);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->label8);
-			this->Controls->Add(this->textBox8);
-			this->Controls->Add(this->textBox9);
-			this->Controls->Add(this->textBox10);
-			this->Controls->Add(this->textBox11);
 			this->Controls->Add(this->checkBox4);
 			this->Controls->Add(this->checkBox3);
 			this->Controls->Add(this->checkBox2);
 			this->Controls->Add(this->checkBox1);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->textBox6);
-			this->Controls->Add(this->textBox7);
-			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->textBox4);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -652,6 +667,8 @@ namespace Differenzefinite {
 			this->Name = L"FormMain";
 			this->Text = L"Differenze Finite";
 			this->Load += gcnew System::EventHandler(this, &FormMain::FormMain_Load);
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -659,7 +676,10 @@ namespace Differenzefinite {
 #pragma endregion
 	private: System::Void FormMain_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
-	public: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {	//bottone INSERISCI FILE
+
+			 //bottone INSERISCI FILE
+
+	public: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {	
 
 
 
@@ -668,21 +688,22 @@ namespace Differenzefinite {
 
 			openFileDialog1->OpenFile();							//apro il file per la lettura
 			textBox12->Text = openFileDialog1->FileName;			//leggo il suo nome e lo stampo a video
-			String^ Snome_file = openFileDialog1->FileName;		// salvo il nome per riutilizzarlo nelle future classi
+			String^ Snome_file = openFileDialog1->FileName;			// salvo il nome per riutilizzarlo nelle future classi
 			fileinserito = 1;										// dico alle classi future che il file è inserito
+
 			bool filecsv = Snome_file->Contains(".csv");			//preparo le variabili per la futura selezione della classe in base all estensione
 			bool filetxt = Snome_file->Contains(".txt");
 			bool fileini = Snome_file->Contains(".ini");
 
 			if (filecsv == 1)										// nel caso il file contiene .csv nel nome creo le relative classi
 			{
-				parametriCSV inputcsv(Snome_file);					//inizializzo l oggetto inputcsv che prende in ingresso il nome del file
+				parametriCSV^ inputcsv=gcnew parametriCSV(Snome_file);					//inizializzo l oggetto inputcsv che prende in ingresso il nome del file
 
 				try {
-					inputcsv.leggifile();
+					inputcsv->leggifile();
 					//chiamo la funzione leggifile
 
-					righe = inputcsv.contatore;							// salvo le righe del file per le future operazioni
+					righe = inputcsv->contatore;							// salvo le righe del file per le future operazioni
 					MessageBox::Show("Import file effettuato");			// faccio comparire un messaggio per l' import 
 					textBox1->Enabled = 0;								// diabilito le textbox dell input manuale
 					textBox2->Enabled = 0;
@@ -715,19 +736,19 @@ namespace Differenzefinite {
 
 					for (int i = 0; i < righe; i++)
 					{
-						Sv[i] = inputcsv.S[i];
-						Kv[i] = inputcsv.K[i];
-						rv[i] = inputcsv.r[i];
-						sigmav[i] = inputcsv.sigma[i];
-						timev[i] = inputcsv.time[i];
-						no_S_stepsv[i] = inputcsv.no_s_steps[i];
-						no_t_stepsv[i] = inputcsv.no_t_steps[i];
+						Sv[i] = inputcsv->S[i];
+						Kv[i] = inputcsv->K[i];
+						rv[i] = inputcsv->r[i];
+						sigmav[i] = inputcsv->sigma[i];
+						timev[i] = inputcsv->time[i];
+						no_S_stepsv[i] = inputcsv->no_s_steps[i];
+						no_t_stepsv[i] = inputcsv->no_t_steps[i];
 					}
 				}
 				catch (System::Exception^)
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
-					inputcsv.clear();
+					inputcsv->clear();
 					Sv.clear();
 					Kv.clear();
 					rv.clear();
@@ -735,17 +756,19 @@ namespace Differenzefinite {
 					timev.clear();
 					no_S_stepsv.clear();
 					no_t_stepsv.clear();
+					fileinserito = 0;
 				}
+				delete inputcsv;
 			}
 
 			// rieseguo le stesse operazioni  per i file txt
 
 			if (fileini == 1)
 			{
-				parametriINI inputINI(Snome_file);
+				parametriINI^ inputINI = gcnew parametriINI(Snome_file);
 				try {
-					inputINI.leggifile();
-					righe = inputINI.contatore;
+					inputINI->leggifile();
+					righe = inputINI->contatore;
 					MessageBox::Show("Import file effettuato");
 					textBox1->Enabled = 0;
 					textBox2->Enabled = 0;
@@ -775,19 +798,20 @@ namespace Differenzefinite {
 
 					for (int i = 0; i < righe; i++)
 					{
-						Sv[i] = inputINI.S[i];
-						Kv[i] = inputINI.K[i];
-						rv[i] = inputINI.r[i];
-						sigmav[i] = inputINI.sigma[i];
-						timev[i] = inputINI.time[i];
-						no_S_stepsv[i] = inputINI.no_s_steps[i];
-						no_t_stepsv[i] = inputINI.no_t_steps[i];
+						Sv[i] = inputINI->S[i];
+						Kv[i] = inputINI->K[i];
+						rv[i] = inputINI->r[i];
+						sigmav[i] = inputINI->sigma[i];
+						timev[i] = inputINI->time[i];
+						no_S_stepsv[i] = inputINI->no_s_steps[i];
+						no_t_stepsv[i] = inputINI->no_t_steps[i];
 					}
+					delete inputINI;
 				}
 				catch (System::Exception^)
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
-					inputINI.clear();
+					inputINI->clear();
 					Sv.clear();
 					Kv.clear();
 					rv.clear();
@@ -795,18 +819,20 @@ namespace Differenzefinite {
 					timev.clear();
 					no_S_stepsv.clear();
 					no_t_stepsv.clear();
+					fileinserito = 0;
 				}
+				delete inputINI;
 			}
 
 			// rieseguo le stesse operazioni  per i file ini
 
 			if (filetxt == 1)
 			{
-				parametriTXT inputtxt(Snome_file);
+				parametriTXT^ inputtxt=gcnew parametriTXT(Snome_file);
 				try {
-					inputtxt.leggifile();
-					righe = inputtxt.contatore;
-					MessageBox::Show("Import file effettuato");
+					inputtxt->leggifile();
+					righe = inputtxt->contatore;
+					MessageBox::Show ("Import file effettuato");
 					textBox1->Enabled = 0;
 					textBox2->Enabled = 0;
 					textBox3->Enabled = 0;
@@ -835,19 +861,19 @@ namespace Differenzefinite {
 
 					for (int i = 0; i < righe; i++)
 					{
-						Sv[i] = inputtxt.S[i];
-						Kv[i] = inputtxt.K[i];
-						rv[i] = inputtxt.r[i];
-						sigmav[i] = inputtxt.sigma[i];
-						timev[i] = inputtxt.time[i];
-						no_S_stepsv[i] = inputtxt.no_s_steps[i];
-						no_t_stepsv[i] = inputtxt.no_t_steps[i];
+						Sv[i] = inputtxt->S[i];
+						Kv[i] = inputtxt->K[i];
+						rv[i] = inputtxt->r[i];
+						sigmav[i] = inputtxt->sigma[i];
+						timev[i] = inputtxt->time[i];
+						no_S_stepsv[i] = inputtxt->no_s_steps[i];
+						no_t_stepsv[i] = inputtxt->no_t_steps[i];
 					}
 				}
 				catch (System::Exception^ )
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
-					inputtxt.clear();
+					inputtxt->clear();
 					Sv.clear();
 					Kv.clear();
 					rv.clear();
@@ -855,9 +881,11 @@ namespace Differenzefinite {
 					timev.clear();
 					no_S_stepsv.clear();
 					no_t_stepsv.clear();
+					fileinserito = 0;
 				}
 			}
 
+		
 		}
 
 	}
@@ -952,7 +980,7 @@ namespace Differenzefinite {
 					Differenze_esplicite expman;
 					expman.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
 					double risexpeuman = expman.option_price_put_european_finite_diff_explicit();
-					cout << risexpeuman << endl;
+	
 					textBox11->Text = System::Convert::ToString(risexpeuman);
 
 				}
@@ -961,7 +989,7 @@ namespace Differenzefinite {
 					Differenze_esplicite expman2;
 					expman2.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
 					double risexpusman = expman2.option_price_put_american_finite_diff_explicit();
-					cout << risexpusman << endl;
+					
 					textBox10->Text = System::Convert::ToString(risexpusman);
 
 				}
@@ -970,7 +998,7 @@ namespace Differenzefinite {
 					differenze_implicite impman;
 					impman.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
 					double risimpeuman = impman.option_price_put_european_finite_diff_implicit();
-					cout << risimpeuman << endl;
+
 					textBox9->Text = System::Convert::ToString(risimpeuman);
 
 				}
@@ -979,7 +1007,7 @@ namespace Differenzefinite {
 					differenze_implicite impman2;
 					impman2.SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
 					double risimpusman = impman2.option_price_put_american_finite_diff_implicit();
-					cout << risimpusman << endl;
+
 					textBox8->Text = System::Convert::ToString(risimpusman);
 
 				}
@@ -1023,6 +1051,7 @@ namespace Differenzefinite {
 		checkBox6->Enabled = 0;
 		checkBox7->Enabled = 0;
 		checkBox8->Enabled = 0;
+		button5->Enabled = 0;
 
 
 	}
@@ -1050,25 +1079,68 @@ namespace Differenzefinite {
 			int impus = 4;
 
 
-			if (fileimportcsv = 1) {							//se il file è in formato csv
-				System::Diagnostics::Debug::WriteLine(nomeexport);
-				ExportCSV expcsv;								//creo una classe per l' export in csv
+			if (fileimportcsv ==1) {							//se il file è in formato csv
+
+				ExportCSV^ expcsv=gcnew ExportCSV;								//creo una classe per l' export in csv
 				if (checkBox8->Checked)							//guardo quali risultati devo esportare
 				{
-					expcsv.exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
+					expcsv->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
 				}
 				if (checkBox7->Checked)
 				{
-					expcsv.exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					expcsv->exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
 				}
 				if (checkBox6->Checked)
 				{
-					expcsv.exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					expcsv->exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
 				}
 				if (checkBox5->Checked)
 				{
-					expcsv.exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					expcsv->exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
 				}
+				delete expcsv;
+
+			}
+			if (fileimporttxt ==1) {							//se il file è in formato csv
+
+				ExportTXT^ exptxt = gcnew ExportTXT;								//creo una classe per l' export in csv
+				if (checkBox8->Checked)							//guardo quali risultati devo esportare
+				{
+					exptxt->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
+				}
+				if (checkBox7->Checked)
+				{
+					exptxt->exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+				}
+				if (checkBox6->Checked)
+				{
+					exptxt->exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+				}
+				if (checkBox5->Checked)
+				{
+					exptxt->exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+				}
+				delete exptxt;
+			}
+			if (fileimportini ==1) {							//se il file è in formato csv
+				ExportINI^ expini = gcnew ExportINI;			//creo una classe per l' export in csv
+				if (checkBox8->Checked)							//guardo quali risultati devo esportare
+				{
+					expini->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
+				}
+				if (checkBox7->Checked)
+				{
+					expini->exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+				}
+				if (checkBox6->Checked)
+				{
+					expini->exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+				}
+				if (checkBox5->Checked)
+				{
+					expini->exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+				}
+				delete expini;
 			}
 		}
 	}
