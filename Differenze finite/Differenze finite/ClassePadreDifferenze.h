@@ -4,7 +4,7 @@ using namespace std;
 
 // creo una classe padre 
 
- public ref class ClassePadreDifferenze 
+ref class ClassePadreDifferenze 
 {
 public:
 										// inizializzo le varibili che verranno utilizzate per i figli

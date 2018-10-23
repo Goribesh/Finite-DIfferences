@@ -1081,7 +1081,7 @@ namespace Differenzefinite {
 
 			if (fileimportcsv ==1) {							//se il file è in formato csv
 
-				ExportCSV^ expcsv=gcnew ExportCSV;								//creo una classe per l' export in csv
+				ExportCSV^ expcsv=gcnew ExportCSV;					//creo una classe per l' export in csv
 				if (checkBox8->Checked)							//guardo quali risultati devo esportare
 				{
 					expcsv->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
@@ -1100,7 +1100,7 @@ namespace Differenzefinite {
 				}
 				delete expcsv;
 
-			}
+			}	  
 			if (fileimporttxt ==1) {							//se il file è in formato csv
 
 				ExportTXT^ exptxt = gcnew ExportTXT;								//creo una classe per l' export in csv
