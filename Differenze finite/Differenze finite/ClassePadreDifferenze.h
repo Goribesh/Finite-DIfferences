@@ -19,7 +19,7 @@ public:
 
 
 	virtual void  SetVariabili( double  Sin, //creo una classe virtuale per sfruttare nelle figlie
-								double  Kin,						// la funzione setta i valori locali della classe attraverso i parametri in ingresso in modo da far eseguire gli algoritmi alle classi figlie
+								double  Kin,						
 								double rin,
 								double  sigmain,
 								double  timein,
@@ -28,7 +28,7 @@ public:
 
 	
 	{
-		S = Sin;
+		S = Sin;							// la funzione setta i valori locali della classe attraverso i parametri in ingresso in modo da far eseguire gli algoritmi alle classi figlie
 		K = Kin;
 		X = Kin;
 		r = rin;

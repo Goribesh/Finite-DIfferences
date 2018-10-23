@@ -5,18 +5,17 @@ using namespace std;
 
 void parametriTXT::leggifile() {
 
-	System::IO::StreamReader^ din = System::IO::File::OpenText(PadreImport::nome);
-	System::String^ tempstring;
-	cli::array<System::String^>^ pezzi;
-	for (int i = 0; i < PadreImport::num_righe; i++) {
-		tempstring = din->ReadLine();
-		if (!System::String::IsNullOrEmpty(tempstring)) 
-		{
-			
-			pezzi = tempstring->Split(',');
-
+	System::IO::StreamReader^ din = System::IO::File::OpenText(PadreImport::nome);						//apro il file per la lettura
+	System::String^ tempstring;																			//creo una stringa per allocare temporaneamente la stringa letta dal file
+	cli::array<System::String^>^ pezzi;																	//creo un array di stringhe su cui salvare i miei parametri
+	for (int i = 0; i < PadreImport::num_righe; i++) {													//leggo tutte le righe del file
+		tempstring = din->ReadLine();																	//leggo la riga e la salvo nella stringa temporanea
+		if (!System::String::IsNullOrEmpty(tempstring)) 												//nel caso la stringa sia diversa da zero eseguo la divisione e il salvataggio dei parametri
+		{																								
+																										
+			pezzi = tempstring->Split(',');																//divido la mia stringa sui punti e verigola salvando ogni pezzo nel modo indicato nel vettore pezzi
 			PadreImport::SS[i] = pezzi[0];
-			PadreImport::SK[i] = pezzi[1];
+			PadreImport::SK[i] = pezzi[1];																// salvo ogni parametro nella stringa corrispondente per la futura conversione in double o int
 			PadreImport::Sr[i] = pezzi[2];
 			PadreImport::Ssigma[i] = pezzi[3];
 			PadreImport::Stime[i] = pezzi[4];
@@ -25,14 +24,14 @@ void parametriTXT::leggifile() {
 
 
 			PadreImport::S[i] = System::Convert::ToDouble(PadreImport::SS[i]);
-			PadreImport::K[i] = System::Convert::ToDouble(PadreImport::SK[i]);
+			PadreImport::K[i] = System::Convert::ToDouble(PadreImport::SK[i]);						//salvo i valore nei vettori double o int corrispondenti
 			PadreImport::r[i] = System::Convert::ToDouble(PadreImport::Sr[i]);
 			PadreImport::sigma[i] = System::Convert::ToDouble(PadreImport::Ssigma[i]);
 			PadreImport::time[i] = System::Convert::ToDouble(PadreImport::Stime[i]);
 			PadreImport::no_s_steps[i] = System::Convert::ToInt32(PadreImport::Sno_s_steps[i]);
 			PadreImport::no_t_steps[i] = System::Convert::ToInt32(PadreImport::Sno_t_steps[i]);
 		}
-		else { i--; }																	// nel caso la mia stringa sia vuota torno indietro di un i in modod da non perdere una riga
+		else { i--; }																	// nel caso la mia stringa sia vuota torno indietro di un i in modo da non perdere una riga
 
 
 
