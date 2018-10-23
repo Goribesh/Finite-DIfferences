@@ -2,7 +2,6 @@
 #include<cmath>
 #include<vector>
 #include<algorithm> 
-#include<iostream>
 #include <newmat.h>
 #include "ClassePadreDifferenze.h"
 using namespace NEWMAT;

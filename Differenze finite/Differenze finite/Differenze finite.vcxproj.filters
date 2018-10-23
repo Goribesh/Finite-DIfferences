@@ -144,11 +144,11 @@
     <ClCompile Include="ExportTXT.cpp">
       <Filter>File di origine\Export</Filter>
     </ClCompile>
-    <ClCompile Include="ImportINI.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="MyForm.cpp">
       <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="ImportINI.cpp">
+      <Filter>File di origine\Import</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FormMain.resx">
+      <Filter>File di risorse</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm.resx">
       <Filter>File di risorse</Filter>
     </EmbeddedResource>
   </ItemGroup>

@@ -581,6 +581,7 @@ namespace Differenzefinite {
 			// 
 			// button5
 			// 
+			this->button5->Enabled = false;
 			this->button5->Location = System::Drawing::Point(531, 537);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(90, 38);
@@ -868,7 +869,7 @@ namespace Differenzefinite {
 				expeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	// setto le variabili utilizzate nell algoritmo per ogni ciclo
 				risexpeu[i] = expeu.option_price_put_european_finite_diff_explicit();		// salvo i risultato nel vettore dei risultati apposito
 				button2->Enabled = 1;														// abilito il pulsante per salvare
-			
+				button5->Enabled = 1;
 			}
 
 
@@ -882,6 +883,7 @@ namespace Differenzefinite {
 				expus.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
 				risexpus[i] = expus.option_price_put_american_finite_diff_explicit();
 				button2->Enabled = 1;
+				button5->Enabled = 1;
 			}
 
 
@@ -896,6 +898,7 @@ namespace Differenzefinite {
 				impeu.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
 				risimpeu[i] = impeu.option_price_put_european_finite_diff_implicit();
 				button2->Enabled = 1;
+				button5->Enabled = 1;
 			}
 		}
 		if (checkBox4->Checked && fileinserito == 1)
@@ -906,6 +909,7 @@ namespace Differenzefinite {
 				impus.SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
 				risimpus[i] = impus.option_price_put_american_finite_diff_implicit();
 				button2->Enabled = 1;
+				button5->Enabled = 1;
 			}
 		}
 
@@ -1060,20 +1064,22 @@ namespace Differenzefinite {
 	private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {}
 
 
+			 //PULSANTE RISULTATI
+
 	private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
 		MyForm^ second = gcnew MyForm();
-		
+
 		if (checkBox1->Checked == 1)
 		{
 			second->richTextBox1->AppendText("---------RISULTATI ESPLICITI EUROPEI---------\n");
 			for (int i = 0; i < righe; i++) {
-				second->richTextBox1->AppendText("I dati sono: S="+ System::Convert::ToString(Sv[i])
-																+" K= "+System::Convert::ToString(Kv[i])
-					+ " r= "+System::Convert::ToString(rv[i])
-					+ " sigma= "+System::Convert::ToString(sigmav[i])
-					+ " time= "+System::Convert::ToString(timev[i])
-					+ " no_S_steps= "+System::Convert::ToString(no_S_stepsv[i])
-					+ " no_t_steps= "+System::Convert::ToString(no_t_stepsv[i]+"\n"));
+				second->richTextBox1->AppendText("I dati sono: S= "+ System::Convert::ToString(Sv[i])
+															+ " K= "+System::Convert::ToString(Kv[i])
+															+ " r= "+System::Convert::ToString(rv[i])
+															+ " sigma= "+System::Convert::ToString(sigmav[i])
+															+ " time= "+System::Convert::ToString(timev[i])
+															+ " no_S_steps= "+System::Convert::ToString(no_S_stepsv[i])
+															+ " no_t_steps= "+System::Convert::ToString(no_t_stepsv[i]+"\n"));
 
 				second->richTextBox1->AppendText("Il risultato è: "+System::Convert::ToString(risexpeu[i]) + "\n\n");
 			}
@@ -1084,12 +1090,12 @@ namespace Differenzefinite {
 			second->richTextBox1->AppendText("---------RISULTATI ESPLICITI AMERICANI---------\n");
 			for (int i = 0; i < righe; i++) {
 				second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])
-					+ " K= " + System::Convert::ToString(Kv[i])
-					+ " r= " + System::Convert::ToString(rv[i])
-					+ " sigma= " + System::Convert::ToString(sigmav[i])
-					+ " time= " + System::Convert::ToString(timev[i])
-					+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
-					+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
+															+ " K= " + System::Convert::ToString(Kv[i])
+															+ " r= " + System::Convert::ToString(rv[i])
+															+ " sigma= " + System::Convert::ToString(sigmav[i])
+															+ " time= " + System::Convert::ToString(timev[i])
+															+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
+															+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
 
 				second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risexpus[i]) + "\n\n");
 			}
@@ -1126,7 +1132,6 @@ namespace Differenzefinite {
 				second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risimpus[i]) + "\n\n");
 			}
 		}
-
 
 		second->ShowDialog();
 		second->richTextBox1->Text = "";

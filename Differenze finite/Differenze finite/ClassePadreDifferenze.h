@@ -1,5 +1,4 @@
 #pragma once
-#include<iostream>
 using namespace std;
 
 
@@ -19,13 +18,14 @@ public:
 	int no_t_steps = 0;
 
 
-	virtual void  SetVariabili(double  Sin, //creo una classe virtuale per sfruttare nelle figlie
-		double  Kin,						// la funzione setta i valori locali della classe attraverso i parametri in ingresso in modo da far eseguire gli algoritmi alle classi figlie
-		double rin,
-		double  sigmain,
-		double  timein,
-		int  no_S_stepsin,
-		int  no_t_stepsin)
+	virtual void  SetVariabili( double  Sin, //creo una classe virtuale per sfruttare nelle figlie
+								double  Kin,						// la funzione setta i valori locali della classe attraverso i parametri in ingresso in modo da far eseguire gli algoritmi alle classi figlie
+								double rin,
+								double  sigmain,
+								double  timein,
+								int  no_S_stepsin,
+								int  no_t_stepsin)
+
 	
 	{
 		S = Sin;
