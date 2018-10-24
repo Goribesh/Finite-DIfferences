@@ -17,7 +17,7 @@ void parametriINI::leggifile() {
 			tempstring = din->ReadLine();															//leggo la riga e la salvo nella stringa temporanea
 			if (!System::String::IsNullOrEmpty(tempstring)) {										//nel caso la stringa sia diversa da zero eseguo la divisione e il salvataggio dei parametri
 
-				pezzi = tempstring->Split(' ');													//divido la mia stringa sui punti e verigola salvando ogni pezzo nel modo indicato nel vettore pezzi
+				pezzi = tempstring->Split(' ');													//divido la mia stringa sugli spazi salvando ogni pezzo nel modo indicato nel vettore pezzi
 
 				PadreImport::SS[i] = pezzi[0];													// salvo ogni parametro nella stringa corrispondente per la futura conversione in double o int
 				PadreImport::SK[i] = pezzi[1];

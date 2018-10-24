@@ -40,7 +40,7 @@ void ExportTXT::exportfile(int tipo, vector<double> vec, size_t righe, System::S
 
 
 
-			out->WriteLine("Il risultato e' " + "," + vec[i]);						// scrivo i risultati
+			out->WriteLine("Il risultato e' " + "," + vec[i]);					// scrivo i risultati
 		}
 	}
 	out->Close();		// chiudo il file

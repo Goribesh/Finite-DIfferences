@@ -707,9 +707,7 @@ namespace Differenzefinite {
 				parametriCSV^ inputcsv=gcnew parametriCSV(Snome_file);					//inizializzo l oggetto inputcsv che prende in ingresso il nome del file
 
 				try {
-					inputcsv->leggifile();
-					//chiamo la funzione leggifile
-
+					inputcsv->leggifile();								//chiamo la funzione leggifile
 					righe = inputcsv->contatore;						// salvo le righe del file per le future operazioni
 					MessageBox::Show("Import file effettuato");			// faccio comparire un messaggio per l' import 
 					textBox1->Enabled = 0;								// diabilito le textbox dell input manuale
@@ -719,7 +717,7 @@ namespace Differenzefinite {
 					textBox5->Enabled = 0;
 					textBox6->Enabled = 0;
 					textBox7->Enabled = 0;
-					checkBox5->Enabled = 1;
+					checkBox5->Enabled = 1;								// abilito le checkbox per l' export
 					checkBox6->Enabled = 1;
 					checkBox7->Enabled = 1;
 					checkBox8->Enabled = 1;
@@ -752,10 +750,10 @@ namespace Differenzefinite {
 					}
 					delete inputcsv;
 				}
-				catch (System::Exception^)
+				catch (System::Exception^)								//guardo le eccezioni visto che lavoro con vettori
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
-					inputcsv->clear();
+					inputcsv->clear();									//nel caso di eccezioni pulisco tutto quello che ho usato
 					Sv.clear();
 					Kv.clear();
 					rv.clear();
@@ -774,10 +772,10 @@ namespace Differenzefinite {
 			{
 				parametriINI^ inputINI = gcnew parametriINI(Snome_file);
 				try {
-					inputINI->leggifile();
-					righe = inputINI->contatore;
-					MessageBox::Show("Import file effettuato");
-					textBox1->Enabled = 0;
+					inputINI->leggifile();									//chiamo la funzione leggifile
+					righe = inputINI->contatore;							// salvo le righe del file per le future operazioni
+					MessageBox::Show("Import file effettuato");				// faccio comparire un messaggio per l' import 
+					textBox1->Enabled = 0;									// diabilito le textbox dell input manuale
 					textBox2->Enabled = 0;
 					textBox3->Enabled = 0;
 					textBox4->Enabled = 0;
@@ -785,6 +783,7 @@ namespace Differenzefinite {
 					textBox6->Enabled = 0;
 					textBox7->Enabled = 0;
 
+					/* cambio la dimensione delle mie variabili in base al numero delle righe contate per non sprecare memoria*/
 					Sv.resize(righe);
 					Kv.resize(righe);
 					rv.resize(righe);
@@ -797,13 +796,13 @@ namespace Differenzefinite {
 					risimpeu.resize(righe);
 					risimpus.resize(righe);
 
-					checkBox5->Enabled = 1;
+					checkBox5->Enabled = 1;									// abilito le checkbox per l' export
 					checkBox6->Enabled = 1;
 					checkBox7->Enabled = 1;
 					checkBox8->Enabled = 1;
 
 
-					for (int i = 0; i < righe; i++)
+					for (int i = 0; i < righe; i++)							// salvo i miei parametri nelle variabili globali
 					{
 						Sv[i] = inputINI->S[i];
 						Kv[i] = inputINI->K[i];
@@ -815,10 +814,10 @@ namespace Differenzefinite {
 					}
 					delete inputINI;
 				}
-				catch (System::Exception^)
+				catch (System::Exception^)									//guardo le eccezioni visto che lavoro con vettori
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
-					inputINI->clear();
+					inputINI->clear();										//nel caso di eccezioni pulisco tutto quello che ho usato
 					Sv.clear();
 					Kv.clear();
 					rv.clear();
@@ -837,10 +836,10 @@ namespace Differenzefinite {
 			{
 				parametriTXT^ inputtxt=gcnew parametriTXT(Snome_file);
 				try {
-					inputtxt->leggifile();
-					righe = inputtxt->contatore;
-					MessageBox::Show ("Import file effettuato");
-					textBox1->Enabled = 0;
+					inputtxt->leggifile();									//chiamo la funzione leggifile
+					righe = inputtxt->contatore;							// salvo le righe del file per le future operazioni
+					MessageBox::Show("Import file effettuato");				// faccio comparire un messaggio per l' import 
+					textBox1->Enabled = 0;									// diabilito le textbox dell input manuale
 					textBox2->Enabled = 0;
 					textBox3->Enabled = 0;
 					textBox4->Enabled = 0;
@@ -848,6 +847,7 @@ namespace Differenzefinite {
 					textBox6->Enabled = 0;
 					textBox7->Enabled = 0;
 
+					/* cambio la dimensione delle mie variabili in base al numero delle righe contate per non sprecare memoria*/
 					Sv.resize(righe);
 					Kv.resize(righe);
 					rv.resize(righe);
@@ -861,13 +861,13 @@ namespace Differenzefinite {
 					risimpus.resize(righe);
 
 
-					checkBox5->Enabled = 1;
+					checkBox5->Enabled = 1;									// abilito le checkbox per l' export
 					checkBox6->Enabled = 1;
 					checkBox7->Enabled = 1;
 					checkBox8->Enabled = 1;
 
-					for (int i = 0; i < righe; i++)
-					{
+					for (int i = 0; i < righe; i++)							// salvo i miei parametri nelle variabili globali
+					{														
 						Sv[i] = inputtxt->S[i];
 						Kv[i] = inputtxt->K[i];
 						rv[i] = inputtxt->r[i];
@@ -877,10 +877,10 @@ namespace Differenzefinite {
 						no_t_stepsv[i] = inputtxt->no_t_steps[i];
 					}
 				}
-				catch (System::Exception^ )
+				catch (System::Exception^ )									//guardo le eccezioni visto che lavoro con vettori
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
-					inputtxt->clear();
+					inputtxt->clear();										//nel caso di eccezioni pulisco tutto quello che ho usato
 					Sv.clear();
 					Kv.clear();
 					rv.clear();
@@ -915,64 +915,65 @@ namespace Differenzefinite {
 				
 
 				expeu->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	// setto le variabili utilizzate nell algoritmo per ogni ciclo
-				risexpeu[i] = expeu->option_price_put_european_finite_diff_explicit();		// salvo i risultato nel vettore dei risultati apposito
-				button2->Enabled = 1;														// abilito il pulsante per salvare
+				risexpeu[i] = expeu->option_price_put_european_finite_diff_explicit();							// salvo i risultato nel vettore dei risultati apposito
+				button2->Enabled = 1;																			// abilito il pulsante per salvare e per i risultati
 				button5->Enabled = 1;
 			}
 
 			delete expeu;
 
 		}
-		if (checkBox2->Checked && fileinserito == 1)
-		{
-			Differenze_esplicite^ expus=gcnew Differenze_esplicite;
-
-			for (int i = 0; i < righe; i++)
+		if (checkBox2->Checked && fileinserito == 1)					 				// se il file è inserito e il secondo checkbox è checkato
 			{
-				expus->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
-				risexpus[i] = expus->option_price_put_american_finite_diff_explicit();
-				button2->Enabled = 1;
+				Differenze_esplicite^ expus = gcnew Differenze_esplicite;				// creo una classe per le differenze finite esplicite americane
+
+				for (int i = 0; i < righe; i++)											// eseguo il secondo algoritmo su tutti i parametri nelle variabili globali
+			{
+				expus->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	// setto le variabili utilizzate nell algoritmo per ogni ciclo
+				risexpus[i] = expus->option_price_put_american_finite_diff_explicit();							// salvo i risultato nel vettore dei risultati apposito
+				button2->Enabled = 1;																			// abilito il pulsante per salvare e per guardare i risultati
 				button5->Enabled = 1;
 			}
 
 			delete expus;
 
 		}
-		if (checkBox3->Checked && fileinserito == 1)
+		if (checkBox3->Checked && fileinserito == 1)																// se il file è inserito e il terzo checkbox è checkato
 		{
-			differenze_implicite^ impeu=gcnew differenze_implicite;
+			differenze_implicite^ impeu = gcnew differenze_implicite;												// creo una classe per le differenze finite implicite europee
 
-			for (int i = 0; i < righe; i++)
+			for (int i = 0; i < righe; i++)																			// eseguo il terzo algoritmo su tutti i parametri nelle variabili globali
 			{
-				impeu->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
-				risimpeu[i] = impeu->option_price_put_european_finite_diff_implicit();
-				button2->Enabled = 1;
+				impeu->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	 // setto le variabili utilizzate nell algoritmo per ogni ciclo
+				risimpeu[i] = impeu->option_price_put_european_finite_diff_implicit();							 // salvo i risultato nel vettore dei risultati apposito
+				button2->Enabled = 1;																			 // abilito il pulsante per salvare e per guardare i risultati
 				button5->Enabled = 1;
 			}
 			delete impeu;
 		}
-		if (checkBox4->Checked && fileinserito == 1)
+		if (checkBox4->Checked && fileinserito == 1)										// se il file è inserito e il quarto checkbox è checkato
 		{
-			differenze_implicite^ impus=gcnew differenze_implicite;
-			for (int i = 0; i < righe; i++)
-			{
-				impus->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);
-				risimpus[i] = impus->option_price_put_american_finite_diff_implicit();
-				button2->Enabled = 1;
+			differenze_implicite^ impus = gcnew differenze_implicite;						// creo una classe per le differenze finite implicite americane
+			for (int i = 0; i < righe; i++)													// eseguo il quarto algoritmo su tutti i parametri nelle variabili globali
+			{																				
+				impus->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);		// setto le variabili utilizzate nell algoritmo per ogni ciclo
+				risimpus[i] = impus->option_price_put_american_finite_diff_implicit();								// salvo i risultato nel vettore dei risultati apposito
+				button2->Enabled = 1;																				// abilito il pulsante per salvare e per guardare i risultati
 				button5->Enabled = 1;
 			}
 			delete impus;
 		}
 
 		if ((checkBox1->Checked || checkBox2->Checked || checkBox3->Checked || checkBox4->Checked) && fileinserito == 1) { progressBar1->Value = 100; }
+
 		//FILE DISINSERITO
-		textBox11->Text = "";		// pulisco le textbox nel caso i dati cambino e non mi interra un particolare risultato
+		textBox11->Text = "";		// pulisco le textbox nel caso i dati cambino e non mi interessa un particolare risultato
 		textBox10->Text = "";
 		textBox9->Text = "";
 		textBox8->Text = "";
 
 
-		if (fileinserito == 0) {
+		if (fileinserito == 0) {							//nel caso non si abbia un file passo all inserimento manuale
 			try {
 
 				 Sman = System::Convert::ToDouble(textBox1->Text);				//creo delle variabili locali per salvare i dati dell inserimento manuale
@@ -989,40 +990,39 @@ namespace Differenzefinite {
 
 				if (checkBox1->Checked == 1)											//eseguo i vari algoritmi per i parametri manuali
 				{
-					Differenze_esplicite^ expman=gcnew Differenze_esplicite;
-					expman->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
-					double risexpeuman = expman->option_price_put_european_finite_diff_explicit();
-	
-					textBox11->Text = System::Convert::ToString(risexpeuman);
-					delete expman;
+					Differenze_esplicite^ expman=gcnew Differenze_esplicite;										//creo una classe per gli algoritmi
+					expman->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);		//setto le variabili delle classi
+					double risexpeuman = expman->option_price_put_european_finite_diff_explicit();					//salvo i risultati
+					textBox11->Text = System::Convert::ToString(risexpeuman);										//visualizzo il risultato nella textbox
+					delete expman;																					//cancello la classe
 				}
 				if (checkBox2->Checked == 1)
 				{
-					Differenze_esplicite^ expman2=gcnew Differenze_esplicite;
-					expman2->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
-					double risexpusman = expman2->option_price_put_american_finite_diff_explicit();	
-					textBox10->Text = System::Convert::ToString(risexpusman);
-					delete expman2;
+					Differenze_esplicite^ expman2=gcnew Differenze_esplicite;										//creo una classe per gli algoritmi
+					expman2->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);		//setto le variabili delle classi
+					double risexpusman = expman2->option_price_put_american_finite_diff_explicit();					//salvo i risultati
+					textBox10->Text = System::Convert::ToString(risexpusman);										//visualizzo il risultato nella textbox
+					delete expman2;																					//cancello la classe
 				}
 				if (checkBox3->Checked == 1)
 				{
-					differenze_implicite^ impman=gcnew differenze_implicite;
-					impman->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
-					double risimpeuman = impman->option_price_put_european_finite_diff_implicit();
-					textBox9->Text = System::Convert::ToString(risimpeuman);
-					delete impman;
+					differenze_implicite^ impman=gcnew differenze_implicite;										//creo una classe per gli algoritmi
+					impman->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);		//setto le variabili delle classi
+					double risimpeuman = impman->option_price_put_european_finite_diff_implicit();					//salvo i risultati
+					textBox9->Text = System::Convert::ToString(risimpeuman);										//visualizzo il risultato nella textbox
+					delete impman;																					//cancello la classe
 				}
 				if (checkBox4->Checked == 1)
 				{
-					differenze_implicite^ impman2=gcnew differenze_implicite;
-					impman2->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);
-					double risimpusman = impman2->option_price_put_american_finite_diff_implicit();
-					textBox8->Text = System::Convert::ToString(risimpusman);
-					delete impman2;
+					differenze_implicite^ impman2=gcnew differenze_implicite;										//creo una classe per gli algoritmi
+					impman2->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);		//setto le variabili delle classi
+					double risimpusman = impman2->option_price_put_american_finite_diff_implicit();					//salvo i risultati
+					textBox8->Text = System::Convert::ToString(risimpusman);										//visualizzo il risultato nella textbox
+					delete impman2;																					//cancello la classe
 				}
 			}
 			catch (System::FormatException^) {
-				MessageBox::Show("Errore di input nella text box");
+				MessageBox::Show("Errore di input nella text box");		// guardo le eccezioni nel caso nelle textbox non ci siano numeri validi
 			}
 
 
@@ -1057,7 +1057,7 @@ namespace Differenzefinite {
 		vector<int>().swap(no_S_stepsv);
 		vector<int>().swap(no_t_stepsv);
 		
-		button2->Enabled = 0;		//disabilito bottone salva
+		button2->Enabled = 0;		//disabilito bottone salva e il bottone risultati
 		checkBox5->Enabled = 0;
 		checkBox6->Enabled = 0;
 		checkBox7->Enabled = 0;
@@ -1068,7 +1068,7 @@ namespace Differenzefinite {
 	}
 
 	public: System::Void saveFileDialog1_FileOk(System::Object^  sender, System::ComponentModel::CancelEventArgs^  e) {
-	}
+	} //vuoto
 
 
 			/*BOTTONE SALVA*/
@@ -1095,7 +1095,7 @@ namespace Differenzefinite {
 				ExportCSV^ expcsv=gcnew ExportCSV;					//creo una classe per l' export in csv
 				if (checkBox8->Checked)							//guardo quali risultati devo esportare
 				{
-					expcsv->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
+					expcsv->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso inj base alle checkbox spuntate
 				}
 				if (checkBox7->Checked)
 				{
@@ -1112,7 +1112,7 @@ namespace Differenzefinite {
 				delete expcsv;
 
 			}	  
-			if (fileimporttxt ==1) {							//se il file è in formato csv
+			if (fileimporttxt ==1) {							//se il file è in formato txt
 
 				ExportTXT^ exptxt = gcnew ExportTXT;								//creo una classe per l' export in csv
 				if (checkBox8->Checked)							//guardo quali risultati devo esportare
@@ -1133,8 +1133,8 @@ namespace Differenzefinite {
 				}
 				delete exptxt;
 			}
-			if (fileimportini ==1) {							//se il file è in formato csv
-				ExportINI^ expini = gcnew ExportINI;			//creo una classe per l' export in csv
+			if (fileimportini ==1) {							//se il file è in formato ini
+				ExportINI^ expini = gcnew ExportINI;			//creo una classe per l' export in ini
 				if (checkBox8->Checked)							//guardo quali risultati devo esportare
 				{
 					expini->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
@@ -1164,7 +1164,7 @@ namespace Differenzefinite {
 	private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
 		MyForm^ second = gcnew MyForm();			// creo un oggetto che fa riferimento alla seconda form
 
-		if (checkBox1->Checked == 1)																	//guardo quali calcoli ho eseguiti
+		if (checkBox1->Checked == 1)																			//guardo quali calcoli ho eseguiti
 		{
 			second->richTextBox1->AppendText("---------RISULTATI ESPLICITI EUROPEI---------\n");
 			for (int i = 0; i < righe; i++) {
@@ -1182,7 +1182,7 @@ namespace Differenzefinite {
 
 		if (checkBox2->Checked == 1)
 		{
-			second->richTextBox1->AppendText("---------RISULTATI ESPLICITI AMERICANI---------\n");			//guardo quali calcoli ho eseguiti
+			second->richTextBox1->AppendText("---------RISULTATI ESPLICITI AMERICANI---------\n");					//guardo quali calcoli ho eseguiti
 			for (int i = 0; i < righe; i++) {
 				second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])				// scrivo nella textbox i vari risultati e dati
 															+ " K= " + System::Convert::ToString(Kv[i])
@@ -1198,7 +1198,7 @@ namespace Differenzefinite {
 
 		if (checkBox3->Checked == 1)
 		{
-			second->richTextBox1->AppendText("---------RISULTATI IMPLICITI EUROPEI---------\n");				//guardo quali calcoli ho eseguiti
+			second->richTextBox1->AppendText("---------RISULTATI IMPLICITI EUROPEI---------\n");					//guardo quali calcoli ho eseguiti
 			for (int i = 0; i < righe; i++) {
 				second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])				// scrivo nella textbox i vari risultati e dati
 															+ " K= " + System::Convert::ToString(Kv[i])
@@ -1214,7 +1214,7 @@ namespace Differenzefinite {
 
 		if (checkBox4->Checked == 1)
 		{
-			second->richTextBox1->AppendText("---------RISULTATI IMPLICITI AMERICANI---------\n");				//guardo quali calcoli ho eseguiti
+			second->richTextBox1->AppendText("---------RISULTATI IMPLICITI AMERICANI---------\n");						//guardo quali calcoli ho eseguiti
 			for (int i = 0; i < righe; i++) {
 				second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])					// scrivo nella textbox i vari risultati e dati
 															+ " K= " + System::Convert::ToString(Kv[i])

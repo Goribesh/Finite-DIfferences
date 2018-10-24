@@ -13,7 +13,7 @@ void parametriTXT::leggifile() {
 		if (!System::String::IsNullOrEmpty(tempstring)) 												//nel caso la stringa sia diversa da zero eseguo la divisione e il salvataggio dei parametri
 		{																								
 																										
-			pezzi = tempstring->Split(',');																//divido la mia stringa sui punti e verigola salvando ogni pezzo nel modo indicato nel vettore pezzi
+			pezzi = tempstring->Split(',');																//divido la mia stringa sulle virgole salvando ogni pezzo nel modo indicato nel vettore pezzi
 			PadreImport::SS[i] = pezzi[0];
 			PadreImport::SK[i] = pezzi[1];																// salvo ogni parametro nella stringa corrispondente per la futura conversione in double o int
 			PadreImport::Sr[i] = pezzi[2];
