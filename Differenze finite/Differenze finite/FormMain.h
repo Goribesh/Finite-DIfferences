@@ -704,7 +704,7 @@ namespace Differenzefinite {
 
 			if (filecsv == 1)										// nel caso il file contiene .csv nel nome creo le relative classi
 			{
-				parametriCSV^ inputcsv=gcnew parametriCSV(Snome_file);					//inizializzo l oggetto inputcsv che prende in ingresso il nome del file
+				parametriCSV^ inputcsv=gcnew parametriCSV(Snome_file);	//inizializzo l oggetto inputcsv che prende in ingresso il nome del file
 
 				try {
 					inputcsv->leggifile();								//chiamo la funzione leggifile
