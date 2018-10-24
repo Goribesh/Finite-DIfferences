@@ -1,0 +1,68 @@
+--------------RISULTATI ESPLICITI EUROPEI--------------
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.03666839208216
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.03666839208216
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.03666839208216
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.03666839208216
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.03666839208216
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.03666839208216
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.03666839208216
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.03666839208216
+--------------RISULTATI ESPLICITI AMERICANI--------------
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.25085065146368
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.25085065146368
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.25085065146368
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.25085065146368
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.25085065146368
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.25085065146368
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.25085065146368
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.25085065146368
+--------------RISULTATI IMPLICITI EUROPEI--------------
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,3.91755868404413
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,3.91755868404413
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,3.91755868404413
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,3.91755868404413
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,3.91755868404413
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,3.91755868404413
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,3.91755868404413
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,3.91755868404413
+--------------RISULTATI IMPLICITI AMERICANI--------------
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.07236135567811
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.07236135567811
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.07236135567811
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.07236135567811
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.07236135567811
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.07236135567811
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.07236135567811
+Dati: S=,50, K=,50, r=,0.1, sigma=,0.4, time=,0.4167, no_S_steps=,20, no_t_steps=,11
+Il risultato e' ,4.07236135567811

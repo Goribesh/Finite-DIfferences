@@ -710,7 +710,7 @@ namespace Differenzefinite {
 					inputcsv->leggifile();
 					//chiamo la funzione leggifile
 
-					righe = inputcsv->contatore;							// salvo le righe del file per le future operazioni
+					righe = inputcsv->contatore;						// salvo le righe del file per le future operazioni
 					MessageBox::Show("Import file effettuato");			// faccio comparire un messaggio per l' import 
 					textBox1->Enabled = 0;								// diabilito le textbox dell input manuale
 					textBox2->Enabled = 0;
