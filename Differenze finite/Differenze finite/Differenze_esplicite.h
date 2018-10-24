@@ -12,7 +12,7 @@ public:
 
 
 
-	double option_price_put_european_finite_diff_explicit(); // inizializzo gli algoritmi
+	double option_price_put_european_finite_diff_explicit(); // definisco gli algoritmi
 	double option_price_put_american_finite_diff_explicit();
 
 

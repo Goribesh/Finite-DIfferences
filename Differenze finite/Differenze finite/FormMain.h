@@ -905,64 +905,76 @@ namespace Differenzefinite {
 	public: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 		/* In base a le variabili settate in precedenza eseguo diversi tipi di calcoli*/
 		progressBar1->Value = 0;
-
-		if (checkBox1->Checked && fileinserito == 1)									// se il file è inserito e il primo checkbox è checkato
+		try 
 		{
-			Differenze_esplicite^ expeu = gcnew Differenze_esplicite;					// creo una classe per le differenze finite esplicite europee
-
-			for (int i = 0; i < righe; i++)												// eseguo il primo algoritmo su tutti i parametri nelle variabili globali
+			if (checkBox1->Checked && fileinserito == 1)									// se il file è inserito e il primo checkbox è checkato
 			{
-				
+				Differenze_esplicite^ expeu = gcnew Differenze_esplicite;					// creo una classe per le differenze finite esplicite europee
 
-				expeu->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	// setto le variabili utilizzate nell algoritmo per ogni ciclo
-				risexpeu[i] = expeu->option_price_put_european_finite_diff_explicit();							// salvo i risultato nel vettore dei risultati apposito
-				button2->Enabled = 1;																			// abilito il pulsante per salvare e per i risultati
-				button5->Enabled = 1;
+				for (int i = 0; i < righe; i++)												// eseguo il primo algoritmo su tutti i parametri nelle variabili globali
+				{
+
+
+					expeu->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	// setto le variabili utilizzate nell algoritmo per ogni ciclo
+					risexpeu[i] = expeu->option_price_put_european_finite_diff_explicit();							// salvo i risultato nel vettore dei risultati apposito
+					button2->Enabled = 1;																			// abilito il pulsante per salvare e per i risultati
+					button5->Enabled = 1;
+				}
+
+				delete expeu;
+
 			}
-
-			delete expeu;
-
-		}
-		if (checkBox2->Checked && fileinserito == 1)					 				// se il file è inserito e il secondo checkbox è checkato
+			if (checkBox2->Checked && fileinserito == 1)					 				// se il file è inserito e il secondo checkbox è checkato
 			{
 				Differenze_esplicite^ expus = gcnew Differenze_esplicite;				// creo una classe per le differenze finite esplicite americane
 
 				for (int i = 0; i < righe; i++)											// eseguo il secondo algoritmo su tutti i parametri nelle variabili globali
+				{
+					expus->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	// setto le variabili utilizzate nell algoritmo per ogni ciclo
+					risexpus[i] = expus->option_price_put_american_finite_diff_explicit();							// salvo i risultato nel vettore dei risultati apposito
+					button2->Enabled = 1;																			// abilito il pulsante per salvare e per guardare i risultati
+					button5->Enabled = 1;
+				}
+
+				delete expus;
+
+			}
+			if (checkBox3->Checked && fileinserito == 1)																// se il file è inserito e il terzo checkbox è checkato
 			{
-				expus->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	// setto le variabili utilizzate nell algoritmo per ogni ciclo
-				risexpus[i] = expus->option_price_put_american_finite_diff_explicit();							// salvo i risultato nel vettore dei risultati apposito
-				button2->Enabled = 1;																			// abilito il pulsante per salvare e per guardare i risultati
-				button5->Enabled = 1;
+				differenze_implicite^ impeu = gcnew differenze_implicite;												// creo una classe per le differenze finite implicite europee
+
+				for (int i = 0; i < righe; i++)																			// eseguo il terzo algoritmo su tutti i parametri nelle variabili globali
+				{
+					impeu->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	 // setto le variabili utilizzate nell algoritmo per ogni ciclo
+					risimpeu[i] = impeu->option_price_put_european_finite_diff_implicit();							 // salvo i risultato nel vettore dei risultati apposito
+					button2->Enabled = 1;																			 // abilito il pulsante per salvare e per guardare i risultati
+					button5->Enabled = 1;
+				}
+				delete impeu;
 			}
-
-			delete expus;
-
-		}
-		if (checkBox3->Checked && fileinserito == 1)																// se il file è inserito e il terzo checkbox è checkato
-		{
-			differenze_implicite^ impeu = gcnew differenze_implicite;												// creo una classe per le differenze finite implicite europee
-
-			for (int i = 0; i < righe; i++)																			// eseguo il terzo algoritmo su tutti i parametri nelle variabili globali
+			if (checkBox4->Checked && fileinserito == 1)										// se il file è inserito e il quarto checkbox è checkato
 			{
-				impeu->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);	 // setto le variabili utilizzate nell algoritmo per ogni ciclo
-				risimpeu[i] = impeu->option_price_put_european_finite_diff_implicit();							 // salvo i risultato nel vettore dei risultati apposito
-				button2->Enabled = 1;																			 // abilito il pulsante per salvare e per guardare i risultati
-				button5->Enabled = 1;
+				differenze_implicite^ impus = gcnew differenze_implicite;						// creo una classe per le differenze finite implicite americane
+				for (int i = 0; i < righe; i++)													// eseguo il quarto algoritmo su tutti i parametri nelle variabili globali
+				{
+					impus->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);		// setto le variabili utilizzate nell algoritmo per ogni ciclo
+					risimpus[i] = impus->option_price_put_american_finite_diff_implicit();								// salvo i risultato nel vettore dei risultati apposito
+					button2->Enabled = 1;																				// abilito il pulsante per salvare e per guardare i risultati
+					button5->Enabled = 1;
+				}
+				delete impus;
 			}
-			delete impeu;
 		}
-		if (checkBox4->Checked && fileinserito == 1)										// se il file è inserito e il quarto checkbox è checkato
+		catch (System::Exception^) 
 		{
-			differenze_implicite^ impus = gcnew differenze_implicite;						// creo una classe per le differenze finite implicite americane
-			for (int i = 0; i < righe; i++)													// eseguo il quarto algoritmo su tutti i parametri nelle variabili globali
-			{																				
-				impus->SetVariabili(Sv[i], Kv[i], rv[i], sigmav[i], timev[i], no_S_stepsv[i], no_t_stepsv[i]);		// setto le variabili utilizzate nell algoritmo per ogni ciclo
-				risimpus[i] = impus->option_price_put_american_finite_diff_implicit();								// salvo i risultato nel vettore dei risultati apposito
-				button2->Enabled = 1;																				// abilito il pulsante per salvare e per guardare i risultati
-				button5->Enabled = 1;
-			}
-			delete impus;
+			risexpeu.clear();
+			risexpus.clear();
+			risimpeu.clear();
+			risimpus.clear();
 		}
+
+
+
 
 		if ((checkBox1->Checked || checkBox2->Checked || checkBox3->Checked || checkBox4->Checked) && fileinserito == 1) { progressBar1->Value = 100; }
 
@@ -1230,6 +1242,7 @@ namespace Differenzefinite {
 
 		second->ShowDialog();
 		second->richTextBox1->Text = ""; // pulisco la textbox alla fine per riscrivere nuovi risultati in caso di un altro inserimento
+		delete second;
 	};
 	};
 }
