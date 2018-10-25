@@ -374,6 +374,8 @@ namespace Differenzefinite {
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
+			this->checkBox1->Checked = true;
+			this->checkBox1->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->checkBox1->Location = System::Drawing::Point(157, 130);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(158, 17);
@@ -384,6 +386,8 @@ namespace Differenzefinite {
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
+			this->checkBox2->Checked = true;
+			this->checkBox2->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->checkBox2->Location = System::Drawing::Point(157, 153);
 			this->checkBox2->Name = L"checkBox2";
 			this->checkBox2->Size = System::Drawing::Size(158, 17);
@@ -394,6 +398,8 @@ namespace Differenzefinite {
 			// checkBox3
 			// 
 			this->checkBox3->AutoSize = true;
+			this->checkBox3->Checked = true;
+			this->checkBox3->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->checkBox3->Location = System::Drawing::Point(157, 176);
 			this->checkBox3->Name = L"checkBox3";
 			this->checkBox3->Size = System::Drawing::Size(157, 17);
@@ -404,6 +410,8 @@ namespace Differenzefinite {
 			// checkBox4
 			// 
 			this->checkBox4->AutoSize = true;
+			this->checkBox4->Checked = true;
+			this->checkBox4->CheckState = System::Windows::Forms::CheckState::Checked;
 			this->checkBox4->Location = System::Drawing::Point(157, 199);
 			this->checkBox4->Name = L"checkBox4";
 			this->checkBox4->Size = System::Drawing::Size(157, 17);

@@ -34,11 +34,11 @@
     <Filter Include="File di intestazione\Algoritmi">
       <UniqueIdentifier>{685b51ed-614e-4540-ad0d-d629c4157f7c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="File di origine\Forms">
+      <UniqueIdentifier>{755ea993-4a58-4a01-985a-e3b45eb67944}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FormMain.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="Matrici\bandmat.cpp">
       <Filter>matrice</Filter>
     </ClCompile>
@@ -114,9 +114,6 @@
     <ClCompile Include="Matrici\svd.cpp">
       <Filter>matrice</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="CSVimport.cpp">
       <Filter>File di origine\Import</Filter>
     </ClCompile>
@@ -144,11 +141,14 @@
     <ClCompile Include="ExportTXT.cpp">
       <Filter>File di origine\Export</Filter>
     </ClCompile>
-    <ClCompile Include="MyForm.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="ImportINI.cpp">
       <Filter>File di origine\Import</Filter>
+    </ClCompile>
+    <ClCompile Include="FormMain.cpp">
+      <Filter>File di origine\Forms</Filter>
+    </ClCompile>
+    <ClCompile Include="MyForm.cpp">
+      <Filter>File di origine\Forms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,9 +190,6 @@
     </ClInclude>
     <ClInclude Include="Matrici\tmt.h">
       <Filter>matrice</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="ImportTXT.h">
       <Filter>File di intestazione\Import</Filter>

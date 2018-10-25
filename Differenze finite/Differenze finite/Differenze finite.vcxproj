@@ -186,7 +186,6 @@
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="PadreExport.cpp" />
     <ClCompile Include="PadreImport.cpp" />
-    <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassePadreDifferenze.h" />
@@ -218,7 +217,6 @@
     </ClInclude>
     <ClInclude Include="PadreExport.h" />
     <ClInclude Include="PadreImport.h" />
-    <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FormMain.resx">
