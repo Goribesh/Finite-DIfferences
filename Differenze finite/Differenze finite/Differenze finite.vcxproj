@@ -212,7 +212,7 @@
     <ClInclude Include="Matrici\precisio.h" />
     <ClInclude Include="Matrici\solution.h" />
     <ClInclude Include="Matrici\tmt.h" />
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="Risultati.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PadreExport.h" />
@@ -222,8 +222,8 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm.resx">
-      <DependentUpon>MyForm.h</DependentUpon>
+    <EmbeddedResource Include="Risultati.resx">
+      <DependentUpon>Risultati.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

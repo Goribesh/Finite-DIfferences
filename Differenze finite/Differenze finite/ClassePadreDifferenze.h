@@ -8,7 +8,7 @@ ref class ClassePadreDifferenze
 {
 public:
 										// inizializzo le varibili che verranno utilizzate per i figli
-	double S =0;
+	double S = 0;
 	double K =0;
 	double X =0;
 	double r =0;
@@ -39,6 +39,8 @@ public:
 
 		
 	}
+
+	
 };
 
 

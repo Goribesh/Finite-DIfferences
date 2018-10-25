@@ -11,7 +11,7 @@
 #include "ExportINI.h"
 #include <vector>
 #include "differenze_implicite.h"
-#include "MyForm.h"
+#include "Risultati.h"
 
 // definisco le variaibli globali che usero poi
 
@@ -756,22 +756,30 @@ namespace Differenzefinite {
 						no_S_stepsv[i] = inputcsv->no_s_steps[i];
 						no_t_stepsv[i] = inputcsv->no_t_steps[i];
 					}
-					delete inputcsv;
+					
 				}
 				catch (System::Exception^)								//guardo le eccezioni visto che lavoro con vettori
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
 					inputcsv->clear();									//nel caso di eccezioni pulisco tutto quello che ho usato
 					Sv.clear();
+					Sv.shrink_to_fit();
 					Kv.clear();
+					Kv.shrink_to_fit();
 					rv.clear();
+					rv.shrink_to_fit();
 					sigmav.clear();
+					sigmav.shrink_to_fit();
 					timev.clear();
+					timev.shrink_to_fit();
 					no_S_stepsv.clear();
+					no_S_stepsv.shrink_to_fit();
 					no_t_stepsv.clear();
+					no_t_stepsv.shrink_to_fit();
 					fileinserito = 0;
-				}
 				
+				}
+			
 			}
 
 			// rieseguo le stesse operazioni  per i file txt
@@ -820,22 +828,30 @@ namespace Differenzefinite {
 						no_S_stepsv[i] = inputINI->no_s_steps[i];
 						no_t_stepsv[i] = inputINI->no_t_steps[i];
 					}
-					delete inputINI;
+					
 				}
 				catch (System::Exception^)									//guardo le eccezioni visto che lavoro con vettori
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
 					inputINI->clear();										//nel caso di eccezioni pulisco tutto quello che ho usato
 					Sv.clear();
+					Sv.shrink_to_fit();
 					Kv.clear();
+					Kv.shrink_to_fit();
 					rv.clear();
+					rv.shrink_to_fit();
 					sigmav.clear();
+					sigmav.shrink_to_fit();
 					timev.clear();
+					timev.shrink_to_fit();
 					no_S_stepsv.clear();
+					no_S_stepsv.shrink_to_fit();
 					no_t_stepsv.clear();
+					no_t_stepsv.shrink_to_fit();
 					fileinserito = 0;
+					
 				}
-				delete inputINI;
+				
 			}
 
 			// rieseguo le stesse operazioni  per i file ini
@@ -884,25 +900,34 @@ namespace Differenzefinite {
 						no_S_stepsv[i] = inputtxt->no_s_steps[i];
 						no_t_stepsv[i] = inputtxt->no_t_steps[i];
 					}
+					
 				}
 				catch (System::Exception^ )									//guardo le eccezioni visto che lavoro con vettori
 				{
 					System::Windows::Forms::MessageBox::Show("Errore nel file di input, controllare la sintassi e che i separatori siano corretti.\n PREMERE ANNULLA E RIPROVARE");
 					inputtxt->clear();										//nel caso di eccezioni pulisco tutto quello che ho usato
 					Sv.clear();
+					Sv.shrink_to_fit();
 					Kv.clear();
+					Kv.shrink_to_fit();
 					rv.clear();
+					rv.shrink_to_fit();
 					sigmav.clear();
+					sigmav.shrink_to_fit();
 					timev.clear();
+					timev.shrink_to_fit();
 					no_S_stepsv.clear();
+					no_S_stepsv.shrink_to_fit();
 					no_t_stepsv.clear();
+					no_t_stepsv.shrink_to_fit();
 					fileinserito = 0;
+					
 				}
+				
+
 			}
-
-		
 		}
-
+		
 	}
 
 
@@ -929,7 +954,7 @@ namespace Differenzefinite {
 					button5->Enabled = 1;
 				}
 
-				delete expeu;
+				
 
 			}
 			if (checkBox2->Checked && fileinserito == 1)					 				// se il file è inserito e il secondo checkbox è checkato
@@ -944,7 +969,7 @@ namespace Differenzefinite {
 					button5->Enabled = 1;
 				}
 
-				delete expus;
+				
 
 			}
 			if (checkBox3->Checked && fileinserito == 1)																// se il file è inserito e il terzo checkbox è checkato
@@ -958,7 +983,7 @@ namespace Differenzefinite {
 					button2->Enabled = 1;																			 // abilito il pulsante per salvare e per guardare i risultati
 					button5->Enabled = 1;
 				}
-				delete impeu;
+				
 			}
 			if (checkBox4->Checked && fileinserito == 1)										// se il file è inserito e il quarto checkbox è checkato
 			{
@@ -970,7 +995,7 @@ namespace Differenzefinite {
 					button2->Enabled = 1;																				// abilito il pulsante per salvare e per guardare i risultati
 					button5->Enabled = 1;
 				}
-				delete impus;
+				
 			}
 		}
 		catch (System::Exception^) 
@@ -979,6 +1004,7 @@ namespace Differenzefinite {
 			risexpus.clear();
 			risimpeu.clear();
 			risimpus.clear();
+
 		}
 
 
@@ -1014,7 +1040,7 @@ namespace Differenzefinite {
 					expman->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);		//setto le variabili delle classi
 					double risexpeuman = expman->option_price_put_european_finite_diff_explicit();					//salvo i risultati
 					textBox11->Text = System::Convert::ToString(risexpeuman);										//visualizzo il risultato nella textbox
-					delete expman;																					//cancello la classe
+																									//cancello la classe
 				}
 				if (checkBox2->Checked == 1)
 				{
@@ -1022,7 +1048,7 @@ namespace Differenzefinite {
 					expman2->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);		//setto le variabili delle classi
 					double risexpusman = expman2->option_price_put_american_finite_diff_explicit();					//salvo i risultati
 					textBox10->Text = System::Convert::ToString(risexpusman);										//visualizzo il risultato nella textbox
-					delete expman2;																					//cancello la classe
+																								//cancello la classe
 				}
 				if (checkBox3->Checked == 1)
 				{
@@ -1030,7 +1056,7 @@ namespace Differenzefinite {
 					impman->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);		//setto le variabili delle classi
 					double risimpeuman = impman->option_price_put_european_finite_diff_implicit();					//salvo i risultati
 					textBox9->Text = System::Convert::ToString(risimpeuman);										//visualizzo il risultato nella textbox
-					delete impman;																					//cancello la classe
+																								//cancello la classe
 				}
 				if (checkBox4->Checked == 1)
 				{
@@ -1038,7 +1064,7 @@ namespace Differenzefinite {
 					impman2->SetVariabili(Sman, Kman, rman, sigmaman, timeman, no_s_stepsman, no_t_stepsman);		//setto le variabili delle classi
 					double risimpusman = impman2->option_price_put_american_finite_diff_implicit();					//salvo i risultati
 					textBox8->Text = System::Convert::ToString(risimpusman);										//visualizzo il risultato nella textbox
-					delete impman2;																					//cancello la classe
+																						//cancello la classe
 				}
 			}
 			catch (System::FormatException^) {
@@ -1109,69 +1135,74 @@ namespace Differenzefinite {
 			int impeu = 3;
 			int impus = 4;
 
+			try {
+				if (fileimportcsv == 1) {							//se il file è in formato csv
 
-			if (fileimportcsv ==1) {							//se il file è in formato csv
+					ExportCSV^ expcsv = gcnew ExportCSV;					//creo una classe per l' export in csv
+					if (checkBox8->Checked)							//guardo quali risultati devo esportare
+					{
+						expcsv->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso inj base alle checkbox spuntate
+					}
+					if (checkBox7->Checked)
+					{
+						expcsv->exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					}
+					if (checkBox6->Checked)
+					{
+						expcsv->exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					}
+					if (checkBox5->Checked)
+					{
+						expcsv->exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					}
 
-				ExportCSV^ expcsv=gcnew ExportCSV;					//creo una classe per l' export in csv
-				if (checkBox8->Checked)							//guardo quali risultati devo esportare
-				{
-					expcsv->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso inj base alle checkbox spuntate
-				}
-				if (checkBox7->Checked)
-				{
-					expcsv->exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
-				}
-				if (checkBox6->Checked)
-				{
-					expcsv->exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
-				}
-				if (checkBox5->Checked)
-				{
-					expcsv->exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
-				}
-				delete expcsv;
 
-			}	  
-			if (fileimporttxt ==1) {							//se il file è in formato txt
+				}
+				if (fileimporttxt == 1) {							//se il file è in formato txt
 
-				ExportTXT^ exptxt = gcnew ExportTXT;								//creo una classe per l' export in csv
-				if (checkBox8->Checked)							//guardo quali risultati devo esportare
-				{
-					exptxt->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
+					ExportTXT^ exptxt = gcnew ExportTXT;								//creo una classe per l' export in csv
+					if (checkBox8->Checked)							//guardo quali risultati devo esportare
+					{
+						exptxt->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
+					}
+					if (checkBox7->Checked)
+					{
+						exptxt->exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					}
+					if (checkBox6->Checked)
+					{
+						exptxt->exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					}
+					if (checkBox5->Checked)
+					{
+						exptxt->exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					}
+
 				}
-				if (checkBox7->Checked)
-				{
-					exptxt->exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+				if (fileimportini == 1) {							//se il file è in formato ini
+					ExportINI^ expini = gcnew ExportINI;			//creo una classe per l' export in ini
+					if (checkBox8->Checked)							//guardo quali risultati devo esportare
+					{
+						expini->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
+					}
+					if (checkBox7->Checked)
+					{
+						expini->exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					}
+					if (checkBox6->Checked)
+					{
+						expini->exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					}
+					if (checkBox5->Checked)
+					{
+						expini->exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
+					}
+
+
 				}
-				if (checkBox6->Checked)
-				{
-					exptxt->exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
-				}
-				if (checkBox5->Checked)
-				{
-					exptxt->exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
-				}
-				delete exptxt;
 			}
-			if (fileimportini ==1) {							//se il file è in formato ini
-				ExportINI^ expini = gcnew ExportINI;			//creo una classe per l' export in ini
-				if (checkBox8->Checked)							//guardo quali risultati devo esportare
-				{
-					expini->exportfile(expeu, risexpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv); //esporto il risultato e i parametri realtivi ad esso
-				}
-				if (checkBox7->Checked)
-				{
-					expini->exportfile(expus, risexpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
-				}
-				if (checkBox6->Checked)
-				{
-					expini->exportfile(impeu, risimpeu, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
-				}
-				if (checkBox5->Checked)
-				{
-					expini->exportfile(impus, risimpus, righe, nomeexport, Sv, Kv, rv, sigmav, timev, no_S_stepsv, no_t_stepsv);
-				}
-				delete expini;
+			catch (System::IO::IOException^) {
+				MessageBox::Show("File gia aperto in un altro programma!");
 			}
 		}
 	}
@@ -1182,75 +1213,77 @@ namespace Differenzefinite {
 			 //PULSANTE RISULTATI
 
 	private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
-		MyForm^ second = gcnew MyForm();			// creo un oggetto che fa riferimento alla seconda form
+		Risultati^ second = gcnew Risultati();			// creo un oggetto che fa riferimento alla seconda form
+		
+			if (checkBox1->Checked == 1)																			//guardo quali calcoli ho eseguiti
+			{
+				second->richTextBox1->AppendText("---------RISULTATI ESPLICITI EUROPEI---------\n");
+				for (int i = 0; i < righe; i++) {
+					second->richTextBox1->AppendText("I dati sono: S= " + System::Convert::ToString(Sv[i])			// scrivo nella textbox i vari risultati e dati
+						+ " K= " + System::Convert::ToString(Kv[i])
+						+ " r= " + System::Convert::ToString(rv[i])
+						+ " sigma= " + System::Convert::ToString(sigmav[i])
+						+ " time= " + System::Convert::ToString(timev[i])
+						+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
+						+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
 
-		if (checkBox1->Checked == 1)																			//guardo quali calcoli ho eseguiti
-		{
-			second->richTextBox1->AppendText("---------RISULTATI ESPLICITI EUROPEI---------\n");
-			for (int i = 0; i < righe; i++) {
-				second->richTextBox1->AppendText("I dati sono: S= "+ System::Convert::ToString(Sv[i])			// scrivo nella textbox i vari risultati e dati
-															+ " K= "+System::Convert::ToString(Kv[i])
-															+ " r= "+System::Convert::ToString(rv[i])
-															+ " sigma= "+System::Convert::ToString(sigmav[i])
-															+ " time= "+System::Convert::ToString(timev[i])
-															+ " no_S_steps= "+System::Convert::ToString(no_S_stepsv[i])
-															+ " no_t_steps= "+System::Convert::ToString(no_t_stepsv[i]+"\n"));
-
-				second->richTextBox1->AppendText("Il risultato è: "+System::Convert::ToString(risexpeu[i]) + "\n\n");
+					second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risexpeu[i]) + "\n\n");
+				}
 			}
-		}
 
-		if (checkBox2->Checked == 1)
-		{
-			second->richTextBox1->AppendText("---------RISULTATI ESPLICITI AMERICANI---------\n");					//guardo quali calcoli ho eseguiti
-			for (int i = 0; i < righe; i++) {
-				second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])				// scrivo nella textbox i vari risultati e dati
-															+ " K= " + System::Convert::ToString(Kv[i])
-															+ " r= " + System::Convert::ToString(rv[i])
-															+ " sigma= " + System::Convert::ToString(sigmav[i])
-															+ " time= " + System::Convert::ToString(timev[i])
-															+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
-															+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
+			if (checkBox2->Checked == 1)
+			{
+				second->richTextBox1->AppendText("---------RISULTATI ESPLICITI AMERICANI---------\n");					//guardo quali calcoli ho eseguiti
+				for (int i = 0; i < righe; i++) {
+					second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])				// scrivo nella textbox i vari risultati e dati
+						+ " K= " + System::Convert::ToString(Kv[i])
+						+ " r= " + System::Convert::ToString(rv[i])
+						+ " sigma= " + System::Convert::ToString(sigmav[i])
+						+ " time= " + System::Convert::ToString(timev[i])
+						+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
+						+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
 
-				second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risexpus[i]) + "\n\n");
+					second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risexpus[i]) + "\n\n");
+				}
 			}
-		}
 
-		if (checkBox3->Checked == 1)
-		{
-			second->richTextBox1->AppendText("---------RISULTATI IMPLICITI EUROPEI---------\n");					//guardo quali calcoli ho eseguiti
-			for (int i = 0; i < righe; i++) {
-				second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])				// scrivo nella textbox i vari risultati e dati
-															+ " K= " + System::Convert::ToString(Kv[i])
-															+ " r= " + System::Convert::ToString(rv[i])
-															+ " sigma= " + System::Convert::ToString(sigmav[i])
-															+ " time= " + System::Convert::ToString(timev[i])
-															+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
-															+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
+			if (checkBox3->Checked == 1)
+			{
+				second->richTextBox1->AppendText("---------RISULTATI IMPLICITI EUROPEI---------\n");					//guardo quali calcoli ho eseguiti
+				for (int i = 0; i < righe; i++) {
+					second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])				// scrivo nella textbox i vari risultati e dati
+						+ " K= " + System::Convert::ToString(Kv[i])
+						+ " r= " + System::Convert::ToString(rv[i])
+						+ " sigma= " + System::Convert::ToString(sigmav[i])
+						+ " time= " + System::Convert::ToString(timev[i])
+						+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
+						+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
 
-				second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risimpeu[i]) + "\n\n");
+					second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risimpeu[i]) + "\n\n");
+				}
 			}
-		}
 
-		if (checkBox4->Checked == 1)
-		{
-			second->richTextBox1->AppendText("---------RISULTATI IMPLICITI AMERICANI---------\n");						//guardo quali calcoli ho eseguiti
-			for (int i = 0; i < righe; i++) {
-				second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])					// scrivo nella textbox i vari risultati e dati
-															+ " K= " + System::Convert::ToString(Kv[i])
-															+ " r= " + System::Convert::ToString(rv[i])
-															+ " sigma= " + System::Convert::ToString(sigmav[i])
-															+ " time= " + System::Convert::ToString(timev[i])
-															+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
-															+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
+			if (checkBox4->Checked == 1)
+			{
+				second->richTextBox1->AppendText("---------RISULTATI IMPLICITI AMERICANI---------\n");						//guardo quali calcoli ho eseguiti
+				for (int i = 0; i < righe; i++) {
+					second->richTextBox1->AppendText("I dati sono: S=" + System::Convert::ToString(Sv[i])					// scrivo nella textbox i vari risultati e dati
+						+ " K= " + System::Convert::ToString(Kv[i])
+						+ " r= " + System::Convert::ToString(rv[i])
+						+ " sigma= " + System::Convert::ToString(sigmav[i])
+						+ " time= " + System::Convert::ToString(timev[i])
+						+ " no_S_steps= " + System::Convert::ToString(no_S_stepsv[i])
+						+ " no_t_steps= " + System::Convert::ToString(no_t_stepsv[i] + "\n"));
 
-				second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risimpus[i]) + "\n\n");
+					second->richTextBox1->AppendText("Il risultato è: " + System::Convert::ToString(risimpus[i]) + "\n\n");
+				}
 			}
-		}
-
+		
+		
+	
 		second->ShowDialog();
 		second->richTextBox1->Text = ""; // pulisco la textbox alla fine per riscrivere nuovi risultati in caso di un altro inserimento
-		delete second;
+	
 	};
 	};
 }

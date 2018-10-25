@@ -224,7 +224,7 @@
     <ClInclude Include="ImportINI.h">
       <Filter>File di intestazione\Import</Filter>
     </ClInclude>
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="Risultati.h">
       <Filter>File di origine</Filter>
     </ClInclude>
   </ItemGroup>
@@ -232,7 +232,7 @@
     <EmbeddedResource Include="FormMain.resx">
       <Filter>File di risorse</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyForm.resx">
+    <EmbeddedResource Include="Risultati.resx">
       <Filter>File di risorse</Filter>
     </EmbeddedResource>
   </ItemGroup>

@@ -11,12 +11,12 @@ namespace Differenzefinite {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Riepilogo per MyForm
+	/// Riepilogo per Risultati
 	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
+	public ref class Risultati : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm()
+		Risultati()
 		{
 			InitializeComponent();
 			
@@ -26,7 +26,7 @@ namespace Differenzefinite {
 		/// <summary>
 		/// Pulire le risorse in uso.
 		/// </summary>
-		~MyForm()
+		~Risultati()
 		{
 			if (components)
 			{
@@ -51,7 +51,7 @@ namespace Differenzefinite {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Risultati::typeid));
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->SuspendLayout();
 			// 
@@ -65,7 +65,7 @@ namespace Differenzefinite {
 			this->richTextBox1->TabIndex = 0;
 			this->richTextBox1->Text = L"";
 			// 
-			// MyForm
+			// Risultati
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -74,7 +74,7 @@ namespace Differenzefinite {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
-			this->Name = L"MyForm";
+			this->Name = L"Risultati";
 			this->Text = L"Risultati";
 			this->ResumeLayout(false);
 

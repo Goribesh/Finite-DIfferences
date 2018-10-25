@@ -14,28 +14,30 @@ void parametriTXT::leggifile() {
 		{																								
 																										
 			pezzi = tempstring->Split(',');																//divido la mia stringa sulle virgole salvando ogni pezzo nel modo indicato nel vettore pezzi
-			PadreImport::SS[i] = pezzi[0];
-			PadreImport::SK[i] = pezzi[1];																// salvo ogni parametro nella stringa corrispondente per la futura conversione in double o int
-			PadreImport::Sr[i] = pezzi[2];
-			PadreImport::Ssigma[i] = pezzi[3];
-			PadreImport::Stime[i] = pezzi[4];
-			PadreImport::Sno_s_steps[i] = pezzi[5];
-			PadreImport::Sno_t_steps[i] = pezzi[6];
+			SS[i] = pezzi[0];
+			SK[i] = pezzi[1];																// salvo ogni parametro nella stringa corrispondente per la futura conversione in double o int
+			Sr[i] = pezzi[2];
+			Ssigma[i] = pezzi[3];
+			Stime[i] = pezzi[4];
+			Sno_s_steps[i] = pezzi[5];
+			Sno_t_steps[i] = pezzi[6];
 
 
-			PadreImport::S[i] = System::Convert::ToDouble(PadreImport::SS[i]);
-			PadreImport::K[i] = System::Convert::ToDouble(PadreImport::SK[i]);						//salvo i valore nei vettori double o int corrispondenti
-			PadreImport::r[i] = System::Convert::ToDouble(PadreImport::Sr[i]);
-			PadreImport::sigma[i] = System::Convert::ToDouble(PadreImport::Ssigma[i]);
-			PadreImport::time[i] = System::Convert::ToDouble(PadreImport::Stime[i]);
-			PadreImport::no_s_steps[i] = System::Convert::ToInt32(PadreImport::Sno_s_steps[i]);
-			PadreImport::no_t_steps[i] = System::Convert::ToInt32(PadreImport::Sno_t_steps[i]);
+			S[i] = System::Convert::ToDouble(SS[i]);
+			K[i] = System::Convert::ToDouble(SK[i]);						//salvo i valore nei vettori double o int corrispondenti
+			r[i] = System::Convert::ToDouble(Sr[i]);
+			sigma[i] = System::Convert::ToDouble(Ssigma[i]);
+			time[i] = System::Convert::ToDouble(Stime[i]);
+			no_s_steps[i] = System::Convert::ToInt32(Sno_s_steps[i]);
+			no_t_steps[i] = System::Convert::ToInt32(Sno_t_steps[i]);
 		}
 		else { i--; }																	// nel caso la mia stringa sia vuota torno indietro di un i in modo da non perdere una riga
 
 
 
 	}
+	delete din;
+	
 }
 
 
